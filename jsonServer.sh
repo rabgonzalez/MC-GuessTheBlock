@@ -1,0 +1,1 @@
+json-server --watch ./FakeApi.json --static img
