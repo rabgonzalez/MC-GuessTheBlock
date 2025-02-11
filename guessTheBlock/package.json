@@ -2,18 +2,23 @@
   "name": "guesstheblock",
   "version": "0.0.0",
   "private": true,
-  "type": "module",
   "scripts": {
-    "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
-    "preview": "vite preview",
     "test:unit": "vitest",
-    "build-only": "vite build",
-    "type-check": "vue-tsc --build",
     "lint": "eslint . --fix",
-    "format": "prettier --write src/"
+    "build-only": "vite build",
+    "dev": "vite",
+    "electron:build": "vue-cli-service electron:build",
+    "electron:serve": "vue-cli-service electron:serve",
+    "format": "prettier --write src/",
+    "postinstall": "electron-builder install-app-deps",
+    "postuninstall": "electron-builder install-app-deps",
+    "preview": "vite preview",
+    "type-check": "vue-tsc --build"
   },
+  "main": "background.js",
   "dependencies": {
+    "@vue/cli-service": "^5.0.8",
     "vue": "^3.5.13",
     "vuetify": "^3.7.11"
   },
@@ -27,6 +32,8 @@
     "@vue/eslint-config-typescript": "^14.3.0",
     "@vue/test-utils": "^2.4.6",
     "@vue/tsconfig": "^0.7.0",
+    "electron": "^13.0.0",
+    "electron-devtools-installer": "^3.1.0",
     "eslint": "^9.18.0",
     "eslint-plugin-vue": "^9.32.0",
     "jiti": "^2.4.2",
@@ -38,6 +45,8 @@
     "vite": "^6.0.11",
     "vite-plugin-vue-devtools": "^7.7.1",
     "vitest": "^3.0.5",
+    "vue-cli-plugin-electron-builder": "~2.1.1",
     "vue-tsc": "^2.2.0"
-  }
+  },
+  "type": "module"
 }
