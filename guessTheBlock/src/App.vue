@@ -1,12 +1,9 @@
 <template>
-  <section v-if="true">
-    <h1>Loading...</h1>
-  </section>
-  <section v-else>
-    <h1>¡Loaded!</h1>
-  </section>
+  <Game />
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Game from './modules/views/Game.vue';
+</script>
 
 <style scoped></style>
