@@ -1,12 +1,19 @@
 export interface Block {
-  name: string;
-  displayName: string;
-  stackSize: 1 | 16 | 64;
-  transparent: boolean;
-  emitLight: number;
-  crossable: boolean;
-  hardness: number;
-  toolLevel: number;
-  tool: string;
-  blastResistance: number;
+  id: number,
+  name: string,
+  displayName: string,
+  hardness: number,
+  resistance: number,
+  stackSize: number,
+  diggable: boolean,
+  material: string,
+  transparent: boolean,
+  emitLight: number,
+  filterLight: number,
+  defaultState: number,
+  minStateId: number,
+  maxStateId: number,
+  states: Map<string, boolean>,
+  drops: number[],
+  boundingBox: string
 }
