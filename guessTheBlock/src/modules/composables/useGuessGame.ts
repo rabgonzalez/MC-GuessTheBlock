@@ -1,13 +1,13 @@
-import { onMounted } from "vue"
+import { onMounted } from "vue";
 
 export const useGuessGame = () => {
-  let message: string = "";
+  let message = "";
 
   onMounted(() => {
     message = "loading";
   });
 
   return {
-    message
-  }
-}
+    message,
+  };
+};
