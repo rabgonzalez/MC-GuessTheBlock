@@ -8,17 +8,18 @@ export const useGuessGame = () => {
   const searchedBlock = ref(null);
   const randomBlock = ref<Block | null>(null);
 
-  async function fetchBlock(id: number) {
+  async function fetchBlock() {
     try {
-      const response = await axios.get(uri + "/" + id);
+      const randomIndex: number = Math.floor(Math.random() * blocksAmmount);
+      const response = await axios.get(uri + "/" + randomIndex);
       randomBlock.value = response.data;
     } catch (error) {
       console.log(error);
     }
   }
+  
   onMounted(async () => {
-    const randomIndex: number = Math.floor(Math.random() * blocksAmmount);
-    fetchBlock(randomIndex);
+    fetchBlock();
   });
 
   return {
