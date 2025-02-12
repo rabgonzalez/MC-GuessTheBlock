@@ -1,13 +1,28 @@
-import { onMounted } from "vue";
+import { computed, onMounted, ref } from "vue";
+import { Block } from "../components/Block";
+import axios from "axios";
 
 export const useGuessGame = () => {
-  let message = "";
+  const uri = "http://localhost:3000/blocks";
+  const blocksAmmount = 1059;
+  const searchedBlock = ref(null);
+  const randomBlock = ref<Block | null>(null);
 
-  onMounted(() => {
-    message = "loading";
+  async function fetchRandomBlock() {
+    try {
+      const randomIndex: number = Math.floor(Math.random() * blocksAmmount);
+      const response = await axios.get(uri + "/" + randomIndex);
+      randomBlock.value = response.data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  onMounted(async () => {
+    fetchRandomBlock();
   });
 
   return {
-    message,
+    randomBlock,
+    searchedBlock,
   };
 };
