@@ -1,17 +1,53 @@
 import { computed, onMounted, ref } from "vue";
-import { Block } from "../components/Block";
+import { Block as BlockAPI } from "../components/Block";
+import { Block } from "../interfaces/block.interface";
 import axios from "axios";
 
 export const useGuessGame = () => {
   const uri = "http://localhost:3000/blocks";
   const blocksAmmount = 1059;
-  const searchedBlock = ref(null);
+  const searchedBlocks = ref<Block[] | null>(null);
   const randomBlock = ref<Block | null>(null);
 
   async function fetchBlock(id: number) {
     try {
-      const response = await axios.get(uri + "/" + id);
-      randomBlock.value = response.data;
+      const data = (await axios.get(uri + "/" + id).data) as BlockAPI;
+      const block: Block = {
+        name: data.name,
+        displayName: data.displayName,
+        stackSize: data.stackSize,
+        transparent: data.transparent,
+        emitLight: data.emitLight,
+        crossable: data.boundingBox === "empty",
+        hardness: data.hardness,
+        toolLevel: 0,
+        tool: "data.tool",
+        blastResistance: data.resistance,
+      };
+      randomBlock.value = block;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  async function fetchBlocksByName(name: string) {
+    try {
+      const data = (await axios.get(uri + "&name_like=" + name)
+        .data) as BlockAPI[];
+      const blocks: Block[] = data.map((block: BlockAPI) => {
+        return {
+          name: block.name,
+          displayName: block.displayName,
+          stackSize: block.stackSize,
+          transparent: block.transparent,
+          emitLight: block.emitLight,
+          crossable: block.boundingBox === "empty",
+          hardness: block.hardness,
+          toolLevel: 0,
+          tool: "data.tool",
+          blastResistance: block.resistance,
+        };
+      });
+      searchedBlocks.value = blocks;
     } catch (error) {
       console.log(error);
     }
@@ -23,7 +59,8 @@ export const useGuessGame = () => {
 
   return {
     randomBlock,
-    searchedBlock,
+    searchedBlock: searchedBlocks,
     fetchBlock,
+    fetchBlocksByName,
   };
 };
