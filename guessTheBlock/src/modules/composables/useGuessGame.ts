@@ -1,5 +1,5 @@
 import { computed, onMounted, ref } from "vue";
-import { Block as BlockAPI } from "../components/Block";
+import { BlockAPI } from "../components/Block";
 import { Block } from "../interfaces/block.interface";
 import axios from "axios";
 
