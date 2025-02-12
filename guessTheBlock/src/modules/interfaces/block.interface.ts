@@ -1,7 +1,7 @@
 export interface Block {
   name: string;
   displayName: string;
-  stackSize: 1 | 16 | 64;
+  stackSize: number;
   transparent: boolean;
   emitLight: number;
   crossable: boolean;
