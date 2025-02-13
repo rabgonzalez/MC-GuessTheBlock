@@ -8,13 +8,11 @@ export const useGuessGame = () => {
   const blocksAmmount = 1059;
   const searchedBlocks = ref<Block[] | null>(null);
   const randomBlock = ref<Block | null>(null);
+  const selectedBlocks = ref<Block[] | null>(null);
 
-  async function fetchBlock() {
+  async function fetchBlock(id: number) {
     try {
-      const randomIndex: number = Math.floor(Math.random() * blocksAmmount);
-      const response = await axios.get(uri + "/" + randomIndex);
-      randomBlock.value = response.data;
-      const data = (await axios.get(uri + "/" + id).data) as BlockAPI;
+      const data = (await axios.get(uri + "/" + id)).data as BlockAPI;
       const block: Block = {
         name: data.name,
         displayName: data.displayName,
@@ -34,8 +32,12 @@ export const useGuessGame = () => {
   }
   async function fetchBlocksByName(name: string) {
     try {
-      const data = (await axios.get(uri + "&name_like=" + name)
-        .data) as BlockAPI[];
+      if (name === "") {
+        searchedBlocks.value = [];
+        return;
+      }
+      const data = (await axios.get(uri + "?name_like=" + name))
+        .data as BlockAPI[];
       const blocks: Block[] = data.map((block: BlockAPI) => {
         return {
           name: block.name,
@@ -55,14 +57,16 @@ export const useGuessGame = () => {
       console.log(error);
     }
   }
-  
   onMounted(async () => {
-    fetchBlock();
+    selectedBlocks.value = [];
+    const randomIndex: number = Math.floor(Math.random() * blocksAmmount);
+    fetchBlock(randomIndex);
   });
 
   return {
     randomBlock,
-    searchedBlock: searchedBlocks,
+    selectedBlocks,
+    searchedBlocks,
     fetchBlock,
     fetchBlocksByName,
   };

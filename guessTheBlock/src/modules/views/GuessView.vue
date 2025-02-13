@@ -15,10 +15,10 @@
 
 <script setup lang="ts">
 import { defineProps } from "vue";
-import { Block } from "../interfaces/block.interface.ts";
+import { Block } from "../interfaces/block.interface";
 const props = defineProps<{
   selectedBlock: Block;
-  randomBlock: Block;
+  randomBlock?: Block;
 }>();
 </script>
 

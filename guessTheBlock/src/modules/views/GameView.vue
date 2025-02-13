@@ -1,16 +1,17 @@
 <template>
   <section
     v-if="randomBlock"
-    class="flex flex-col justify-center items-center w-screen h-screen"
+    class="flex flex-col justify-center items-center w-screen h-screen bg-red-50"
   >
-    <input type="text" v-model="name" @change="fetchBlockByName($event)">
-    <section v-if="searchedBlocks">
-      <div v-for="block in searchedBlocks">
-        <SelectBlockView searchedBlock="block"/>
-      </div>
-    </section>
-    <button @click="fetchBlock">Search</button>
-    <h1 class="text-3xl">Nombre: {{ randomBlock.displayName }}</h1>
+    <SelectBlockView @select-block="selectBlock" />
+    <h2 class="text-3xl">Nombre: {{ randomBlock.displayName }}</h2>
+    <h1>Blocks seleccionados:</h1>
+    <GuessView
+      v-for="block in selectedBlocks"
+      :key="block.name"
+      :selected-block="block"
+      :random-block="randomBlock"
+    />
   </section>
   <section v-else>
     <h1>Loading...</h1>
@@ -18,11 +19,17 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import { SelectBlockView } from "./SelectBlockView";
+import GuessView from "./GuessView.vue";
 import { useGuessGame } from "../composables/useGuessGame";
-const { randomBlock, fetchBlock } = useGuessGame();
-const name = ref("");
+import { Block } from "../interfaces/block.interface";
+import SelectBlockView from "./SelectBlockView.vue";
+
+const { randomBlock, selectedBlocks } = useGuessGame();
+
+function selectBlock(block: Block) {
+  selectedBlocks.value?.push(block);
+  console.log(selectedBlocks.value);
+}
 </script>
 
 <style scoped></style>
