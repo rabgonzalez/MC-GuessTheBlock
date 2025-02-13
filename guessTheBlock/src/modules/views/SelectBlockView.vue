@@ -1,6 +1,10 @@
 <template>
-  <input type="text" v-model="name" @input="fetchBlocksByName(name)" />
-  <section v-if="searchedBlocks">
+  <input
+    type="text"
+    v-model="displayName"
+    @input="fetchBlocksByName(displayName)"
+  />
+  <section v-if="searchedBlocks" class="overflow-auto h-100">
     <GuessView
       v-for="block in searchedBlocks"
       :key="block.name"
@@ -17,7 +21,7 @@ import { useGuessGame } from "../composables/useGuessGame";
 import { Block } from "../interfaces/block.interface";
 
 const { searchedBlocks, fetchBlocksByName } = useGuessGame();
-const name = ref("");
+const displayName = ref("");
 
 defineEmits<{
   selectBlock: [block: Block];

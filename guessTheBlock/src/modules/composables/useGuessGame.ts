@@ -30,13 +30,13 @@ export const useGuessGame = () => {
       console.log(error);
     }
   }
-  async function fetchBlocksByName(name: string) {
+  async function fetchBlocksByName(displayName: string) {
     try {
-      if (name === "") {
+      if (displayName === "") {
         searchedBlocks.value = [];
         return;
       }
-      const data = (await axios.get(uri + "?name_like=" + name))
+      const data = (await axios.get(uri + "?displayName_like=" + displayName))
         .data as BlockAPI[];
       const blocks: Block[] = data.map((block: BlockAPI) => {
         return {
