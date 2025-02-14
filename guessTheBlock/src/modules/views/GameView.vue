@@ -34,11 +34,16 @@ import { useGuessGame } from "../composables/useGuessGame";
 import { Block } from "../interfaces/block.interface";
 import SelectBlockView from "./SelectBlockView.vue";
 
-const { randomBlock, selectedBlocks } = useGuessGame();
+const { randomBlock, selectedBlocks, addBlock } = useGuessGame();
 
 function selectBlock(block: Block) {
-  selectedBlocks.value?.push(block);
-  console.log(selectedBlocks.value);
+  addBlock(block);
+
+  if (block.displayName == randomBlock.value?.displayName) {
+    setTimeout(() => {
+      alert("Has ganado en " + selectedBlocks.value?.length + " intentos");
+    }, 2000);
+  }
 }
 </script>
 

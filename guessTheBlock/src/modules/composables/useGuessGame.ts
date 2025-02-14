@@ -1,4 +1,4 @@
-import { computed, onMounted, ref } from "vue";
+import { onMounted, ref } from "vue";
 import { BlockAPI } from "../components/Block";
 import { Block } from "../interfaces/block.interface";
 import axios from "axios";
@@ -9,6 +9,10 @@ export const useGuessGame = () => {
   const searchedBlocks = ref<Block[] | null>(null);
   const randomBlock = ref<Block | null>(null);
   const selectedBlocks = ref<Block[] | null>(null);
+
+  function addBlock(block: Block) {
+    selectedBlocks.value?.push(block);
+  }
 
   async function fetchBlock(id: number) {
     try {
@@ -30,6 +34,7 @@ export const useGuessGame = () => {
       console.log(error);
     }
   }
+
   async function fetchBlocksByName(displayName: string) {
     try {
       if (displayName === "") {
@@ -53,12 +58,14 @@ export const useGuessGame = () => {
         };
       });
       searchedBlocks.value = blocks;
+      console.log("Use: " + selectedBlocks.value);
     } catch (error) {
       console.log(error);
     }
   }
+
   onMounted(async () => {
-    selectedBlocks.value = [];
+    selectedBlocks.value = [{ name: "asdasd" } as Block];
     const randomIndex: number = Math.floor(Math.random() * blocksAmmount);
     fetchBlock(randomIndex);
   });
@@ -69,5 +76,6 @@ export const useGuessGame = () => {
     searchedBlocks,
     fetchBlock,
     fetchBlocksByName,
+    addBlock,
   };
 };

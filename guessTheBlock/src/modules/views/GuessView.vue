@@ -2,8 +2,13 @@
   <div class="flex flex-row justify-evenly gap-4 w-400">
     <h1
       :class="[
-        { 'bg-red-300': randomBlock?.name !== selectedBlock.name },
-        { 'bg-green-300': randomBlock?.name === selectedBlock.name },
+        {
+          'bg-red-300': randomBlock?.displayName !== selectedBlock.displayName,
+        },
+        {
+          'bg-green-300':
+            randomBlock?.displayName === selectedBlock.displayName,
+        },
         { 'bg-white': randomBlock == undefined },
       ]"
       class="w-40 text-center justify-center"
