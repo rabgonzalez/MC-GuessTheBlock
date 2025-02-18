@@ -1,5 +1,9 @@
 <template>
-  <section v-if="randomBlock" class="mx-auto">
+  <section
+    v-if="randomBlock"
+    class="mx-auto bg-cover h-svh"
+    style="background-image: url(http://localhost:3000/background.jpeg)"
+  >
     <SelectBlockView @select-block="selectBlock" />
     <h2 class="text-3xl">Nombre: {{ randomBlock.displayName }}</h2>
     <h1>Blocks seleccionados:</h1>
