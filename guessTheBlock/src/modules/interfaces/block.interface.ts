@@ -6,7 +6,6 @@ export interface Block {
   emitLight: number;
   crossable: boolean;
   hardness: number;
-  toolLevel: number;
   tool: string;
   blastResistance: number;
 }
