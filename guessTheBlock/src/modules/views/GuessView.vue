@@ -22,7 +22,7 @@
         },
         { 'bg-white': randomBlock == undefined },
       ]"
-      class="w-40 text-center bg-contain bg-center bg-opacity-0 h-40"
+      class="w-40 text-center bg-contain bg-center h-40"
       :style="
         randomBlock
           ? {
@@ -53,7 +53,25 @@
     >
       {{ props.selectedBlock?.transparent }}
     </h1>
-    <h1 class="w-40 text-center justify-center">
+    <h1
+      class="w-40 text-center bg-contain bg-center h-40"
+      :class="[
+        { 'bg-green-300': randomBlock?.emitLight == selectedBlock.emitLight },
+        { 'bg-white': randomBlock == undefined },
+      ]"
+      :style="
+        randomBlock
+          ? {
+              backgroundImage:
+                randomBlock?.emitLight > selectedBlock?.emitLight
+                  ? 'url(http://localhost:3000/up.png)'
+                  : randomBlock?.emitLight < selectedBlock?.emitLight
+                  ? 'url(http://localhost:3000/down.png)'
+                  : '',
+            }
+          : {}
+      "
+    >
       {{ props.selectedBlock?.emitLight }}
     </h1>
     <h1
@@ -66,7 +84,27 @@
     >
       {{ props.selectedBlock?.crossable }}
     </h1>
-    <h1 class="w-40 text-center">{{ props.selectedBlock?.hardness }}</h1>
+    <h1
+      class="w-40 text-center bg-contain bg-center h-40"
+      :class="[
+        { 'bg-green-300': randomBlock?.hardness == selectedBlock.hardness },
+        { 'bg-white': randomBlock == undefined },
+      ]"
+      :style="
+        randomBlock
+          ? {
+              backgroundImage:
+                randomBlock?.hardness > selectedBlock?.hardness
+                  ? 'url(http://localhost:3000/up.png)'
+                  : randomBlock?.hardness < selectedBlock?.hardness
+                  ? 'url(http://localhost:3000/down.png)'
+                  : '',
+            }
+          : {}
+      "
+    >
+      {{ props.selectedBlock?.hardness }}
+    </h1>
     <img
       :class="[
         { 'bg-red-300': randomBlock?.tool != selectedBlock.tool },
@@ -81,7 +119,31 @@
       "
     />
 
-    <h1 class="w-40 text-center">{{ props.selectedBlock?.blastResistance }}</h1>
+    <h1
+      class="w-40 text-center bg-contain bg-center h-40"
+      :class="[
+        {
+          'bg-green-300':
+            randomBlock?.blastResistance == selectedBlock.blastResistance,
+        },
+        { 'bg-white': randomBlock == undefined },
+      ]"
+      :style="
+        randomBlock
+          ? {
+              backgroundImage:
+                randomBlock?.blastResistance > selectedBlock?.blastResistance
+                  ? 'url(http://localhost:3000/up.png)'
+                  : randomBlock?.blastResistance <
+                    selectedBlock?.blastResistance
+                  ? 'url(http://localhost:3000/down.png)'
+                  : '',
+            }
+          : {}
+      "
+    >
+      {{ props.selectedBlock?.blastResistance }}
+    </h1>
   </div>
 </template>
 
