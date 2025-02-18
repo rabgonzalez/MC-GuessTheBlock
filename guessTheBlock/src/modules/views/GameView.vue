@@ -34,7 +34,10 @@ import { Block } from "../interfaces/block.interface";
 import SelectBlockView from "./SelectBlockView.vue";
 
 const { randomBlock, selectedBlocks, addBlock } = useGuessGame();
-
+/**
+ * Select a block and saves on selectedBlocks
+ * @param block to select
+ */
 function selectBlock(block: Block) {
   addBlock(block);
 

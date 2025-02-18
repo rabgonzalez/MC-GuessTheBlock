@@ -31,7 +31,7 @@
                   ? 'url(http://localhost:3000/up.png)'
                   : randomBlock?.stackSize < selectedBlock?.stackSize
                   ? 'url(http://localhost:3000/down.png)'
-                  : null,
+                  : '',
             }
           : {}
       "
@@ -77,7 +77,7 @@
       :src="
         selectedBlock.tool
           ? `http://localhost:3000/${props.selectedBlock?.tool}.png`
-          : null
+          : undefined
       "
     />
 
@@ -88,6 +88,18 @@
 <script setup lang="ts">
 import { defineProps } from "vue";
 import { Block } from "../interfaces/block.interface";
+/**
+ * Props del componente GuessView
+ *
+ * @typedef {Object} Props
+ * @property {Block} selectedBlock - Bloque seleccionado.
+ * @property {Block} [randomBlock] - Bloque aleatorio.
+ * @description Props del componente GuessView.
+ * @values {Block} selectedBlock - Bloque seleccionado.
+ * @values {Block} [randomBlock] - Bloque aleatorio.
+ * @default {Block} [randomBlock] - undefined.
+ * @default {Block} selectedBlock - undefined.
+ */
 const props = defineProps<{
   selectedBlock: Block;
   randomBlock?: Block;
