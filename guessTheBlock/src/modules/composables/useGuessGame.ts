@@ -53,10 +53,9 @@ export const useGuessGame = () => {
       }
       const data = (
         await axios.get(
-          uri + "blocks?displayName_like=" + displayName + "&_limit=25"
+          uri + "blocks?displayName_like=" + displayName + "&_limit=10"
         )
       ).data as BlockAPI[];
-      console.log(data);
       const blocks: Block[] = await Promise.all(
         data.map(async (block: BlockAPI) => {
           let tool = "";
@@ -66,7 +65,6 @@ export const useGuessGame = () => {
             );
           } else {
             if (block.material && block.material.includes("/")) {
-              console.log(block.material);
               tool = "wooden_" + block.material.split("/")[1];
             } else {
               tool = "none";
@@ -85,6 +83,7 @@ export const useGuessGame = () => {
           };
         })
       );
+      console.log(blocks);
       searchedBlocks.value = blocks;
     } catch (error) {
       console.log(error);

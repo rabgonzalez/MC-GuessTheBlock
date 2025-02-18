@@ -69,8 +69,8 @@
     <h1 class="w-40 text-center">{{ props.selectedBlock?.hardness }}</h1>
     <img
       :class="[
-        { 'bg-red-300': randomBlock?.tool !== selectedBlock.tool },
-        { 'bg-green-300': randomBlock?.tool === selectedBlock.tool },
+        { 'bg-red-300': randomBlock?.tool != selectedBlock.tool },
+        { 'bg-green-300': randomBlock?.tool == selectedBlock.tool },
         { 'bg-white': randomBlock == undefined },
       ]"
       class="w-40 text-center bg-center bg-cover p-12 h-40"
@@ -88,18 +88,6 @@
 <script setup lang="ts">
 import { defineProps } from "vue";
 import { Block } from "../interfaces/block.interface";
-/**
- * Props del componente GuessView
- *
- * @typedef {Object} Props
- * @property {Block} selectedBlock - Bloque seleccionado.
- * @property {Block} [randomBlock] - Bloque aleatorio.
- * @description Props del componente GuessView.
- * @values {Block} selectedBlock - Bloque seleccionado.
- * @values {Block} [randomBlock] - Bloque aleatorio.
- * @default {Block} [randomBlock] - undefined.
- * @default {Block} selectedBlock - undefined.
- */
 const props = defineProps<{
   selectedBlock: Block;
   randomBlock?: Block;
