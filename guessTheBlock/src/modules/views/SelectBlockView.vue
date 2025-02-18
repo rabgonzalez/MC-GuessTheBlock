@@ -6,7 +6,7 @@
     @keydown.enter="selectFirst"
   />
   <section v-if="searchedBlocks" class="overflow-auto h-100">
-    <div v-for="block in searchedBlocks" :key="block.name">
+    <div v-for="block in searchedBlocks" :key="block.name" class="mx-95">
       <GuessView
         v-if="selectedBlocks?.some((s) => s.displayName != block.displayName)"
         :selected-block="block"

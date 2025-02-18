@@ -1,23 +1,30 @@
 <template>
   <section
     v-if="randomBlock"
-    class="mx-auto bg-cover h-svh"
-    style="background-image: url(http://localhost:3000/background.jpeg)"
+    class="mx-auto bg-screen bg-center min-h-screen"
+    style="background-image: url(http://localhost:3000/background.png)"
   >
     <SelectBlockView @select-block="selectBlock" />
-    <h2 class="text-3xl">Nombre: {{ randomBlock.displayName }}</h2>
-    <h1>Blocks seleccionados:</h1>
+    <h1 class="text-center text-3xl mb-5 text-white">Selected Blocks:</h1>
     <div class="flex flex-row justify-center gap-4 m-auto">
-      <h1 class="w-40 text-center justify-center">Name</h1>
-      <h1 class="w-40 text-center justify-center">Stack</h1>
-      <h1 class="w-40 text-center justify-center">Transparent</h1>
-      <h1 class="w-40 text-center justify-center">Light</h1>
-      <h1 class="w-40 text-center justify-center">Crossable</h1>
-      <h1 class="w-40 text-center justify-center">Hardness</h1>
-      <h1 class="w-40 text-center justify-center">Tool</h1>
-      <h1 class="w-40 text-center justify-center">Blast Resistance</h1>
+      <h1 class="w-30 text-center justify-center text-xl text-white">Name</h1>
+      <h1 class="w-30 text-center justify-center text-xl text-white">Stack</h1>
+      <h1 class="w-30 text-center justify-center text-xl text-white">
+        Transparent
+      </h1>
+      <h1 class="w-30 text-center justify-center text-xl text-white">Light</h1>
+      <h1 class="w-30 text-center justify-center text-xl text-white">
+        Crossable
+      </h1>
+      <h1 class="w-30 text-center justify-center text-xl text-white">
+        Hardness
+      </h1>
+      <h1 class="w-30 text-center justify-center text-xl text-white">Tool</h1>
+      <h1 class="w-30 text-center justify-center text-xl text-white">
+        Blast Resist
+      </h1>
     </div>
-    <div>
+    <div class="border-3 border-white mx-90 rounded-md">
       <GuessView
         v-for="block in selectedBlocks"
         :key="block.name"
