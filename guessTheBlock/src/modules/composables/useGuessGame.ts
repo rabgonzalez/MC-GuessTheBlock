@@ -104,7 +104,19 @@ export const useGuessGame = () => {
   }
 
   onMounted(async () => {
-    selectedBlocks.value = [{ name: "asdasd" } as Block];
+    selectedBlocks.value = [
+      {
+        name: "air",
+        displayName: "Air",
+        stackSize: 64,
+        transparent: true,
+        emitLight: 0,
+        crossable: true,
+        hardness: 0,
+        tool: "none",
+        blastResistance: 0,
+      } as Block,
+    ];
     const randomIndex: number = Math.floor(Math.random() * blocksAmmount);
     fetchBlock(randomIndex);
   });

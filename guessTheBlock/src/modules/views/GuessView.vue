@@ -22,8 +22,19 @@
         },
         { 'bg-white': randomBlock == undefined },
       ]"
-      class="w-40 text-center bg-cover"
-      style="background-image: url(urlStackSize)"
+      class="w-40 text-center bg-contain bg-center bg-opacity-0 h-40"
+      :style="
+        randomBlock
+          ? {
+              backgroundImage:
+                randomBlock?.stackSize > selectedBlock?.stackSize
+                  ? 'url(http://localhost:3000/up.png)'
+                  : randomBlock?.stackSize < selectedBlock?.stackSize
+                  ? 'url(http://localhost:3000/down.png)'
+                  : null,
+            }
+          : {}
+      "
     >
       {{ props.selectedBlock?.stackSize }}
     </h1>
@@ -56,16 +67,20 @@
       {{ props.selectedBlock?.crossable }}
     </h1>
     <h1 class="w-40 text-center">{{ props.selectedBlock?.hardness }}</h1>
-    <h1
+    <img
       :class="[
         { 'bg-red-300': randomBlock?.tool !== selectedBlock.tool },
         { 'bg-green-300': randomBlock?.tool === selectedBlock.tool },
         { 'bg-white': randomBlock == undefined },
       ]"
-      class="w-40 text-center"
-    >
-      {{ props.selectedBlock?.tool }}
-    </h1>
+      class="w-40 text-center bg-center bg-cover p-12 h-40"
+      :src="
+        selectedBlock.tool
+          ? `http://localhost:3000/${props.selectedBlock?.tool}.png`
+          : null
+      "
+    />
+
     <h1 class="w-40 text-center">{{ props.selectedBlock?.blastResistance }}</h1>
   </div>
 </template>
