@@ -3,12 +3,13 @@
     <input
       type="text"
       v-model="displayName"
+      placeholder="Air"
       @input="fetchBlocksByName(displayName)"
       @keydown.enter="selectFirst"
       class="flex text-white bg-[#8B8B8B] border-3 border-[#A6A6A6] rounded-md w-[calc(700vw/20)] mb-10 p-1 text-[calc(70vw/50)] justify-center"
     />
   </div>
-  <div class="flex flex-row justify-center gap-4 m-auto">
+  <div class="flex flex-row justify-center gap-4 m-auto max-w-290">
     <h1
       class="w-[calc(350vw/50)] text-center justify-center text-[calc(65vw/50)] text-white"
     >

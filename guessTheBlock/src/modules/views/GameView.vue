@@ -9,7 +9,7 @@
     <div class="flex justify-center">
       <div class="border-3 border-[#A6A6A6] rounded-md max-w-300">
         <GuessView
-          v-for="block in selectedBlocks"
+          v-for="block in selectedBlocks?.toReversed()"
           :key="block.name"
           :selected-block="block"
           :random-block="randomBlock"

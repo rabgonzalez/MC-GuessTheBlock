@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <link rel="stylesheet" href="./font.css" />
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+    <link rel="icon" href="./favicon.ico" />
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-    <title><%= htmlWebpackPlugin.options.title %></title>
+    <title>Guess The Block!</title>
     <style>
       @keyframes slide-up {
         from {
@@ -17,6 +17,23 @@
         to {
           transform: translateY(0);
           opacity: 1;
+        }
+      }
+
+      @keyframes background-color-delay-green {
+        from {
+          background-color: white;
+        }
+        to {
+          background-color: #00c950;
+        }
+      }
+      @keyframes background-color-delay-red {
+        from {
+          background-color: white;
+        }
+        to {
+          background-color: #ff6467;
         }
       }
       .animate-slide-up-1 {
@@ -65,6 +82,17 @@
         animation: slide-up 0.6s ease-out forwards;
         opacity: 0;
         animation-delay: 3.5s;
+      }
+
+      .background-color-delay-green {
+        background-color: white;
+        animation: background-color-delay-green 0.3s ease-out forwards;
+        animation-delay: 4.5s;
+      }
+      .background-color-delay-red {
+        background-color: white;
+        animation: background-color-delay-red 0.3s ease-out forwards;
+        animation-delay: 4.5s;
       }
     </style>
   </head>

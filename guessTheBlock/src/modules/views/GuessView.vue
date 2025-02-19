@@ -1,21 +1,23 @@
 <template>
   <div
-    class="flex flex-row justify-center gap-4 bg-[#C6C6C6] border-3 border-[#8B8B8B] my-3 py-5 mx-3 px-3 rounded-md max-w-290"
+    class="flex flex-row justify-center gap-4 bg-linear-0 from-[#8B8B8B] to-[#C6C6C6] border-3 border-[#8B8B8B] m-3 p-[calc(30vw/50)] rounded-md max-w-290 inset-shadow-sm inset-shadow-white"
     :class="[{ 'cursor-pointer': randomBlock == undefined }]"
   >
     <h1
       :class="[
-        { 'animate-slide-up-1': randomBlock != undefined },
         {
-          'bg-red-300': randomBlock?.displayName !== selectedBlock.displayName,
+          'background-color-delay-red':
+            randomBlock?.displayName !== selectedBlock.displayName &&
+            randomBlock != undefined,
         },
         {
-          'bg-green-300':
-            randomBlock?.displayName === selectedBlock.displayName,
+          'background-color-delay-green':
+            randomBlock?.displayName === selectedBlock.displayName &&
+            randomBlock != undefined,
         },
         { 'bg-white': randomBlock == undefined },
       ]"
-      class="w-[calc(350vw/50)] aspect-square text-center justify-center content-center inset-ring-3 inset-ring-[#8B8B8B] rounded-md text-[calc(70vw/50)] transition duration-300 ease-in-out hover:scale-105"
+      class="w-[calc(350vw/50)] aspect-square text-center justify-center content-center inset-ring-3 inset-ring-[#8B8B8B] rounded-md text-[calc(70vw/50)] transition duration-300 ease-in-out hover:scale-105 shadow-xl inset-shadow-xs inset-shadow-white"
     >
       {{ props.selectedBlock?.displayName }}
     </h1>
@@ -24,14 +26,14 @@
       :class="[
         { 'animate-slide-up-2': randomBlock != undefined },
         {
-          'bg-red-300': randomBlock?.stackSize !== selectedBlock.stackSize,
+          'bg-red-400': randomBlock?.stackSize !== selectedBlock.stackSize,
         },
         {
-          'bg-green-300': randomBlock?.stackSize === selectedBlock.stackSize,
+          'bg-green-500': randomBlock?.stackSize === selectedBlock.stackSize,
         },
         { 'bg-white': randomBlock == undefined },
       ]"
-      class="w-[calc(350vw/50)] text-center bg-contain bg-center aspect-square content-center inset-ring-3 inset-ring-[#8B8B8B] rounded-md text-[calc(70vw/50)] transition duration-300 ease-in-out hover:scale-105"
+      class="w-[calc(350vw/50)] text-center bg-contain bg-center aspect-square content-center inset-ring-3 inset-ring-[#8B8B8B] rounded-md text-[calc(70vw/50)] transition duration-300 ease-in-out hover:scale-105 shadow-xl inset-shadow-xs inset-shadow-white"
       :style="
         randomBlock
           ? {
@@ -51,26 +53,26 @@
       :class="[
         { 'animate-slide-up-3': randomBlock != undefined },
         {
-          'bg-red-300': randomBlock?.transparent !== selectedBlock.transparent,
+          'bg-red-400': randomBlock?.transparent !== selectedBlock.transparent,
         },
         {
-          'bg-green-300':
+          'bg-green-500':
             randomBlock?.transparent === selectedBlock.transparent,
         },
         { 'bg-white': randomBlock == undefined },
       ]"
-      class="w-[calc(350vw/50)] aspect-square text-center content-center inset-ring-3 inset-ring-[#8B8B8B] capitalize rounded-md text-[calc(70vw/50)] transition duration-300 ease-in-out hover:scale-105"
+      class="w-[calc(350vw/50)] aspect-square text-center content-center inset-ring-3 inset-ring-[#8B8B8B] capitalize rounded-md text-[calc(70vw/50)] transition duration-300 ease-in-out hover:scale-105 shadow-xl inset-shadow-xs inset-shadow-white"
     >
       {{ props.selectedBlock?.transparent }}
     </h1>
     <h1
       style="image-rendering: pixelated"
-      class="w-[calc(350vw/50)] text-center bg-contain bg-center aspect-square content-center inset-ring-3 inset-ring-[#8B8B8B] rounded-md text-[calc(70vw/50)] transition duration-300 ease-in-out hover:scale-105"
+      class="w-[calc(350vw/50)] text-center bg-contain bg-center aspect-square content-center inset-ring-3 inset-ring-[#8B8B8B] rounded-md text-[calc(70vw/50)] transition duration-300 ease-in-out hover:scale-105 shadow-xl inset-shadow-xs inset-shadow-white"
       :class="[
         { 'animate-slide-up-4': randomBlock != undefined },
-        { 'bg-green-300': randomBlock?.emitLight == selectedBlock.emitLight },
+        { 'bg-green-500': randomBlock?.emitLight == selectedBlock.emitLight },
         {
-          'bg-red-300': randomBlock?.emitLight !== selectedBlock.emitLight,
+          'bg-red-400': randomBlock?.emitLight !== selectedBlock.emitLight,
         },
         { 'bg-white': randomBlock == undefined },
       ]"
@@ -92,21 +94,21 @@
     <h1
       :class="[
         { 'animate-slide-up-5': randomBlock != undefined },
-        { 'bg-red-300': randomBlock?.crossable !== selectedBlock.crossable },
-        { 'bg-green-300': randomBlock?.crossable === selectedBlock.crossable },
+        { 'bg-red-400': randomBlock?.crossable !== selectedBlock.crossable },
+        { 'bg-green-500': randomBlock?.crossable === selectedBlock.crossable },
         { 'bg-white': randomBlock == undefined },
       ]"
-      class="w-[calc(350vw/50)] aspect-square text-center content-center inset-ring-3 inset-ring-[#8B8B8B] capitalize rounded-md text-[calc(70vw/50)] transition duration-300 ease-in-out hover:scale-105"
+      class="w-[calc(350vw/50)] aspect-square text-center content-center inset-ring-3 inset-ring-[#8B8B8B] capitalize rounded-md text-[calc(70vw/50)] transition duration-300 ease-in-out hover:scale-105 shadow-xl inset-shadow-xs inset-shadow-white"
     >
       {{ props.selectedBlock?.crossable }}
     </h1>
     <h1
       style="image-rendering: pixelated"
-      class="w-[calc(350vw/50)] text-center bg-contain bg-center aspect-square content-center inset-ring-3 inset-ring-[#8B8B8B] rounded-md text-[calc(70vw/50)] transition duration-300 ease-in-out hover:scale-105"
+      class="w-[calc(350vw/50)] text-center bg-contain bg-center aspect-square content-center inset-ring-3 inset-ring-[#8B8B8B] rounded-md text-[calc(70vw/50)] transition duration-300 ease-in-out hover:scale-105 shadow-xl inset-shadow-xs inset-shadow-white"
       :class="[
         { 'animate-slide-up-6': randomBlock != undefined },
-        { 'bg-red-300': randomBlock?.hardness !== selectedBlock.hardness },
-        { 'bg-green-300': randomBlock?.hardness == selectedBlock.hardness },
+        { 'bg-red-400': randomBlock?.hardness !== selectedBlock.hardness },
+        { 'bg-green-500': randomBlock?.hardness == selectedBlock.hardness },
         { 'bg-white': randomBlock == undefined },
       ]"
       :style="
@@ -125,13 +127,14 @@
       {{ props.selectedBlock?.hardness }}
     </h1>
     <img
+      style="image-rendering: pixelated"
       :class="[
         { 'animate-slide-up-7': randomBlock != undefined },
-        { 'bg-red-300': randomBlock?.tool != selectedBlock.tool },
-        { 'bg-green-300': randomBlock?.tool == selectedBlock.tool },
+        { 'bg-red-400': randomBlock?.tool != selectedBlock.tool },
+        { 'bg-green-500': randomBlock?.tool == selectedBlock.tool },
         { 'bg-white': randomBlock == undefined },
       ]"
-      class="w-[calc(350vw/50)] text-center bg-center bg-cover aspect-square p-2 content-center inset-ring-3 inset-ring-[#8B8B8B] rounded-md text-[calc(70vw/50)] transition duration-300 ease-in-out hover:scale-105"
+      class="w-[calc(350vw/50)] text-center bg-center bg-cover aspect-square p-2 content-center inset-ring-3 inset-ring-[#8B8B8B] rounded-md text-[calc(70vw/50)] transition duration-300 ease-in-out hover:scale-105 shadow-xl inset-shadow-xs inset-shadow-white"
       :src="
         selectedBlock.tool
           ? `http://localhost:3000/${props.selectedBlock?.tool}.png`
@@ -140,15 +143,15 @@
     />
     <h1
       style="image-rendering: pixelated"
-      class="w-[calc(350vw/50)] text-center bg-contain bg-center aspect-square content-center inset-ring-3 inset-ring-[#8B8B8B] rounded-md text-[calc(70vw/50)] transition duration-300 ease-in-out hover:scale-105"
+      class="w-[calc(350vw/50)] text-center bg-contain bg-center aspect-square content-center inset-ring-3 inset-ring-[#8B8B8B] rounded-md text-[calc(70vw/50)] transition duration-300 ease-in-out hover:scale-105 shadow-xl inset-shadow-xs inset-shadow-white"
       :class="[
         { 'animate-slide-up-8': randomBlock != undefined },
         {
-          'bg-red-300':
+          'bg-red-400':
             randomBlock?.blastResistance !== selectedBlock.blastResistance,
         },
         {
-          'bg-green-300':
+          'bg-green-500':
             randomBlock?.blastResistance == selectedBlock.blastResistance,
         },
         { 'bg-white': randomBlock == undefined },
