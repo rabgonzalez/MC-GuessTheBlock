@@ -75,10 +75,16 @@ import { Block } from "../interfaces/block.interface";
 const { searchedBlocks, fetchBlocksByName, selectedBlocks } = useGuessGame();
 const displayName = ref("");
 
+/**
+ * Select the first block of the searched blocks
+ */
 const emit = defineEmits<{
   selectBlock: [block: Block];
 }>();
 
+/**
+ * Select the first block of the searched blocks
+ */
 const selectFirst = () => {
   if (searchedBlocks.value && searchedBlocks.value?.length > 0) {
     emit("selectBlock", searchedBlocks.value[0]);
@@ -87,6 +93,11 @@ const selectFirst = () => {
   }
 };
 
+/**
+ * Select a block by click
+ * 
+ * @param block to select
+ */
 const selectByClick = (block: Block) => {
   emit("selectBlock", block);
   fetchBlocksByName("");

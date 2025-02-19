@@ -175,6 +175,7 @@
 <script setup lang="ts">
 import { defineProps } from "vue";
 import { Block } from "../interfaces/block.interface";
+
 const props = defineProps<{
   selectedBlock: Block;
   randomBlock?: Block;

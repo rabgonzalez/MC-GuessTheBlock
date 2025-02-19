@@ -17,8 +17,13 @@
       </div>
     </div>
   </section>
-  <section v-else>
-    <h1>Loading...</h1>
+  <section
+    v-else
+    class="flex mx-auto bg-screen bg-center min-h-screen bg-[url('/background.png')]"
+  >
+    <h1 class="text-white text-3xl m-auto content-center animate-pulse">
+      Loading...
+    </h1>
   </section>
 </template>
 
@@ -31,6 +36,7 @@ import SelectBlockView from "./SelectBlockView.vue";
 const { randomBlock, selectedBlocks, addBlock } = useGuessGame();
 /**
  * Select a block and saves on selectedBlocks
+ * 
  * @param block to select
  */
 function selectBlock(block: Block) {

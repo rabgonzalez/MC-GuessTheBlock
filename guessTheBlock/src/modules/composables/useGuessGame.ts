@@ -10,10 +10,20 @@ export const useGuessGame = () => {
   const randomBlock = ref<Block | null>(null);
   const selectedBlocks = ref<Block[] | null>(null);
 
+  /**
+   * Add a block to the selectedBlocks array
+   * 
+   * @param block Block to add to the selectedBlocks array
+   */
   function addBlock(block: Block) {
     selectedBlocks.value?.push(block);
   }
 
+  /**
+   * Fetch a block from the API by its id
+   * 
+   * @param id Block id to fetch
+   */
   async function fetchBlock(id: number) {
     try {
       const data = (await axios.get(uri + "blocks/" + id)).data as BlockAPI;
@@ -41,10 +51,17 @@ export const useGuessGame = () => {
         blastResistance: data.resistance,
       };
       randomBlock.value = block;
+      console.log(block.displayName);
     } catch (error) {
       console.log(error);
     }
   }
+
+  /**
+   * Fetch the name of an item by its id
+   * 
+   * @param id Item id to fetch the name
+   */
   async function fetchItemName(id: number) {
     try {
       const data = (await axios.get(uri + "items/" + id)).data;
@@ -54,6 +71,11 @@ export const useGuessGame = () => {
     }
   }
 
+  /**
+   * Fetch blocks from the API by their display name
+   * 
+   * @param displayName Display name of the blocks to fetch
+   */
   async function fetchBlocksByName(displayName: string) {
     try {
       if (displayName === "") {
@@ -97,6 +119,12 @@ export const useGuessGame = () => {
       console.log(error);
     }
   }
+
+  /**
+   * Get the lower tier tool from a block
+   * 
+   * @param tools Block tools
+   */
   function getLowerTierTool(tools: HarvestTools): number | null {
     const toolNumbers = Object.keys(tools)
       .map(Number)

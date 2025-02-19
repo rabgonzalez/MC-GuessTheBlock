@@ -19,7 +19,8 @@
     "core-js": "^3.8.3",
     "ts-loader": "~8.2.0",
     "vue": "^3.2.13",
-    "vue-class-component": "^8.0.0-0"
+    "vue-class-component": "^8.0.0-0",
+    "wine": "^0.9.13"
   },
   "devDependencies": {
     "@types/electron-devtools-installer": "^2.2.0",
