@@ -17,14 +17,23 @@ export const useGuessGame = () => {
   async function fetchBlock(id: number) {
     try {
       const data = (await axios.get(uri + "blocks/" + id)).data as BlockAPI;
-      const tool = await fetchItemName(
-        getLowerTierTool(data.harvestTools ?? {}) ?? 0
-      );
+      let tool = "";
+      if (data.harvestTools) {
+        tool = await fetchItemName(
+          getLowerTierTool(data.harvestTools ?? {}) ?? 0
+        );
+      } else {
+        if (data.material && data.material.includes("/")) {
+          tool = "wooden_" + data.material.split("/")[1];
+        } else {
+          tool = "none";
+        }
+      }
       const block: Block = {
         name: data.name,
         displayName: data.displayName,
         stackSize: data.stackSize,
-        transparent: data.transparent,
+        transparent: !data.transparent,
         emitLight: data.emitLight,
         crossable: data.boundingBox === "empty",
         hardness: data.hardness,
@@ -74,7 +83,7 @@ export const useGuessGame = () => {
             name: block.name,
             displayName: block.displayName,
             stackSize: block.stackSize,
-            transparent: block.transparent,
+            transparent: !block.transparent,
             emitLight: block.emitLight,
             crossable: block.boundingBox === "empty",
             hardness: block.hardness,
@@ -83,7 +92,6 @@ export const useGuessGame = () => {
           };
         })
       );
-      console.log(blocks);
       searchedBlocks.value = blocks;
     } catch (error) {
       console.log(error);
@@ -108,7 +116,7 @@ export const useGuessGame = () => {
         name: "air",
         displayName: "Air",
         stackSize: 64,
-        transparent: true,
+        transparent: false,
         emitLight: 0,
         crossable: true,
         hardness: 0,

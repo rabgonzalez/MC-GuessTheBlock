@@ -4,33 +4,17 @@
     class="mx-auto bg-screen bg-center min-h-screen"
     style="background-image: url(http://localhost:3000/background.png)"
   >
+    <h1 class="text-center text-3xl mb-5 text-white pt-10">Guess the Block!</h1>
     <SelectBlockView @select-block="selectBlock" />
-    <h1 class="text-center text-3xl mb-5 text-white">Selected Blocks:</h1>
-    <div class="flex flex-row justify-center gap-4 m-auto">
-      <h1 class="w-30 text-center justify-center text-xl text-white">Name</h1>
-      <h1 class="w-30 text-center justify-center text-xl text-white">Stack</h1>
-      <h1 class="w-30 text-center justify-center text-xl text-white">
-        Transparent
-      </h1>
-      <h1 class="w-30 text-center justify-center text-xl text-white">Light</h1>
-      <h1 class="w-30 text-center justify-center text-xl text-white">
-        Crossable
-      </h1>
-      <h1 class="w-30 text-center justify-center text-xl text-white">
-        Hardness
-      </h1>
-      <h1 class="w-30 text-center justify-center text-xl text-white">Tool</h1>
-      <h1 class="w-30 text-center justify-center text-xl text-white">
-        Blast Resist
-      </h1>
-    </div>
-    <div class="border-3 border-white mx-90 rounded-md">
-      <GuessView
-        v-for="block in selectedBlocks"
-        :key="block.name"
-        :selected-block="block"
-        :random-block="randomBlock"
-      />
+    <div class="flex justify-center">
+      <div class="border-3 border-[#A6A6A6] rounded-md max-w-300">
+        <GuessView
+          v-for="block in selectedBlocks"
+          :key="block.name"
+          :selected-block="block"
+          :random-block="randomBlock"
+        />
+      </div>
     </div>
   </section>
   <section v-else>
@@ -55,7 +39,7 @@ function selectBlock(block: Block) {
   if (block.displayName == randomBlock.value?.displayName) {
     setTimeout(() => {
       alert("Has ganado en " + selectedBlocks.value?.length + " intentos");
-    }, 2000);
+    }, 4800);
   }
 }
 </script>
