@@ -18,13 +18,13 @@
 ### Description
 *MC Guess The Block* is a game about guessing the minecraft block by some of its attributes.
 
-- search the block you want to guess.
+- Search the block you want to guess.
 <div align="center">
     <img src="./readme/img/guess-the-game.gif" alt="guess-the-block-game">
 </div>
 
 ---
-- compare the attributes:
+- Compare the attributes:
   - Red means wrong
   - Green means right
 
