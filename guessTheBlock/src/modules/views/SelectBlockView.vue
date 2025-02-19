@@ -95,7 +95,7 @@ const selectFirst = () => {
 
 /**
  * Select a block by click
- * 
+ *
  * @param block to select
  */
 const selectByClick = (block: Block) => {

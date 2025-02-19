@@ -23,6 +23,7 @@
     <img src="./readme/img/guess-the-game.gif" alt="guess-the-block-game">
 </div>
 
+---
 - compare the attributes:
   - Red means wrong
   - Green means right

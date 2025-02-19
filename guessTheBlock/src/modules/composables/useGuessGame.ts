@@ -12,7 +12,7 @@ export const useGuessGame = () => {
 
   /**
    * Add a block to the selectedBlocks array
-   * 
+   *
    * @param block Block to add to the selectedBlocks array
    */
   function addBlock(block: Block) {
@@ -21,7 +21,7 @@ export const useGuessGame = () => {
 
   /**
    * Fetch a block from the API by its id
-   * 
+   *
    * @param id Block id to fetch
    */
   async function fetchBlock(id: number) {
@@ -59,7 +59,7 @@ export const useGuessGame = () => {
 
   /**
    * Fetch the name of an item by its id
-   * 
+   *
    * @param id Item id to fetch the name
    */
   async function fetchItemName(id: number) {
@@ -73,7 +73,7 @@ export const useGuessGame = () => {
 
   /**
    * Fetch blocks from the API by their display name
-   * 
+   *
    * @param displayName Display name of the blocks to fetch
    */
   async function fetchBlocksByName(displayName: string) {
@@ -122,7 +122,7 @@ export const useGuessGame = () => {
 
   /**
    * Get the lower tier tool from a block
-   * 
+   *
    * @param tools Block tools
    */
   function getLowerTierTool(tools: HarvestTools): number | null {
