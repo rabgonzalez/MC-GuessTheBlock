@@ -19,10 +19,17 @@
 *MC Guess The Block* is a game about guessing the minecraft block by some of its attributes.
 
 - search the block you want to guess.
-  
+<div align="center">
+    <img src="./readme/img/guess-the-game.gif" alt="guess-the-block-game">
+</div>
+
 - compare the attributes:
   - Red means wrong
   - Green means right
+
+<div align="center">
+    <img src="./readme/img/guess-the-block-win.gif" alt="guess-the-block-win">
+</div>
 
 ### How to use
 #### Open Json Server

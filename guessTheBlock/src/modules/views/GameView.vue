@@ -44,7 +44,7 @@ function selectBlock(block: Block) {
 
   if (block.displayName == randomBlock.value?.displayName) {
     setTimeout(() => {
-      alert("Has ganado en " + selectedBlocks.value?.length + " intentos");
+      alert("You have won, attemps: " + selectedBlocks.value?.length);
     }, 4800);
   }
 }
