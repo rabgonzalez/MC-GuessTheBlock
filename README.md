@@ -28,11 +28,14 @@
 - Compare the attributes:
   - Red means wrong
   - Green means right
+  - Orange (tool only) means the right kind of tool in another material, e.g. stone pickaxe vs iron pickaxe
   - The block you guessed appears first, but whether it is the right one is only revealed after every attribute
 
 <div align="center">
     <img src="./readme/img/guess-the-block-win.gif" alt="guess-the-block-win">
 </div>
+
+- When the game ends, share your result on WhatsApp (or copy it): the mode, the number of attempts and one row of 🟩🟧🟥 squares per guess, without revealing the daily block.
 
 ### Game modes
 - **Daily** (default): one block per day, the same for every player. Your progress is saved in the browser.
