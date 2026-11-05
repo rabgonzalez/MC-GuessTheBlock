@@ -41,7 +41,12 @@
 ### Data source
 The block data comes from [minecraft-data](https://github.com/PrismarineJS/minecraft-data) (PrismarineJS).
 `FakeApi.json` is an exact copy of `pc/1.21.1`. At build time `scripts/build-data.mjs` turns it into a small
-static file (`public/data/blocks.json`, ~160 KB, 912 obtainable blocks), so the app needs no server.
+static file (`public/data/blocks.json`), so the app needs no server.
+
+`scripts/block-filters.mjs` keeps the pool fun (912 obtainable blocks → 339): it drops shape variants
+(stairs, slabs, walls, doors, buttons…), weathered/waxed copper, infested and dead blocks and creative-only
+blocks, and collapses families that only differ by colour, wood or coral type (*Purple Shulker Box* → *Shulker Box*,
+*Spruce Planks* → *Planks*).
 
 ```bash
 npm run data            # from ../FakeApi.json (Minecraft 1.21.1)

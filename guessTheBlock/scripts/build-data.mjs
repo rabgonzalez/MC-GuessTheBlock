@@ -14,6 +14,7 @@ import { existsSync } from "node:fs";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { filterBlocks } from "./block-filters.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const RAW =
@@ -79,24 +80,31 @@ const { version, blocks, items } = await loadSource(process.argv[2]);
 const itemNames = new Map(items.map((i) => [i.id, i.name]));
 const obtainable = new Set(items.map((i) => i.name));
 
-const out = blocks
-  // Only blocks that exist as an item: skips air, wall torches, portals...
-  .filter((b) => obtainable.has(b.name) && !b.name.endsWith("air"))
-  .map((b) => ({
-    name: b.name,
-    displayName: b.displayName,
-    stackSize: b.stackSize,
-    solid: !b.transparent,
-    emitLight: b.emitLight,
-    crossable: b.boundingBox === "empty",
-    hardness: b.hardness ?? -1,
-    tool: resolveTool(b, itemNames),
-    blastResistance: b.resistance,
-  }));
+// Only blocks that exist as an item: skips air, wall torches, portals...
+const obtainableBlocks = blocks.filter(
+  (b) => obtainable.has(b.name) && !b.name.endsWith("air")
+);
+// Then drop variants and duplicates (see block-filters.mjs).
+const { blocks: guessable, collapsed } = filterBlocks(obtainableBlocks);
+
+const out = guessable.map((b) => ({
+  name: b.name,
+  displayName: b.displayName,
+  stackSize: b.stackSize,
+  solid: !b.transparent,
+  emitLight: b.emitLight,
+  crossable: b.boundingBox === "empty",
+  hardness: b.hardness ?? -1,
+  tool: resolveTool(b, itemNames),
+  blastResistance: b.resistance,
+}));
 
 await mkdir(join(root, "public", "data"), { recursive: true });
 await writeFile(
   join(root, "public", "data", "blocks.json"),
   JSON.stringify({ version, blocks: out })
 );
-console.log(`blocks.json: ${out.length} blocks from Minecraft ${version}`);
+console.log(
+  `blocks.json: ${out.length} of ${obtainableBlocks.length} obtainable blocks from Minecraft ${version}`
+);
+if (process.env.VERBOSE) console.log(`Collapsed: ${collapsed.join(", ")}`);
