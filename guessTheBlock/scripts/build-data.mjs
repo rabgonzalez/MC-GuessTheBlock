@@ -14,7 +14,10 @@ import { existsSync } from "node:fs";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { filterBlocks } from "./block-filters.mjs";
+import { blockColors } from "./block-colors.mjs";
+import { DYES, filterBlocks } from "./block-filters.mjs";
+import { FAMILY_NAMES } from "./family-names.mjs";
+import { BLOCK_CATEGORY } from "./block-categories.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const RAW =
@@ -76,6 +79,67 @@ function resolveTool(block, itemNames) {
   return "none";
 }
 
+// Dimensions and recipes, extracted from the game data by build-origins.mjs.
+const origins = JSON.parse(
+  await readFile(join(root, "scripts", "block-origins.json"), "utf8")
+);
+const DIMENSIONS = ["overworld", "nether", "end"];
+
+/** Collapsed families (Wool, Planks...) merge every member. */
+function originOf(block) {
+  const dims = new Set();
+  let craftable = false;
+  for (const name of block.members ?? [block.name]) {
+    const origin = origins[name];
+    if (!origin) continue;
+    origin.dimensions.forEach((d) => dims.add(d));
+    craftable ||= origin.craftable;
+  }
+  return {
+    dimensions: DIMENSIONS.filter((d) => dims.has(d)),
+    craftable,
+  };
+}
+
+// Main colour of each 3D model (see block-colors.mjs).
+const colors = blockColors(
+  JSON.parse(
+    await readFile(join(root, "public", "models", "blocks.json"), "utf8")
+  )
+);
+
+/** Dye families (Wool, Concrete...) come in every colour: "various". */
+function colorOf(block) {
+  const dyed = block.members?.some((m) =>
+    DYES.some((d) => m.startsWith(`${d}_`))
+  );
+  if (dyed) return "various";
+  return colors[block.name]?.color ?? null;
+}
+
+/** Hand-picked category; every guessable block must have one. */
+function categoryOf(block) {
+  const category = BLOCK_CATEGORY[block.name];
+  if (!category) {
+    throw new Error(`No category for "${block.name}" in block-categories.mjs`);
+  }
+  return category;
+}
+
+// Official translations, extracted by build-names.mjs.
+const translations = JSON.parse(
+  await readFile(join(root, "scripts", "block-names.json"), "utf8")
+);
+const LOCALES = Object.keys(translations);
+
+/** Name in every other language; collapsed families use FAMILY_NAMES. */
+function namesOf(block) {
+  if (FAMILY_NAMES[block.name]) return FAMILY_NAMES[block.name];
+  return Object.fromEntries(
+    LOCALES.map((l) => [l, translations[l][block.name] ?? block.displayName])
+  );
+}
+
 const { version, blocks, items } = await loadSource(process.argv[2]);
 const itemNames = new Map(items.map((i) => [i.id, i.name]));
 const obtainable = new Set(items.map((i) => i.name));
@@ -90,19 +154,37 @@ const { blocks: guessable, collapsed } = filterBlocks(obtainableBlocks);
 const out = guessable.map((b) => ({
   name: b.name,
   displayName: b.displayName,
+  names: namesOf(b),
   stackSize: b.stackSize,
   solid: !b.transparent,
-  emitLight: b.emitLight,
-  crossable: b.boundingBox === "empty",
-  hardness: b.hardness ?? -1,
+  emitLight: b.emitLight > 0,
+  category: categoryOf(b),
+  color: colorOf(b),
+  ...originOf(b),
   tool: resolveTool(b, itemNames),
-  blastResistance: b.resistance,
 }));
+
+/** Names of the tool icons used by the pool, per language. */
+function toolNames(pool) {
+  const tools = [...new Set(pool.map((b) => b.tool))].filter(
+    (t) => t !== "none"
+  );
+  const english = new Map(items.map((i) => [i.name, i.displayName]));
+  const names = {
+    en: Object.fromEntries(tools.map((t) => [t, english.get(t) ?? t])),
+  };
+  for (const l of LOCALES) {
+    names[l] = Object.fromEntries(
+      tools.map((t) => [t, translations[l][t] ?? names.en[t]])
+    );
+  }
+  return names;
+}
 
 await mkdir(join(root, "public", "data"), { recursive: true });
 await writeFile(
   join(root, "public", "data", "blocks.json"),
-  JSON.stringify({ version, blocks: out })
+  JSON.stringify({ version, blocks: out, tools: toolNames(out) })
 );
 console.log(
   `blocks.json: ${out.length} of ${obtainableBlocks.length} obtainable blocks from Minecraft ${version}`

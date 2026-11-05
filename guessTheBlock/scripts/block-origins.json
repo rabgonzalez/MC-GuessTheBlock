@@ -1,0 +1,4242 @@
+{
+  "acacia_button": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "acacia_door": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "acacia_fence": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "acacia_fence_gate": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "acacia_hanging_sign": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "acacia_leaves": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "acacia_log": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "acacia_planks": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "acacia_pressure_plate": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "acacia_sapling": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "acacia_sign": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "acacia_slab": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "acacia_stairs": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "acacia_trapdoor": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "acacia_wall_hanging_sign": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "acacia_wall_sign": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "acacia_wood": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "activator_rail": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "air": {
+    "dimensions": ["overworld", "nether", "end"],
+    "craftable": false
+  },
+  "allium": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "amethyst_block": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "amethyst_cluster": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "ancient_debris": {
+    "dimensions": ["nether"],
+    "craftable": false
+  },
+  "andesite": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "andesite_slab": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "andesite_stairs": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "andesite_wall": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "anvil": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "attached_melon_stem": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "attached_pumpkin_stem": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "azalea": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "azalea_leaves": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "azure_bluet": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "bamboo": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "bamboo_block": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "bamboo_button": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "bamboo_door": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "bamboo_fence": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "bamboo_fence_gate": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "bamboo_hanging_sign": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "bamboo_mosaic": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "bamboo_mosaic_slab": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "bamboo_mosaic_stairs": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "bamboo_planks": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "bamboo_pressure_plate": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "bamboo_sapling": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "bamboo_sign": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "bamboo_slab": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "bamboo_stairs": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "bamboo_trapdoor": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "bamboo_wall_hanging_sign": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "bamboo_wall_sign": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "barrel": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "barrier": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "basalt": {
+    "dimensions": ["nether"],
+    "craftable": false
+  },
+  "beacon": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "bedrock": {
+    "dimensions": ["overworld", "nether", "end"],
+    "craftable": false
+  },
+  "bee_nest": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "beehive": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "beetroots": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "bell": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "big_dripleaf": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "big_dripleaf_stem": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "birch_button": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "birch_door": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "birch_fence": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "birch_fence_gate": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "birch_hanging_sign": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "birch_leaves": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "birch_log": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "birch_planks": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "birch_pressure_plate": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "birch_sapling": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "birch_sign": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "birch_slab": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "birch_stairs": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "birch_trapdoor": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "birch_wall_hanging_sign": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "birch_wall_sign": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "birch_wood": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "black_banner": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "black_bed": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "black_candle": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "black_candle_cake": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "black_carpet": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "black_concrete": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "black_concrete_powder": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "black_glazed_terracotta": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "black_shulker_box": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "black_stained_glass": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "black_stained_glass_pane": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "black_terracotta": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "black_wall_banner": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "black_wool": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "blackstone": {
+    "dimensions": ["nether"],
+    "craftable": false
+  },
+  "blackstone_slab": {
+    "dimensions": ["nether"],
+    "craftable": true
+  },
+  "blackstone_stairs": {
+    "dimensions": ["nether"],
+    "craftable": true
+  },
+  "blackstone_wall": {
+    "dimensions": ["nether"],
+    "craftable": true
+  },
+  "blast_furnace": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "blue_banner": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "blue_bed": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "blue_candle": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "blue_candle_cake": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "blue_carpet": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "blue_concrete": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "blue_concrete_powder": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "blue_glazed_terracotta": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "blue_ice": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "blue_orchid": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "blue_shulker_box": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "blue_stained_glass": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "blue_stained_glass_pane": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "blue_terracotta": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "blue_wall_banner": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "blue_wool": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "bone_block": {
+    "dimensions": ["overworld", "nether"],
+    "craftable": true
+  },
+  "bookshelf": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "brain_coral": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "brain_coral_block": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "brain_coral_fan": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "brain_coral_wall_fan": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "brewing_stand": {
+    "dimensions": ["overworld", "end"],
+    "craftable": true
+  },
+  "brick_slab": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "brick_stairs": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "brick_wall": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "bricks": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "brown_banner": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "brown_bed": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "brown_candle": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "brown_candle_cake": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "brown_carpet": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "brown_concrete": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "brown_concrete_powder": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "brown_glazed_terracotta": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "brown_mushroom": {
+    "dimensions": ["overworld", "nether"],
+    "craftable": false
+  },
+  "brown_mushroom_block": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "brown_shulker_box": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "brown_stained_glass": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "brown_stained_glass_pane": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "brown_terracotta": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "brown_wall_banner": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "brown_wool": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "bubble_column": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "bubble_coral": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "bubble_coral_block": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "bubble_coral_fan": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "bubble_coral_wall_fan": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "budding_amethyst": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "cactus": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "cake": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "calcite": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "calibrated_sculk_sensor": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "campfire": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "candle": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "candle_cake": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "carrots": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "cartography_table": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "carved_pumpkin": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "cauldron": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "cave_air": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "cave_vines": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "cave_vines_plant": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "chain": {
+    "dimensions": ["overworld", "nether"],
+    "craftable": true
+  },
+  "chain_command_block": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "cherry_button": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "cherry_door": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "cherry_fence": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "cherry_fence_gate": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "cherry_hanging_sign": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "cherry_leaves": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "cherry_log": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "cherry_planks": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "cherry_pressure_plate": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "cherry_sapling": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "cherry_sign": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "cherry_slab": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "cherry_stairs": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "cherry_trapdoor": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "cherry_wall_hanging_sign": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "cherry_wall_sign": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "cherry_wood": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "chest": {
+    "dimensions": ["overworld", "nether", "end"],
+    "craftable": true
+  },
+  "chipped_anvil": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "chiseled_bookshelf": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "chiseled_copper": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "chiseled_deepslate": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "chiseled_nether_bricks": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "chiseled_polished_blackstone": {
+    "dimensions": ["nether"],
+    "craftable": true
+  },
+  "chiseled_quartz_block": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "chiseled_red_sandstone": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "chiseled_sandstone": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "chiseled_stone_bricks": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "chiseled_tuff": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "chiseled_tuff_bricks": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "chorus_flower": {
+    "dimensions": ["end"],
+    "craftable": false
+  },
+  "chorus_plant": {
+    "dimensions": ["end"],
+    "craftable": false
+  },
+  "clay": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "coal_block": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "coal_ore": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "coarse_dirt": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "cobbled_deepslate": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "cobbled_deepslate_slab": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "cobbled_deepslate_stairs": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "cobbled_deepslate_wall": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "cobblestone": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "cobblestone_slab": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "cobblestone_stairs": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "cobblestone_wall": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "cobweb": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "cocoa": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "command_block": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "comparator": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "composter": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "conduit": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "copper_block": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "copper_bulb": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "copper_door": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "copper_grate": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "copper_ore": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "copper_trapdoor": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "cornflower": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "cracked_deepslate_bricks": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "cracked_deepslate_tiles": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "cracked_nether_bricks": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "cracked_polished_blackstone_bricks": {
+    "dimensions": ["nether"],
+    "craftable": false
+  },
+  "cracked_stone_bricks": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "crafter": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "crafting_table": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "creeper_head": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "creeper_wall_head": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "crimson_button": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "crimson_door": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "crimson_fence": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "crimson_fence_gate": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "crimson_fungus": {
+    "dimensions": ["nether"],
+    "craftable": false
+  },
+  "crimson_hanging_sign": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "crimson_hyphae": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "crimson_nylium": {
+    "dimensions": ["nether"],
+    "craftable": false
+  },
+  "crimson_planks": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "crimson_pressure_plate": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "crimson_roots": {
+    "dimensions": ["nether"],
+    "craftable": false
+  },
+  "crimson_sign": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "crimson_slab": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "crimson_stairs": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "crimson_stem": {
+    "dimensions": ["nether"],
+    "craftable": false
+  },
+  "crimson_trapdoor": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "crimson_wall_hanging_sign": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "crimson_wall_sign": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "crying_obsidian": {
+    "dimensions": ["overworld", "nether"],
+    "craftable": false
+  },
+  "cut_copper": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "cut_copper_slab": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "cut_copper_stairs": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "cut_red_sandstone": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "cut_red_sandstone_slab": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "cut_sandstone": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "cut_sandstone_slab": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "cyan_banner": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "cyan_bed": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "cyan_candle": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "cyan_candle_cake": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "cyan_carpet": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "cyan_concrete": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "cyan_concrete_powder": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "cyan_glazed_terracotta": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "cyan_shulker_box": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "cyan_stained_glass": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "cyan_stained_glass_pane": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "cyan_terracotta": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "cyan_wall_banner": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "cyan_wool": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "damaged_anvil": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "dandelion": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "dark_oak_button": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "dark_oak_door": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "dark_oak_fence": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "dark_oak_fence_gate": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "dark_oak_hanging_sign": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "dark_oak_leaves": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "dark_oak_log": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "dark_oak_planks": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "dark_oak_pressure_plate": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "dark_oak_sapling": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "dark_oak_sign": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "dark_oak_slab": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "dark_oak_stairs": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "dark_oak_trapdoor": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "dark_oak_wall_hanging_sign": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "dark_oak_wall_sign": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "dark_oak_wood": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "dark_prismarine": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "dark_prismarine_slab": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "dark_prismarine_stairs": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "daylight_detector": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "dead_brain_coral": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "dead_brain_coral_block": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "dead_brain_coral_fan": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "dead_brain_coral_wall_fan": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "dead_bubble_coral": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "dead_bubble_coral_block": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "dead_bubble_coral_fan": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "dead_bubble_coral_wall_fan": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "dead_bush": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "dead_fire_coral": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "dead_fire_coral_block": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "dead_fire_coral_fan": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "dead_fire_coral_wall_fan": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "dead_horn_coral": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "dead_horn_coral_block": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "dead_horn_coral_fan": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "dead_horn_coral_wall_fan": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "dead_tube_coral": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "dead_tube_coral_block": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "dead_tube_coral_fan": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "dead_tube_coral_wall_fan": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "decorated_pot": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "deepslate": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "deepslate_brick_slab": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "deepslate_brick_stairs": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "deepslate_brick_wall": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "deepslate_bricks": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "deepslate_coal_ore": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "deepslate_copper_ore": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "deepslate_diamond_ore": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "deepslate_emerald_ore": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "deepslate_gold_ore": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "deepslate_iron_ore": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "deepslate_lapis_ore": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "deepslate_redstone_ore": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "deepslate_tile_slab": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "deepslate_tile_stairs": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "deepslate_tile_wall": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "deepslate_tiles": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "detector_rail": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "diamond_block": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "diamond_ore": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "diorite": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "diorite_slab": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "diorite_stairs": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "diorite_wall": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "dirt": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "dirt_path": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "dispenser": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "dragon_egg": {
+    "dimensions": ["end"],
+    "craftable": false
+  },
+  "dragon_head": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "dragon_wall_head": {
+    "dimensions": ["end"],
+    "craftable": false
+  },
+  "dried_kelp_block": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "dripstone_block": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "dropper": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "emerald_block": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "emerald_ore": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "enchanting_table": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "end_gateway": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "end_portal": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "end_portal_frame": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "end_rod": {
+    "dimensions": ["end"],
+    "craftable": true
+  },
+  "end_stone": {
+    "dimensions": ["end"],
+    "craftable": false
+  },
+  "end_stone_brick_slab": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "end_stone_brick_stairs": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "end_stone_brick_wall": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "end_stone_bricks": {
+    "dimensions": ["end"],
+    "craftable": true
+  },
+  "ender_chest": {
+    "dimensions": ["end"],
+    "craftable": true
+  },
+  "exposed_chiseled_copper": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "exposed_copper": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "exposed_copper_bulb": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "exposed_copper_door": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "exposed_copper_grate": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "exposed_copper_trapdoor": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "exposed_cut_copper": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "exposed_cut_copper_slab": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "exposed_cut_copper_stairs": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "farmland": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "fern": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "fire": {
+    "dimensions": ["nether"],
+    "craftable": false
+  },
+  "fire_coral": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "fire_coral_block": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "fire_coral_fan": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "fire_coral_wall_fan": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "fletching_table": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "flower_pot": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "flowering_azalea": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "flowering_azalea_leaves": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "frogspawn": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "frosted_ice": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "furnace": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "gilded_blackstone": {
+    "dimensions": ["nether"],
+    "craftable": false
+  },
+  "glass": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "glass_pane": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "glow_lichen": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "glowstone": {
+    "dimensions": ["nether"],
+    "craftable": true
+  },
+  "gold_block": {
+    "dimensions": ["overworld", "nether"],
+    "craftable": true
+  },
+  "gold_ore": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "granite": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "granite_slab": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "granite_stairs": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "granite_wall": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "grass_block": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "gravel": {
+    "dimensions": ["overworld", "nether"],
+    "craftable": false
+  },
+  "gray_banner": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "gray_bed": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "gray_candle": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "gray_candle_cake": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "gray_carpet": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "gray_concrete": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "gray_concrete_powder": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "gray_glazed_terracotta": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "gray_shulker_box": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "gray_stained_glass": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "gray_stained_glass_pane": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "gray_terracotta": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "gray_wall_banner": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "gray_wool": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "green_banner": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "green_bed": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "green_candle": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "green_candle_cake": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "green_carpet": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "green_concrete": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "green_concrete_powder": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "green_glazed_terracotta": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "green_shulker_box": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "green_stained_glass": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "green_stained_glass_pane": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "green_terracotta": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "green_wall_banner": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "green_wool": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "grindstone": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "hanging_roots": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "hay_block": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "heavy_core": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "heavy_weighted_pressure_plate": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "honey_block": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "honeycomb_block": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "hopper": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "horn_coral": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "horn_coral_block": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "horn_coral_fan": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "horn_coral_wall_fan": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "ice": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "infested_chiseled_stone_bricks": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "infested_cobblestone": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "infested_cracked_stone_bricks": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "infested_deepslate": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "infested_mossy_stone_bricks": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "infested_stone": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "infested_stone_bricks": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "iron_bars": {
+    "dimensions": ["overworld", "nether", "end"],
+    "craftable": true
+  },
+  "iron_block": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "iron_door": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "iron_ore": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "iron_trapdoor": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "jack_o_lantern": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "jigsaw": {
+    "dimensions": ["overworld", "nether"],
+    "craftable": false
+  },
+  "jukebox": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "jungle_button": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "jungle_door": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "jungle_fence": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "jungle_fence_gate": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "jungle_hanging_sign": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "jungle_leaves": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "jungle_log": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "jungle_planks": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "jungle_pressure_plate": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "jungle_sapling": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "jungle_sign": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "jungle_slab": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "jungle_stairs": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "jungle_trapdoor": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "jungle_wall_hanging_sign": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "jungle_wall_sign": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "jungle_wood": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "kelp": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "kelp_plant": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "ladder": {
+    "dimensions": ["overworld", "end"],
+    "craftable": true
+  },
+  "lantern": {
+    "dimensions": ["overworld", "nether"],
+    "craftable": true
+  },
+  "lapis_block": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "lapis_ore": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "large_amethyst_bud": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "large_fern": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "lava": {
+    "dimensions": ["overworld", "nether"],
+    "craftable": false
+  },
+  "lava_cauldron": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "lectern": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "lever": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "light": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "light_blue_banner": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "light_blue_bed": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "light_blue_candle": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "light_blue_candle_cake": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "light_blue_carpet": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "light_blue_concrete": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "light_blue_concrete_powder": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "light_blue_glazed_terracotta": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "light_blue_shulker_box": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "light_blue_stained_glass": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "light_blue_stained_glass_pane": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "light_blue_terracotta": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "light_blue_wall_banner": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "light_blue_wool": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "light_gray_banner": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "light_gray_bed": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "light_gray_candle": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "light_gray_candle_cake": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "light_gray_carpet": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "light_gray_concrete": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "light_gray_concrete_powder": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "light_gray_glazed_terracotta": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "light_gray_shulker_box": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "light_gray_stained_glass": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "light_gray_stained_glass_pane": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "light_gray_terracotta": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "light_gray_wall_banner": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "light_gray_wool": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "light_weighted_pressure_plate": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "lightning_rod": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "lilac": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "lily_of_the_valley": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "lily_pad": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "lime_banner": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "lime_bed": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "lime_candle": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "lime_candle_cake": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "lime_carpet": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "lime_concrete": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "lime_concrete_powder": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "lime_glazed_terracotta": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "lime_shulker_box": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "lime_stained_glass": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "lime_stained_glass_pane": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "lime_terracotta": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "lime_wall_banner": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "lime_wool": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "lodestone": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "loom": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "magenta_banner": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "magenta_bed": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "magenta_candle": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "magenta_candle_cake": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "magenta_carpet": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "magenta_concrete": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "magenta_concrete_powder": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "magenta_glazed_terracotta": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "magenta_shulker_box": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "magenta_stained_glass": {
+    "dimensions": ["end"],
+    "craftable": true
+  },
+  "magenta_stained_glass_pane": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "magenta_terracotta": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "magenta_wall_banner": {
+    "dimensions": ["end"],
+    "craftable": false
+  },
+  "magenta_wool": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "magma_block": {
+    "dimensions": ["overworld", "nether"],
+    "craftable": true
+  },
+  "mangrove_button": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "mangrove_door": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "mangrove_fence": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "mangrove_fence_gate": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "mangrove_hanging_sign": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "mangrove_leaves": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "mangrove_log": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "mangrove_planks": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "mangrove_pressure_plate": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "mangrove_propagule": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "mangrove_roots": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "mangrove_sign": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "mangrove_slab": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "mangrove_stairs": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "mangrove_trapdoor": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "mangrove_wall_hanging_sign": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "mangrove_wall_sign": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "mangrove_wood": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "medium_amethyst_bud": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "melon": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "melon_stem": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "moss_block": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "moss_carpet": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "mossy_cobblestone": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "mossy_cobblestone_slab": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "mossy_cobblestone_stairs": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "mossy_cobblestone_wall": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "mossy_stone_brick_slab": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "mossy_stone_brick_stairs": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "mossy_stone_brick_wall": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "mossy_stone_bricks": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "moving_piston": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "mud": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "mud_brick_slab": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "mud_brick_stairs": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "mud_brick_wall": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "mud_bricks": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "muddy_mangrove_roots": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "mushroom_stem": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "mycelium": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "nether_brick_fence": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "nether_brick_slab": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "nether_brick_stairs": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "nether_brick_wall": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "nether_bricks": {
+    "dimensions": ["nether"],
+    "craftable": true
+  },
+  "nether_gold_ore": {
+    "dimensions": ["nether"],
+    "craftable": false
+  },
+  "nether_portal": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "nether_quartz_ore": {
+    "dimensions": ["nether"],
+    "craftable": false
+  },
+  "nether_sprouts": {
+    "dimensions": ["nether"],
+    "craftable": false
+  },
+  "nether_wart": {
+    "dimensions": ["nether"],
+    "craftable": false
+  },
+  "nether_wart_block": {
+    "dimensions": ["nether"],
+    "craftable": true
+  },
+  "netherite_block": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "netherrack": {
+    "dimensions": ["overworld", "nether"],
+    "craftable": false
+  },
+  "note_block": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "oak_button": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "oak_door": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "oak_fence": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "oak_fence_gate": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "oak_hanging_sign": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "oak_leaves": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "oak_log": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "oak_planks": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "oak_pressure_plate": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "oak_sapling": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "oak_sign": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "oak_slab": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "oak_stairs": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "oak_trapdoor": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "oak_wall_hanging_sign": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "oak_wall_sign": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "oak_wood": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "observer": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "obsidian": {
+    "dimensions": ["overworld", "nether", "end"],
+    "craftable": false
+  },
+  "ochre_froglight": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "orange_banner": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "orange_bed": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "orange_candle": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "orange_candle_cake": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "orange_carpet": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "orange_concrete": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "orange_concrete_powder": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "orange_glazed_terracotta": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "orange_shulker_box": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "orange_stained_glass": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "orange_stained_glass_pane": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "orange_terracotta": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "orange_tulip": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "orange_wall_banner": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "orange_wool": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "oxeye_daisy": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "oxidized_chiseled_copper": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "oxidized_copper": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "oxidized_copper_bulb": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "oxidized_copper_door": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "oxidized_copper_grate": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "oxidized_copper_trapdoor": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "oxidized_cut_copper": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "oxidized_cut_copper_slab": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "oxidized_cut_copper_stairs": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "packed_ice": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "packed_mud": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "pearlescent_froglight": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "peony": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "petrified_oak_slab": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "piglin_head": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "piglin_wall_head": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "pink_banner": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "pink_bed": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "pink_candle": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "pink_candle_cake": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "pink_carpet": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "pink_concrete": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "pink_concrete_powder": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "pink_glazed_terracotta": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "pink_petals": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "pink_shulker_box": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "pink_stained_glass": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "pink_stained_glass_pane": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "pink_terracotta": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "pink_tulip": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "pink_wall_banner": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "pink_wool": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "piston": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "piston_head": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "pitcher_crop": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "pitcher_plant": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "player_head": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "player_wall_head": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "podzol": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "pointed_dripstone": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "polished_andesite": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "polished_andesite_slab": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "polished_andesite_stairs": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "polished_basalt": {
+    "dimensions": ["overworld", "nether"],
+    "craftable": true
+  },
+  "polished_blackstone": {
+    "dimensions": ["nether"],
+    "craftable": true
+  },
+  "polished_blackstone_brick_slab": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "polished_blackstone_brick_stairs": {
+    "dimensions": ["nether"],
+    "craftable": true
+  },
+  "polished_blackstone_brick_wall": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "polished_blackstone_bricks": {
+    "dimensions": ["nether"],
+    "craftable": true
+  },
+  "polished_blackstone_button": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "polished_blackstone_pressure_plate": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "polished_blackstone_slab": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "polished_blackstone_stairs": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "polished_blackstone_wall": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "polished_deepslate": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "polished_deepslate_slab": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "polished_deepslate_stairs": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "polished_deepslate_wall": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "polished_diorite": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "polished_diorite_slab": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "polished_diorite_stairs": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "polished_granite": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "polished_granite_slab": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "polished_granite_stairs": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "polished_tuff": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "polished_tuff_slab": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "polished_tuff_stairs": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "polished_tuff_wall": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "poppy": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "potatoes": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "potted_acacia_sapling": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "potted_allium": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "potted_azalea_bush": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "potted_azure_bluet": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "potted_bamboo": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "potted_birch_sapling": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "potted_blue_orchid": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "potted_brown_mushroom": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "potted_cactus": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "potted_cherry_sapling": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "potted_cornflower": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "potted_crimson_fungus": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "potted_crimson_roots": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "potted_dandelion": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "potted_dark_oak_sapling": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "potted_dead_bush": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "potted_fern": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "potted_flowering_azalea_bush": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "potted_jungle_sapling": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "potted_lily_of_the_valley": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "potted_mangrove_propagule": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "potted_oak_sapling": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "potted_orange_tulip": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "potted_oxeye_daisy": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "potted_pink_tulip": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "potted_poppy": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "potted_red_mushroom": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "potted_red_tulip": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "potted_spruce_sapling": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "potted_torchflower": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "potted_warped_fungus": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "potted_warped_roots": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "potted_white_tulip": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "potted_wither_rose": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "powder_snow": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "powder_snow_cauldron": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "powered_rail": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "prismarine": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "prismarine_brick_slab": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "prismarine_brick_stairs": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "prismarine_bricks": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "prismarine_slab": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "prismarine_stairs": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "prismarine_wall": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "pumpkin": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "pumpkin_stem": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "purple_banner": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "purple_bed": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "purple_candle": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "purple_candle_cake": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "purple_carpet": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "purple_concrete": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "purple_concrete_powder": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "purple_glazed_terracotta": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "purple_shulker_box": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "purple_stained_glass": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "purple_stained_glass_pane": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "purple_terracotta": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "purple_wall_banner": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "purple_wool": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "purpur_block": {
+    "dimensions": ["end"],
+    "craftable": true
+  },
+  "purpur_pillar": {
+    "dimensions": ["end"],
+    "craftable": true
+  },
+  "purpur_slab": {
+    "dimensions": ["end"],
+    "craftable": true
+  },
+  "purpur_stairs": {
+    "dimensions": ["end"],
+    "craftable": true
+  },
+  "quartz_block": {
+    "dimensions": ["nether"],
+    "craftable": true
+  },
+  "quartz_bricks": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "quartz_pillar": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "quartz_slab": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "quartz_stairs": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "rail": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "raw_copper_block": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "raw_gold_block": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "raw_iron_block": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "red_banner": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "red_bed": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "red_candle": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "red_candle_cake": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "red_carpet": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "red_concrete": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "red_concrete_powder": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "red_glazed_terracotta": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "red_mushroom": {
+    "dimensions": ["overworld", "nether"],
+    "craftable": false
+  },
+  "red_mushroom_block": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "red_nether_brick_slab": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "red_nether_brick_stairs": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "red_nether_brick_wall": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "red_nether_bricks": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "red_sand": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "red_sandstone": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "red_sandstone_slab": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "red_sandstone_stairs": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "red_sandstone_wall": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "red_shulker_box": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "red_stained_glass": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "red_stained_glass_pane": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "red_terracotta": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "red_tulip": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "red_wall_banner": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "red_wool": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "redstone_block": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "redstone_lamp": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "redstone_ore": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "redstone_torch": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "redstone_wall_torch": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "redstone_wire": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "reinforced_deepslate": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "repeater": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "repeating_command_block": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "respawn_anchor": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "rooted_dirt": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "rose_bush": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "sand": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "sandstone": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "sandstone_slab": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "sandstone_stairs": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "sandstone_wall": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "scaffolding": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "sculk": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "sculk_catalyst": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "sculk_sensor": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "sculk_shrieker": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "sculk_vein": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "sea_lantern": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "sea_pickle": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "seagrass": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "short_grass": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "shroomlight": {
+    "dimensions": ["nether"],
+    "craftable": false
+  },
+  "shulker_box": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "skeleton_skull": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "skeleton_wall_skull": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "slime_block": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "small_amethyst_bud": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "small_dripleaf": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "smithing_table": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "smoker": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "smooth_basalt": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "smooth_quartz": {
+    "dimensions": ["nether"],
+    "craftable": false
+  },
+  "smooth_quartz_slab": {
+    "dimensions": ["nether"],
+    "craftable": true
+  },
+  "smooth_quartz_stairs": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "smooth_red_sandstone": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "smooth_red_sandstone_slab": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "smooth_red_sandstone_stairs": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "smooth_sandstone": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "smooth_sandstone_slab": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "smooth_sandstone_stairs": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "smooth_stone": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "smooth_stone_slab": {
+    "dimensions": ["overworld", "nether"],
+    "craftable": true
+  },
+  "sniffer_egg": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "snow": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "snow_block": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "soul_campfire": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "soul_fire": {
+    "dimensions": ["overworld", "nether"],
+    "craftable": false
+  },
+  "soul_lantern": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "soul_sand": {
+    "dimensions": ["overworld", "nether"],
+    "craftable": false
+  },
+  "soul_soil": {
+    "dimensions": ["nether"],
+    "craftable": false
+  },
+  "soul_torch": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "soul_wall_torch": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "spawner": {
+    "dimensions": ["overworld", "nether"],
+    "craftable": false
+  },
+  "sponge": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "spore_blossom": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "spruce_button": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "spruce_door": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "spruce_fence": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "spruce_fence_gate": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "spruce_hanging_sign": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "spruce_leaves": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "spruce_log": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "spruce_planks": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "spruce_pressure_plate": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "spruce_sapling": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "spruce_sign": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "spruce_slab": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "spruce_stairs": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "spruce_trapdoor": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "spruce_wall_hanging_sign": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "spruce_wall_sign": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "spruce_wood": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "sticky_piston": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "stone": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "stone_brick_slab": {
+    "dimensions": ["overworld", "nether"],
+    "craftable": true
+  },
+  "stone_brick_stairs": {
+    "dimensions": ["overworld", "nether"],
+    "craftable": true
+  },
+  "stone_brick_wall": {
+    "dimensions": ["overworld", "nether"],
+    "craftable": true
+  },
+  "stone_bricks": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "stone_button": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "stone_pressure_plate": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "stone_slab": {
+    "dimensions": ["overworld", "nether"],
+    "craftable": true
+  },
+  "stone_stairs": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "stonecutter": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "stripped_acacia_log": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "stripped_acacia_wood": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "stripped_bamboo_block": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "stripped_birch_log": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "stripped_birch_wood": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "stripped_cherry_log": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "stripped_cherry_wood": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "stripped_crimson_hyphae": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "stripped_crimson_stem": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "stripped_dark_oak_log": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "stripped_dark_oak_wood": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "stripped_jungle_log": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "stripped_jungle_wood": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "stripped_mangrove_log": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "stripped_mangrove_wood": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "stripped_oak_log": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "stripped_oak_wood": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "stripped_spruce_log": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "stripped_spruce_wood": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "stripped_warped_hyphae": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "stripped_warped_stem": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "structure_block": {
+    "dimensions": ["overworld", "end"],
+    "craftable": false
+  },
+  "structure_void": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "sugar_cane": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "sunflower": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "suspicious_gravel": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "suspicious_sand": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "sweet_berry_bush": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "tall_grass": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "tall_seagrass": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "target": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "terracotta": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "tinted_glass": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "tnt": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "torch": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "torchflower": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "torchflower_crop": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "trapped_chest": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "trial_spawner": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "tripwire": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "tripwire_hook": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "tube_coral": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "tube_coral_block": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "tube_coral_fan": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "tube_coral_wall_fan": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "tuff": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "tuff_brick_slab": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "tuff_brick_stairs": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "tuff_brick_wall": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "tuff_bricks": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "tuff_slab": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "tuff_stairs": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "tuff_wall": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "turtle_egg": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "twisting_vines": {
+    "dimensions": ["nether"],
+    "craftable": false
+  },
+  "twisting_vines_plant": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "vault": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "verdant_froglight": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "vine": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "void_air": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "wall_torch": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "warped_button": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "warped_door": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "warped_fence": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "warped_fence_gate": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "warped_fungus": {
+    "dimensions": ["nether"],
+    "craftable": false
+  },
+  "warped_hanging_sign": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "warped_hyphae": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "warped_nylium": {
+    "dimensions": ["nether"],
+    "craftable": false
+  },
+  "warped_planks": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "warped_pressure_plate": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "warped_roots": {
+    "dimensions": ["nether"],
+    "craftable": false
+  },
+  "warped_sign": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "warped_slab": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "warped_stairs": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "warped_stem": {
+    "dimensions": ["nether"],
+    "craftable": false
+  },
+  "warped_trapdoor": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "warped_wall_hanging_sign": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "warped_wall_sign": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "warped_wart_block": {
+    "dimensions": ["nether"],
+    "craftable": false
+  },
+  "water": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "water_cauldron": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "waxed_chiseled_copper": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "waxed_copper_block": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "waxed_copper_bulb": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "waxed_copper_door": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "waxed_copper_grate": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "waxed_copper_trapdoor": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "waxed_cut_copper": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "waxed_cut_copper_slab": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "waxed_cut_copper_stairs": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "waxed_exposed_chiseled_copper": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "waxed_exposed_copper": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "waxed_exposed_copper_bulb": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "waxed_exposed_copper_door": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "waxed_exposed_copper_grate": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "waxed_exposed_copper_trapdoor": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "waxed_exposed_cut_copper": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "waxed_exposed_cut_copper_slab": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "waxed_exposed_cut_copper_stairs": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "waxed_oxidized_chiseled_copper": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "waxed_oxidized_copper": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "waxed_oxidized_copper_bulb": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "waxed_oxidized_copper_door": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "waxed_oxidized_copper_grate": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "waxed_oxidized_copper_trapdoor": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "waxed_oxidized_cut_copper": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "waxed_oxidized_cut_copper_slab": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "waxed_oxidized_cut_copper_stairs": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "waxed_weathered_chiseled_copper": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "waxed_weathered_copper": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "waxed_weathered_copper_bulb": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "waxed_weathered_copper_door": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "waxed_weathered_copper_grate": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "waxed_weathered_copper_trapdoor": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "waxed_weathered_cut_copper": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "waxed_weathered_cut_copper_slab": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "waxed_weathered_cut_copper_stairs": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "weathered_chiseled_copper": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "weathered_copper": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "weathered_copper_bulb": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "weathered_copper_door": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "weathered_copper_grate": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "weathered_copper_trapdoor": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "weathered_cut_copper": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "weathered_cut_copper_slab": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "weathered_cut_copper_stairs": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "weeping_vines": {
+    "dimensions": ["nether"],
+    "craftable": false
+  },
+  "weeping_vines_plant": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "wet_sponge": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "wheat": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "white_banner": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "white_bed": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "white_candle": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "white_candle_cake": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "white_carpet": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "white_concrete": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "white_concrete_powder": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "white_glazed_terracotta": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "white_shulker_box": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "white_stained_glass": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "white_stained_glass_pane": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "white_terracotta": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "white_tulip": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "white_wall_banner": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "white_wool": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "wither_rose": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "wither_skeleton_skull": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "wither_skeleton_wall_skull": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "yellow_banner": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "yellow_bed": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "yellow_candle": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "yellow_candle_cake": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "yellow_carpet": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "yellow_concrete": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "yellow_concrete_powder": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "yellow_glazed_terracotta": {
+    "dimensions": ["overworld"],
+    "craftable": false
+  },
+  "yellow_shulker_box": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "yellow_stained_glass": {
+    "dimensions": [],
+    "craftable": true
+  },
+  "yellow_stained_glass_pane": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "yellow_terracotta": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "yellow_wall_banner": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "yellow_wool": {
+    "dimensions": ["overworld"],
+    "craftable": true
+  },
+  "zombie_head": {
+    "dimensions": [],
+    "craftable": false
+  },
+  "zombie_wall_head": {
+    "dimensions": [],
+    "craftable": false
+  }
+}
