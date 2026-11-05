@@ -19,6 +19,7 @@
   --color-mc-splash: #ffff55;
   --color-mc-correct: #3d8a2c;
   --color-mc-wrong: #a3332b;
+  --color-mc-partial: #c7781e;
 }
 
 :root {
@@ -141,6 +142,11 @@ body::before {
 
 .mc-cell.is-wrong {
   --cell-bg: var(--color-mc-wrong);
+  --cell-shadow: var(--raised-shadow);
+}
+
+.mc-cell.is-partial {
+  --cell-bg: var(--color-mc-partial);
   --cell-shadow: var(--raised-shadow);
 }
 
@@ -591,6 +597,11 @@ body::before {
   background: #7b86c9;
   box-shadow: inset 2px 2px 0 #bcc4f0, inset -2px -3px 0 #4f5893;
   outline: none;
+}
+
+.mc-button--share {
+  background: #2f8f46;
+  box-shadow: inset 2px 2px 0 #6fd08a, inset -2px -3px 0 #1d5c2c;
 }
 
 .mc-button:disabled {

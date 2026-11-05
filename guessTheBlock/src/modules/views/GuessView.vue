@@ -19,7 +19,7 @@
       v-for="(cell, i) in cells"
       :key="cell.attr.key"
       class="mc-cell"
-      :class="[stateClass(cell.correct), { reveal: animate }]"
+      :class="[stateClass(cell.correct, cell.partial), { reveal: animate }]"
       :style="{ '--i': i + 1, '--j': i + 1 }"
       :title="`${cell.attr.label}: ${cell.text}${cell.hint}`"
     >
@@ -96,12 +96,13 @@ const nameCorrect = computed(() =>
 
 const cells = computed(() =>
   ATTRIBUTES.map((attr) => {
-    const { correct, direction } = props.randomBlock
+    const { correct, partial, direction } = props.randomBlock
       ? compareAttribute(attr, props.selectedBlock, props.randomBlock)
-      : { correct: undefined, direction: null };
+      : { correct: undefined, partial: false, direction: null };
     return {
       attr,
       correct,
+      partial,
       direction,
       text: formatAttribute(attr, props.selectedBlock),
       hint: direction
@@ -114,6 +115,9 @@ const cells = computed(() =>
 /** Copies stacked to give the tool sprite its thickness. */
 const TOOL_LAYERS = 6;
 
-const stateClass = (correct: boolean | undefined) =>
-  correct === undefined ? "" : correct ? "is-correct" : "is-wrong";
+const stateClass = (correct: boolean | undefined, partial = false) => {
+  if (correct === undefined) return "";
+  if (correct) return "is-correct";
+  return partial ? "is-partial" : "is-wrong";
+};
 </script>

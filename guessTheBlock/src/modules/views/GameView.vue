@@ -96,8 +96,10 @@
 
       <p class="mc-shadow max-w-xl text-center text-xs leading-relaxed">
         <span class="text-[#7dd65a]">Green</span> means the value matches,
-        <span class="text-[#ff7a70]">red</span> means it doesn't. Arrows tell
-        you whether the hidden block's value is higher or lower.
+        <span class="text-[#ff7a70]">red</span> means it doesn't and
+        <span class="text-[#ffb347]">orange</span> means the right tool in
+        another material. Arrows tell you whether the hidden block's value is
+        higher or lower.
       </p>
     </template>
 
@@ -108,6 +110,7 @@
       :target="target"
       :won="result === 'won'"
       :attempts="attempts"
+      :guesses="guesses.slice(0, -1)"
       :mode="mode"
       @navigate="go"
       @close="showResult = false"

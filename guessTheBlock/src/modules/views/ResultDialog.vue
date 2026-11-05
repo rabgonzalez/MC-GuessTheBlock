@@ -46,6 +46,19 @@
         </div>
       </div>
       <div class="flex flex-wrap justify-center gap-3">
+        <a
+          class="mc-button mc-button--share"
+          :href="whatsappUrl"
+          target="_blank"
+          rel="noopener"
+        >
+          Share on WhatsApp
+        </a>
+        <button class="mc-button" @click="copy">
+          {{ copied ? "Copied!" : "Copy result" }}
+        </button>
+      </div>
+      <div class="flex flex-wrap justify-center gap-3">
         <button
           ref="primary"
           class="mc-button"
@@ -69,6 +82,7 @@ import GuessView from "./GuessView.vue";
 import { Block } from "../interfaces/block.interface";
 import { GameMode } from "../composables/useGuessGame";
 import { todayKey } from "../data/daily";
+import { shareText } from "../data/share";
 
 const props = defineProps<{
   /** Block the player had to guess */
@@ -77,6 +91,8 @@ const props = defineProps<{
   won: boolean;
   /** Number of guesses made */
   attempts: number;
+  /** The player's guesses, newest first (without the hint row) */
+  guesses: Block[];
   /** Mode of the finished game */
   mode: GameMode;
 }>();
@@ -93,6 +109,25 @@ const title = computed(() =>
 const isToday = computed(
   () => props.mode.kind === "daily" && props.mode.day === todayKey()
 );
+
+/** Result as emoji squares, ready to paste in a chat. */
+const text = computed(() =>
+  shareText(props.mode, props.target, props.guesses, props.won)
+);
+const whatsappUrl = computed(
+  () => `https://wa.me/?text=${encodeURIComponent(text.value)}`
+);
+
+const copied = ref(false);
+async function copy() {
+  try {
+    await navigator.clipboard.writeText(text.value);
+    copied.value = true;
+    window.setTimeout(() => (copied.value = false), 2000);
+  } catch {
+    window.prompt("Copy your result:", text.value);
+  }
+}
 
 const primary = ref<HTMLButtonElement | null>(null);
 onMounted(() => primary.value?.focus());
