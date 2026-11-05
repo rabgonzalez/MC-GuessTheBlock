@@ -27,7 +27,7 @@
     />
     <div
       v-if="open && results.length"
-      class="mc-panel absolute top-full z-20 mt-2 max-h-[min(60vh,32rem)] max-w-full overflow-auto p-3 shadow-2xl"
+      class="mc-panel mc-dropdown absolute top-full z-20 mt-2 max-h-[min(60vh,32rem)] max-w-full overflow-auto p-3 shadow-2xl"
     >
       <ul id="block-results" role="listbox" class="board">
         <BoardHeader />

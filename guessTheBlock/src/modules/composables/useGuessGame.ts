@@ -8,9 +8,9 @@ import { GameResult, loadProgress, saveProgress } from "./useProgress";
 export type { GameResult } from "./useProgress";
 
 /** Delay between each cell reveal; keep in sync with --reveal-step in main.css. */
-export const REVEAL_STEP_MS = 280;
-/** Time until the whole row (name cell is last) has been revealed. */
-export const REVEAL_TOTAL_MS = REVEAL_STEP_MS * ATTRIBUTES.length + 450;
+export const REVEAL_STEP_MS = 300;
+/** Time until the whole row (name cell is last) has flipped and popped. */
+export const REVEAL_TOTAL_MS = REVEAL_STEP_MS * ATTRIBUTES.length + 1200;
 
 /** Starting hint row, shown before the first guess. */
 const HINT: Block = {

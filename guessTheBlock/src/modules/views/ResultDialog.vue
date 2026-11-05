@@ -11,7 +11,16 @@
       aria-labelledby="result-title"
     >
       <h2 id="result-title" class="text-2xl sm:text-3xl">
-        {{ won ? "You found it!" : "Better luck next time" }}
+        <span class="sr-only">{{ title }}</span>
+        <span aria-hidden="true">
+          <span
+            v-for="(char, k) in title"
+            :key="k"
+            :class="{ 'wave-letter': won }"
+            :style="{ '--k': k }"
+            >{{ char === " " ? "\u00a0" : char }}</span
+          >
+        </span>
       </h2>
       <p class="text-base">
         <template v-if="won">
@@ -27,7 +36,10 @@
           A new block arrives tomorrow.
         </template>
       </p>
-      <div class="max-w-full overflow-x-auto p-1">
+      <div
+        class="max-w-full overflow-x-auto p-1"
+        :style="{ '--reveal-step': '90ms' }"
+      >
         <div class="board">
           <BoardHeader />
           <GuessView :selected-block="target" :random-block="target" />
@@ -73,6 +85,10 @@ const emit = defineEmits<{
   navigate: [route: string];
   close: [];
 }>();
+
+const title = computed(() =>
+  props.won ? "You found it!" : "Better luck next time"
+);
 
 const isToday = computed(
   () => props.mode.kind === "daily" && props.mode.day === todayKey()
