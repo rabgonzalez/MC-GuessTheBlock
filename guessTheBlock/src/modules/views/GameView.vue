@@ -1,7 +1,12 @@
 <template>
   <main class="flex min-h-screen flex-col items-center gap-8 px-4 py-10">
     <header class="flex flex-col items-center gap-3 text-center">
-      <h1 class="mc-title text-4xl sm:text-6xl">Guess the Block!</h1>
+      <h1
+        class="mc-title text-4xl sm:text-6xl"
+        :class="{ 'title-win': celebrating }"
+      >
+        Guess the Block!
+      </h1>
       <p v-if="status === 'ready'" class="mc-splash inline-block text-sm">
         {{ subtitle }}
       </p>
@@ -49,7 +54,7 @@
       />
 
       <div class="flex flex-wrap items-center justify-center gap-3 text-sm">
-        <span class="mc-shadow">
+        <span :key="attempts" class="mc-shadow bump">
           {{ attempts }} {{ attempts === 1 ? "attempt" : "attempts" }}
         </span>
         <button v-if="!result" class="mc-button" @click="giveUp">
@@ -71,15 +76,18 @@
 
       <section
         class="mc-panel max-w-full overflow-x-auto p-3 sm:p-4"
+        :class="{ shake: shaking }"
         aria-label="Your guesses"
+        @animationend.self="shaking = false"
       >
         <div class="board">
           <BoardHeader />
           <GuessView
-            v-for="block in guesses"
+            v-for="(block, index) in guesses"
             :key="`${gameId}-${block.name}`"
             :selected-block="block"
             :random-block="target"
+            :celebrate="celebrating && index === 0"
           />
         </div>
       </section>
@@ -90,6 +98,8 @@
         you whether the hidden block's value is higher or lower.
       </p>
     </template>
+
+    <CelebrationBurst v-if="celebrating" :key="`burst-${gameId}`" />
 
     <ResultDialog
       v-if="showResult && target && mode && result"
@@ -113,6 +123,7 @@ import {
   watch,
 } from "vue";
 import BoardHeader from "./BoardHeader.vue";
+import CelebrationBurst from "./CelebrationBurst.vue";
 import GuessView from "./GuessView.vue";
 import HistoryView from "./HistoryView.vue";
 import ResultDialog from "./ResultDialog.vue";
@@ -141,7 +152,16 @@ const {
 const search = ref<InstanceType<typeof SelectBlockView> | null>(null);
 const view = ref<"game" | "history">("game");
 const showResult = ref(false);
-let timer: number | undefined;
+const celebrating = ref(false);
+const shaking = ref(false);
+let timers: number[] = [];
+
+const clearTimers = () => {
+  timers.forEach((t) => window.clearTimeout(t));
+  timers = [];
+};
+const later = (ms: number, fn: () => void) =>
+  timers.push(window.setTimeout(fn, ms));
 
 const isToday = computed(
   () => mode.value?.kind === "daily" && mode.value.day === todayKey()
@@ -150,6 +170,9 @@ const isToday = computed(
 const subtitle = computed(() => {
   if (view.value === "history") {
     return `${blocks.value.length} blocks · Minecraft ${version.value}`;
+  }
+  if (celebrating.value) {
+    return `GG! Found in ${attempts.value}`;
   }
   if (mode.value?.kind === "daily") {
     const label = isToday.value ? "Today" : formatDay(mode.value.day);
@@ -173,8 +196,9 @@ const links = computed(() => [
  */
 async function applyRoute() {
   if (status.value !== "ready") return;
-  window.clearTimeout(timer);
+  clearTimers();
   showResult.value = false;
+  celebrating.value = false;
   const route = window.location.hash.replace(/^#\/?/, "");
   if (route === "history") {
     view.value = "history";
@@ -205,17 +229,27 @@ async function retry() {
   applyRoute();
 }
 
-// Wait for the winning row to finish its reveal before showing the dialog.
+// Win: let the row finish its reveal, then celebrate, then show the dialog.
+// Give up: shake the board and show the dialog.
 watch(finishedCount, () => {
-  window.clearTimeout(timer);
+  clearTimers();
   const reducedMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)"
   ).matches;
-  const delay = result.value === "won" && !reducedMotion ? REVEAL_TOTAL_MS : 0;
-  timer = window.setTimeout(() => (showResult.value = true), delay);
+  if (result.value === "won") {
+    const reveal = reducedMotion ? 0 : REVEAL_TOTAL_MS;
+    later(reveal, () => (celebrating.value = true));
+    later(reveal + (reducedMotion ? 0 : 1600), () => (showResult.value = true));
+  } else {
+    shaking.value = !reducedMotion;
+    later(reducedMotion ? 0 : 600, () => (showResult.value = true));
+  }
 });
 
 watch(status, (value) => value === "ready" && applyRoute());
 onMounted(() => window.addEventListener("hashchange", applyRoute));
-onBeforeUnmount(() => window.removeEventListener("hashchange", applyRoute));
+onBeforeUnmount(() => {
+  window.removeEventListener("hashchange", applyRoute);
+  clearTimers();
+});
 </script>

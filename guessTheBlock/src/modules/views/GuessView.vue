@@ -1,9 +1,9 @@
 <template>
-  <div class="board-row">
+  <div class="board-row" :class="{ celebrate }">
     <div
-      class="mc-cell"
+      class="mc-cell is-name"
       :class="[stateClass(nameCorrect), { reveal: animate }]"
-      :style="{ '--i': ATTRIBUTES.length }"
+      :style="{ '--i': ATTRIBUTES.length, '--j': 0 }"
       :title="selectedBlock.displayName"
     >
       <span class="mc-cell__value line-clamp-4">
@@ -15,12 +15,13 @@
       :key="cell.attr.key"
       class="mc-cell"
       :class="[stateClass(cell.correct), { reveal: animate }]"
-      :style="{ '--i': i }"
+      :style="{ '--i': i, '--j': i + 1 }"
       :title="`${cell.attr.label}: ${cell.text}${cell.hint}`"
     >
       <img
         v-if="cell.direction"
         class="mc-cell__arrow pixelated"
+        :class="`is-${cell.direction}`"
         :src="asset(`img/${cell.direction}.png`)"
         alt=""
       />
@@ -52,10 +53,12 @@ const props = withDefaults(
     selectedBlock: Block;
     /** Block to compare against. Without it the row is neutral (search result). */
     randomBlock?: Block | null;
-    /** Play the flip-in reveal animation when mounted */
+    /** Play the flip reveal animation when mounted */
     animate?: boolean;
+    /** Winning row: jump in a wave and glow */
+    celebrate?: boolean;
   }>(),
-  { randomBlock: null, animate: true }
+  { randomBlock: null, animate: true, celebrate: false }
 );
 
 const nameCorrect = computed(() =>
