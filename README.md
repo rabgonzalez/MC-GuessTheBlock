@@ -10,9 +10,10 @@
   - [Guess the Block!](#guess-the-block)
   - [Index](#index)
     - [Description](#description)
+    - [Game modes](#game-modes)
+    - [Data source](#data-source)
     - [How to use](#how-to-use)
-      - [Open Json Server](#open-json-server)
-      - [Running the app](#running-the-app)
+    - [Deployment](#deployment)
     - [VueDocGen documentation](#vuedocgen-documentation)
 
 ### Description
@@ -32,28 +33,27 @@
     <img src="./readme/img/guess-the-block-win.gif" alt="guess-the-block-win">
 </div>
 
-### How to use
-#### Open Json Server
-> ./jsonServer.sh 
+### Game modes
+- **Daily** (default): one block per day, the same for every player. Your progress is saved in the browser.
+- **History**: replay any previous day (`#/daily/YYYY-MM-DD`) and see your stats.
+- **Random**: endless games with a random block.
 
-<details open>
-<summary>Result</summary>
+### Data source
+The block data comes from [minecraft-data](https://github.com/PrismarineJS/minecraft-data) (PrismarineJS).
+`FakeApi.json` is an exact copy of `pc/1.21.1`. At build time `scripts/build-data.mjs` turns it into a small
+static file (`public/data/blocks.json`, ~160 KB, 912 obtainable blocks), so the app needs no server.
 
 ```bash
-  \{^_^}/ hi!
-
-  Loading ./FakeApi.json
-  Done
-
-  Resources
-  http://localhost:3000/blocks
-  http://localhost:3000/items
+npm run data            # from ../FakeApi.json (Minecraft 1.21.1)
+npm run data -- 1.21.11 # download another version from minecraft-data
 ```
-</details>
 
-#### Running the app
+> [!NOTE]
+> Changing the dataset changes which block belongs to each day.
+
+### How to use
 > [!IMPORTANT]
-> cd guessTheBlock
+> cd guessTheBlock && npm install
 
 - **Web**
 > npm run serve
@@ -66,7 +66,16 @@
 - **Windows**
 > npm run electron:build -- --windows
 
+`./jsonServer.sh` still serves the raw API (`/blocks`, `/items`) with json-server if you want to explore it, but the app no longer needs it.
+
+### Deployment
+Every push to `main` builds the web version and publishes it to GitHub Pages (`.github/workflows/deploy.yml`).
+Enable it once in **Settings → Pages → Source: GitHub Actions**.
+
 ### VueDocGen documentation
 - [GameView](guessTheBlock/docs/components/views/GameView.md)
 - [GuessView](guessTheBlock/docs/components/views/GuessView.md)
 - [SelectBlockView](guessTheBlock/docs/components/views/SelectBlockView.md)
+- [HistoryView](guessTheBlock/docs/components/views/HistoryView.md)
+- [ResultDialog](guessTheBlock/docs/components/views/ResultDialog.md)
+- [BoardHeader](guessTheBlock/docs/components/views/BoardHeader.md)

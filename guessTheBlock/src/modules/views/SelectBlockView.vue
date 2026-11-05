@@ -1,109 +1,112 @@
 <template>
-  <div class="flex justify-center pt-10">
+  <div class="relative flex w-full flex-col items-center">
+    <label for="block-search" class="sr-only">Search a block</label>
     <input
+      id="block-search"
+      ref="input"
+      v-model="query"
+      class="mc-input max-w-xl"
       type="text"
-      v-model="displayName"
-      placeholder="Air"
-      @input="fetchBlocksByName(displayName)"
-      @keydown.enter="selectFirst"
-      class="flex text-white bg-[#8B8B8B] border-3 border-[#A6A6A6] rounded-md w-[calc(700vw/20)] mb-10 p-1 text-[calc(70vw/50)] justify-center"
+      role="combobox"
+      autocomplete="off"
+      spellcheck="false"
+      aria-autocomplete="list"
+      aria-controls="block-results"
+      :aria-expanded="results.length > 0"
+      :aria-activedescendant="
+        results.length ? `block-option-${active}` : undefined
+      "
+      :disabled="disabled"
+      :placeholder="disabled ? 'Game over' : 'Type a block name… (e.g. Stone)'"
+      @keydown.down.prevent="move(1)"
+      @keydown.up.prevent="move(-1)"
+      @keydown.enter.prevent="selectActive"
+      @keydown.esc="query = ''"
+      @blur="open = false"
+      @focus="open = true"
     />
-  </div>
-  <div class="flex flex-row justify-center gap-4 m-auto max-w-290">
-    <h1
-      class="w-[calc(350vw/50)] text-center justify-center text-[calc(65vw/50)] text-white"
+    <div
+      v-if="open && results.length"
+      class="mc-panel absolute top-full z-20 mt-2 max-h-[min(60vh,32rem)] max-w-full overflow-auto p-3 shadow-2xl"
     >
-      Name
-    </h1>
-    <h1
-      class="w-[calc(350vw/50)] text-center justify-center text-[calc(65vw/50)] text-white"
-    >
-      Stack
-    </h1>
-    <h1
-      class="w-[calc(350vw/50)] text-center justify-center text-[calc(65vw/50)] text-white"
-    >
-      Solid
-    </h1>
-    <h1
-      class="w-[calc(350vw/50)] text-center justify-center text-[calc(65vw/50)] text-white"
-    >
-      Light
-    </h1>
-    <h1
-      class="w-[calc(350vw/50)] text-center justify-center text-[calc(65vw/50)] text-white"
-    >
-      Crossable
-    </h1>
-    <h1
-      class="w-[calc(350vw/50)] text-center justify-center text-[calc(65vw/50)] text-white"
-    >
-      Hardness
-    </h1>
-    <h1
-      class="w-[calc(350vw/50)] text-center justify-center text-[calc(65vw/50)] text-white"
-    >
-      Tool
-    </h1>
-    <h1
-      class="w-[calc(350vw/50)] text-center justify-center text-[calc(65vw/50)] text-white"
-    >
-      Resistance
-    </h1>
-  </div>
-  <section
-    v-if="searchedBlocks && searchedBlocks.length > 0"
-    class="flex justify-center"
-  >
-    <div class="max-w-300 overflow-auto h-100 mb-5 content-center">
-      <div v-for="block in searchedBlocks" :key="block.name">
-        <GuessView
-          v-if="selectedBlocks?.some((s) => s.displayName != block.displayName)"
-          :selected-block="block"
-          @click="selectByClick(block)"
-        />
-      </div>
+      <ul id="block-results" role="listbox" class="board">
+        <BoardHeader />
+        <li
+          v-for="(block, i) in results"
+          :id="`block-option-${i}`"
+          :key="block.name"
+          role="option"
+          :aria-selected="i === active"
+          class="mc-option col-span-full grid grid-cols-subgrid"
+          @mousedown.prevent="select(block)"
+          @mousemove="active = i"
+        >
+          <GuessView :selected-block="block" :animate="false" />
+        </li>
+      </ul>
     </div>
-  </section>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed, ref, watch } from "vue";
+import BoardHeader from "./BoardHeader.vue";
 import GuessView from "./GuessView.vue";
-import { useGuessGame } from "../composables/useGuessGame";
+import { searchBlocks } from "../composables/useBlocks";
 import { Block } from "../interfaces/block.interface";
 
-const { searchedBlocks, fetchBlocksByName, selectedBlocks } = useGuessGame();
-const displayName = ref("");
+const props = defineProps<{
+  /** All guessable blocks */
+  blocks: Block[];
+  /** Names of blocks already guessed, hidden from the results */
+  excluded: Set<string>;
+  /** Disable the input (game over) */
+  disabled?: boolean;
+}>();
 
-/**
- * Select the first block of the searched blocks
- */
 const emit = defineEmits<{
   selectBlock: [block: Block];
 }>();
 
-/**
- * Select the first block of the searched blocks
- */
-const selectFirst = () => {
-  if (searchedBlocks.value && searchedBlocks.value?.length > 0) {
-    emit("selectBlock", searchedBlocks.value[0]);
-    fetchBlocksByName("");
-    displayName.value = "";
-  }
-};
+const input = ref<HTMLInputElement | null>(null);
+const query = ref("");
+const active = ref(0);
+const open = ref(true);
+
+const results = computed(() =>
+  searchBlocks(props.blocks, query.value, props.excluded)
+);
+
+watch(query, () => {
+  active.value = 0;
+  open.value = true;
+});
 
 /**
- * Select a block by click
+ * Move the highlighted result up or down
+ *
+ * @param step +1 or -1
+ */
+function move(step: number) {
+  const n = results.value.length;
+  if (n) active.value = (active.value + step + n) % n;
+}
+
+/**
+ * Emit the selected block and clear the search
  *
  * @param block to select
  */
-const selectByClick = (block: Block) => {
+function select(block: Block) {
   emit("selectBlock", block);
-  fetchBlocksByName("");
-  displayName.value = "";
-};
-</script>
+  query.value = "";
+}
 
-<style scoped></style>
+/** Select the highlighted result (the first one by default) */
+function selectActive() {
+  const block = results.value[active.value];
+  if (block) select(block);
+}
+
+defineExpose({ focus: () => input.value?.focus() });
+</script>

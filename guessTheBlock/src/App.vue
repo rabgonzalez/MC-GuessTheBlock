@@ -1,9 +1,7 @@
 <template>
-  <Game />
+  <GameView />
 </template>
 
 <script setup lang="ts">
-import Game from "./modules/views/GameView.vue";
+import GameView from "./modules/views/GameView.vue";
 </script>
-
-<style scoped></style>
