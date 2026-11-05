@@ -114,8 +114,9 @@ const isToday = computed(
 const text = computed(() =>
   shareText(props.mode, props.target, props.guesses, props.won)
 );
+// Not wa.me: its redirect re-encodes the text and breaks emoji ("????").
 const whatsappUrl = computed(
-  () => `https://wa.me/?text=${encodeURIComponent(text.value)}`
+  () => `https://api.whatsapp.com/send?text=${encodeURIComponent(text.value)}`
 );
 
 const copied = ref(false);

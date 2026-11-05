@@ -2,9 +2,7 @@ import { Block } from "../interfaces/block.interface";
 import { GameMode } from "../composables/useGuessGame";
 import { ATTRIBUTES, compareAttribute } from "./attributes";
 import { dayNumber } from "./daily";
-
-/** Where the game is published; used when running outside the web (Electron). */
-const PUBLIC_URL = "https://rabgonzalez.github.io/MC-GuessTheBlock/";
+import { PUBLIC_URL } from "./site";
 /** Longer games are shortened to the first and last rows. */
 const MAX_ROWS = 8;
 

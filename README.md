@@ -93,6 +93,15 @@ npm run models          # regenerate public/models/blocks.json
 Every push to `main` builds the web version and publishes it to GitHub Pages (`.github/workflows/deploy.yml`).
 Enable it once in **Settings → Pages → Source: GitHub Actions**.
 
+### Privacy & legal
+The game collects nothing: no accounts, cookies or analytics. Daily progress is kept in the browser's local
+storage and can be deleted from the privacy page (`#/privacy`), which also covers hosting, sharing and credits.
+
+© 2026 Jonay Contreras Rodríguez & Rubén Abreu González. All rights reserved.
+
+NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.
+Block textures and models belong to Mojang; block data comes from [minecraft-data](https://github.com/PrismarineJS/minecraft-data).
+
 ### VueDocGen documentation
 - [GameView](guessTheBlock/docs/components/views/GameView.md)
 - [GuessView](guessTheBlock/docs/components/views/GuessView.md)
@@ -100,3 +109,6 @@ Enable it once in **Settings → Pages → Source: GitHub Actions**.
 - [HistoryView](guessTheBlock/docs/components/views/HistoryView.md)
 - [ResultDialog](guessTheBlock/docs/components/views/ResultDialog.md)
 - [BoardHeader](guessTheBlock/docs/components/views/BoardHeader.md)
+- [BlockModel](guessTheBlock/docs/components/views/BlockModel.md)
+- [PrivacyView](guessTheBlock/docs/components/views/PrivacyView.md)
+- [SiteFooter](guessTheBlock/docs/components/views/SiteFooter.md)
