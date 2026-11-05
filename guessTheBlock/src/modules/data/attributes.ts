@@ -5,18 +5,25 @@ export type AttributeKind = "number" | "boolean" | "tool";
 export interface Attribute {
   key: Exclude<keyof Block, "name" | "displayName">;
   label: string;
+  /** Column label on narrow screens */
+  short: string;
   kind: AttributeKind;
 }
 
 /** Columns shown after the block name, in order. */
 export const ATTRIBUTES: Attribute[] = [
-  { key: "stackSize", label: "Stack", kind: "number" },
-  { key: "solid", label: "Solid", kind: "boolean" },
-  { key: "emitLight", label: "Light", kind: "number" },
-  { key: "crossable", label: "Crossable", kind: "boolean" },
-  { key: "hardness", label: "Hardness", kind: "number" },
-  { key: "tool", label: "Tool", kind: "tool" },
-  { key: "blastResistance", label: "Resistance", kind: "number" },
+  { key: "stackSize", label: "Stack", short: "Stack", kind: "number" },
+  { key: "solid", label: "Solid", short: "Solid", kind: "boolean" },
+  { key: "emitLight", label: "Light", short: "Light", kind: "number" },
+  { key: "crossable", label: "Crossable", short: "Cross", kind: "boolean" },
+  { key: "hardness", label: "Hardness", short: "Hard", kind: "number" },
+  { key: "tool", label: "Tool", short: "Tool", kind: "tool" },
+  {
+    key: "blastResistance",
+    label: "Resistance",
+    short: "Resist",
+    kind: "number",
+  },
 ];
 
 export type Direction = "up" | "down" | null;

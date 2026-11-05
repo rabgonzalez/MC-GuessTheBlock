@@ -1,20 +1,22 @@
 <template>
   <section
-    class="mc-panel w-full max-w-3xl p-4 sm:p-6"
+    class="mc-panel w-full max-w-3xl p-3 sm:p-6"
     aria-labelledby="history-title"
   >
     <h2 id="history-title" class="mb-4 text-center text-xl sm:text-2xl">
       Previous days
     </h2>
 
-    <dl class="mb-6 grid grid-cols-3 gap-3 text-center">
+    <dl class="mb-4 grid grid-cols-3 gap-2 text-center sm:mb-6 sm:gap-3">
       <div v-for="stat in stats" :key="stat.label" class="mc-cell h-auto! py-3">
         <dt class="text-[0.7rem] opacity-90">{{ stat.label }}</dt>
         <dd class="text-xl">{{ stat.value }}</dd>
       </div>
     </dl>
 
-    <ul class="grid grid-cols-[repeat(auto-fill,minmax(9.5rem,1fr))] gap-3">
+    <ul
+      class="grid grid-cols-2 gap-2 sm:grid-cols-[repeat(auto-fill,minmax(9.5rem,1fr))] sm:gap-3"
+    >
       <li v-for="entry in entries" :key="entry.day">
         <a
           :href="`#/daily/${entry.day}`"

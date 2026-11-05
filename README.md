@@ -28,6 +28,7 @@
 - Compare the attributes:
   - Red means wrong
   - Green means right
+  - The block you guessed appears first, but whether it is the right one is only revealed after every attribute
 
 <div align="center">
     <img src="./readme/img/guess-the-block-win.gif" alt="guess-the-block-win">
@@ -55,6 +56,18 @@ npm run data -- 1.21.11 # download another version from minecraft-data
 
 > [!NOTE]
 > Changing the dataset changes which block belongs to each day.
+
+#### 3D blocks
+Every guess shows the block as a slowly spinning 3D model, and search results show it next to its name.
+`scripts/build-models.mjs` downloads the Minecraft 1.21.1 client jar (cached in `.cache/`), reads the
+blockstate and model JSON of each block in its default state and writes `public/models/blocks.json`
+(cuboids + inlined textures), which `BlockModel.vue` draws with CSS 3D transforms. Blocks drawn by a
+block entity renderer (chests, beds, heads, banners, shulker boxes…) are modelled by hand in
+`scripts/entity-models.mjs`. The output is committed, so builds don't need the jar.
+
+```bash
+npm run models          # regenerate public/models/blocks.json
+```
 
 ### How to use
 > [!IMPORTANT]

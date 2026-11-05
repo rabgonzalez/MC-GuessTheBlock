@@ -1,8 +1,10 @@
 <template>
-  <main class="flex min-h-screen flex-col items-center gap-8 px-4 py-10">
-    <header class="flex flex-col items-center gap-3 text-center">
+  <main
+    class="flex min-h-screen flex-col items-center gap-5 px-2 py-6 sm:gap-8 sm:px-4 sm:py-10"
+  >
+    <header class="flex flex-col items-center gap-2 text-center sm:gap-3">
       <h1
-        class="mc-title text-4xl sm:text-6xl"
+        class="mc-title text-[clamp(1.9rem,11vw,2.5rem)] leading-none sm:text-6xl"
         :class="{ 'title-win': celebrating }"
       >
         Guess the Block!
@@ -75,7 +77,7 @@
       </div>
 
       <section
-        class="mc-panel max-w-full overflow-x-auto p-3 sm:p-4"
+        class="mc-panel board-panel max-w-full overflow-x-auto"
         :class="{ shake: shaking }"
         aria-label="Your guesses"
         @animationend.self="shaking = false"
