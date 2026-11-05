@@ -1,0 +1,291 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Minecraft";
+  src: url("../assets/fonts/MinecraftRegular-Bmg3.otf") format("opentype");
+  font-display: swap;
+}
+
+@theme {
+  --font-mc: "Minecraft", ui-monospace, monospace;
+
+  /* Minecraft GUI palette */
+  --color-mc-panel: #c6c6c6;
+  --color-mc-slot: #8b8b8b;
+  --color-mc-light: #ffffff;
+  --color-mc-shade: #555555;
+  --color-mc-deep: #373737;
+  --color-mc-label: #3f3f3f;
+  --color-mc-splash: #ffff55;
+  --color-mc-correct: #3d8a2c;
+  --color-mc-wrong: #a3332b;
+}
+
+:root {
+  --cell: clamp(3.5rem, 9.5vw, 6.25rem);
+  --gap: clamp(0.25rem, 0.8vw, 0.6rem);
+  --bevel: 3px;
+  --reveal-step: 280ms;
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-mc);
+  color: var(--color-mc-light);
+  background-color: #2b1f17;
+  background-image: linear-gradient(rgb(0 0 0 / 0.35), rgb(0 0 0 / 0.6)),
+    url("../assets/background.png");
+  background-size: cover;
+  background-attachment: fixed;
+  -webkit-font-smoothing: none;
+}
+
+.pixelated {
+  image-rendering: pixelated;
+}
+
+.mc-shadow {
+  text-shadow: 0.125em 0.125em 0 var(--color-mc-label);
+}
+
+/* ---------- Title ---------- */
+
+.mc-title {
+  text-shadow: 0.08em 0.08em 0 var(--color-mc-label);
+  letter-spacing: 0.02em;
+}
+
+.mc-splash {
+  color: var(--color-mc-splash);
+  text-shadow: 0.125em 0.125em 0 #3f3f15;
+  transform: rotate(-4deg);
+  animation: splash 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes splash {
+  to {
+    transform: rotate(-4deg) scale(1.06);
+  }
+}
+
+/* ---------- Panels & slots ---------- */
+
+.mc-panel {
+  background: var(--color-mc-panel);
+  border: 2px solid #000;
+  border-radius: 6px;
+  box-shadow: inset var(--bevel) var(--bevel) 0 var(--color-mc-light),
+    inset calc(var(--bevel) * -1) calc(var(--bevel) * -1) 0
+      var(--color-mc-shade);
+  color: var(--color-mc-label);
+}
+
+.board {
+  display: grid;
+  grid-template-columns: calc(var(--cell) * 1.45) repeat(7, var(--cell));
+  gap: var(--gap);
+  width: max-content;
+}
+
+.board-row {
+  display: contents;
+}
+
+.board-label {
+  font-size: clamp(0.55rem, 1vw, 0.8rem);
+  text-align: center;
+  color: var(--color-mc-label);
+}
+
+.mc-cell {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: var(--cell);
+  padding: 0.3rem;
+  overflow: hidden;
+  font-size: clamp(0.6rem, 1.15vw, 0.95rem);
+  line-height: 1.15;
+  text-align: center;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  color: var(--color-mc-light);
+  text-shadow: 0.125em 0.125em 0 rgb(0 0 0 / 0.55);
+  background: var(--color-mc-slot);
+  box-shadow: inset var(--bevel) var(--bevel) 0 var(--color-mc-deep),
+    inset calc(var(--bevel) * -1) calc(var(--bevel) * -1) 0
+      var(--color-mc-light);
+}
+
+.mc-cell.is-correct,
+.mc-cell.is-wrong {
+  box-shadow: inset var(--bevel) var(--bevel) 0 rgb(255 255 255 / 0.35),
+    inset calc(var(--bevel) * -1) calc(var(--bevel) * -1) 0 rgb(0 0 0 / 0.35);
+}
+
+.mc-cell.is-correct {
+  background: var(--color-mc-correct);
+}
+
+.mc-cell.is-wrong {
+  background: var(--color-mc-wrong);
+}
+
+.mc-cell__arrow {
+  position: absolute;
+  inset: 10%;
+  width: 80%;
+  height: 80%;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.mc-cell__value {
+  position: relative;
+}
+
+.mc-cell__icon {
+  width: 72%;
+  height: 72%;
+  object-fit: contain;
+  filter: drop-shadow(2px 2px 0 rgb(0 0 0 / 0.4));
+}
+
+.reveal {
+  animation: flip-in 0.45s ease-out both;
+  animation-delay: calc(var(--i, 0) * var(--reveal-step));
+}
+
+@keyframes flip-in {
+  from {
+    opacity: 0;
+    transform: perspective(400px) rotateX(-90deg);
+  }
+  60% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- Search results ---------- */
+
+.mc-option {
+  border-radius: 4px;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  cursor: pointer;
+}
+
+.mc-option[aria-selected="true"],
+.mc-option:hover {
+  outline-color: var(--color-mc-light);
+}
+
+/* ---------- Inputs & buttons ---------- */
+
+.mc-input {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  font: inherit;
+  font-size: 1.05rem;
+  color: var(--color-mc-light);
+  background: #000;
+  border: 2px solid #a0a0a0;
+  outline: none;
+}
+
+.mc-input::placeholder {
+  color: #7a7a7a;
+}
+
+.mc-input:focus {
+  border-color: var(--color-mc-light);
+}
+
+.mc-input:disabled {
+  opacity: 0.6;
+}
+
+.mc-button {
+  padding: 0.55rem 1.1rem;
+  font: inherit;
+  color: var(--color-mc-light);
+  text-shadow: 0.125em 0.125em 0 var(--color-mc-label);
+  background: #6f6f6f;
+  border: 2px solid #000;
+  box-shadow: inset 2px 2px 0 #aaa, inset -2px -3px 0 #4a4a4a;
+  cursor: pointer;
+}
+
+.mc-button:hover,
+.mc-button:focus-visible {
+  background: #7b86c9;
+  box-shadow: inset 2px 2px 0 #bcc4f0, inset -2px -3px 0 #4f5893;
+  outline: none;
+}
+
+.mc-button:disabled {
+  color: #a0a0a0;
+  background: #2c2c2c;
+  box-shadow: none;
+  cursor: default;
+}
+
+/* ---------- Dialog ---------- */
+
+.mc-backdrop {
+  animation: fade-in 0.2s ease-out both;
+}
+
+.mc-dialog {
+  animation: pop-in 0.3s cubic-bezier(0.2, 1.4, 0.4, 1) both;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .mc-splash,
+  .mc-dialog,
+  .mc-backdrop {
+    animation: none;
+  }
+}
+
+/* ---------- Navigation & history ---------- */
+
+a.mc-button {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.mc-button[aria-current="page"] {
+  color: var(--color-mc-splash);
+}
+
+.mc-day {
+  text-decoration: none;
+  transition: transform 0.12s ease-out;
+}
+
+.mc-day:hover,
+.mc-day:focus-visible {
+  transform: translateY(-2px);
+  outline: 2px solid var(--color-mc-light);
+  outline-offset: 2px;
+}
