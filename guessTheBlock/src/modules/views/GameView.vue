@@ -45,6 +45,8 @@
 
     <HistoryView v-else-if="view === 'history'" />
 
+    <PrivacyView v-else-if="view === 'privacy'" />
+
     <template v-else-if="target && mode">
       <SelectBlockView
         ref="search"
@@ -115,6 +117,8 @@
       @navigate="go"
       @close="showResult = false"
     />
+
+    <SiteFooter />
   </main>
 </template>
 
@@ -131,8 +135,10 @@ import BoardHeader from "./BoardHeader.vue";
 import CelebrationBurst from "./CelebrationBurst.vue";
 import GuessView from "./GuessView.vue";
 import HistoryView from "./HistoryView.vue";
+import PrivacyView from "./PrivacyView.vue";
 import ResultDialog from "./ResultDialog.vue";
 import SelectBlockView from "./SelectBlockView.vue";
+import SiteFooter from "./SiteFooter.vue";
 import { REVEAL_TOTAL_MS, useGuessGame } from "../composables/useGuessGame";
 import { dayNumber, formatDay, isPlayableDay, todayKey } from "../data/daily";
 
@@ -155,7 +161,7 @@ const {
 } = useGuessGame();
 
 const search = ref<InstanceType<typeof SelectBlockView> | null>(null);
-const view = ref<"game" | "history">("game");
+const view = ref<"game" | "history" | "privacy">("game");
 const showResult = ref(false);
 const celebrating = ref(false);
 const shaking = ref(false);
@@ -173,7 +179,7 @@ const isToday = computed(
 );
 
 const subtitle = computed(() => {
-  if (view.value === "history") {
+  if (view.value !== "game") {
     return `${blocks.value.length} blocks · Minecraft ${version.value}`;
   }
   if (celebrating.value) {
@@ -197,7 +203,7 @@ const links = computed(() => [
 ]);
 
 /**
- * Routes: #/ (today), #/daily/YYYY-MM-DD, #/history, #/random
+ * Routes: #/ (today), #/daily/YYYY-MM-DD, #/history, #/random, #/privacy
  */
 async function applyRoute() {
   if (status.value !== "ready") return;
@@ -205,8 +211,9 @@ async function applyRoute() {
   showResult.value = false;
   celebrating.value = false;
   const route = window.location.hash.replace(/^#\/?/, "");
-  if (route === "history") {
-    view.value = "history";
+  if (route === "history" || route === "privacy") {
+    view.value = route;
+    window.scrollTo(0, 0);
     return;
   }
   view.value = "game";

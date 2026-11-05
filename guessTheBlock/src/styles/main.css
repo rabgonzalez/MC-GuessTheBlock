@@ -642,6 +642,48 @@ body::before {
   }
 }
 
+/* ---------- Footer & privacy page ---------- */
+
+.site-footer {
+  display: grid;
+  gap: 0.4rem;
+  padding-top: 1rem;
+  font-size: 0.7rem;
+  line-height: 1.6;
+  color: #d8d8d8;
+}
+
+.site-footer a,
+.legal a:not(.mc-button) {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.site-footer a:hover,
+.site-footer a:focus-visible {
+  color: var(--color-mc-splash);
+}
+
+.legal a:not(.mc-button):hover,
+.legal a:not(.mc-button):focus-visible {
+  color: #2c4fa8;
+}
+
+.legal section + section {
+  margin-top: 1.25rem;
+}
+
+.legal h3 {
+  margin-bottom: 0.35rem;
+  font-size: 1rem;
+}
+
+.legal p {
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
 /* ---------- Navigation & history ---------- */
 
 a.mc-button {
