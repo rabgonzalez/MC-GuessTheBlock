@@ -148,7 +148,13 @@ export function filterBlocks(blocks) {
     // Keep only one member (the first in data order) unless the generic
     // block already exists on its own.
     if (members[0] !== b || names.has(family)) continue;
-    result.push({ ...b, name: family, displayName: titleCase(family) });
+    // `source` keeps the real block id (e.g. white_wool) for its 3D model.
+    result.push({
+      ...b,
+      name: family,
+      displayName: titleCase(family),
+      source: b.name,
+    });
     collapsed.push(`${titleCase(family)} (${members.length})`);
   }
 

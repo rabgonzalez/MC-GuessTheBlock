@@ -1,16 +1,16 @@
 <template>
   <div
-    class="mc-backdrop fixed inset-0 z-50 grid place-items-center bg-black/60 p-4"
+    class="mc-backdrop fixed inset-0 z-50 grid place-items-center overflow-y-auto bg-black/60 p-2 sm:p-4"
     @click.self="emit('close')"
     @keydown.esc="emit('close')"
   >
     <section
-      class="mc-panel mc-dialog flex max-w-full flex-col items-center gap-5 p-6 text-center sm:p-8"
+      class="mc-panel mc-dialog flex max-w-full flex-col items-center gap-4 p-4 text-center sm:gap-5 sm:p-8"
       role="dialog"
       aria-modal="true"
       aria-labelledby="result-title"
     >
-      <h2 id="result-title" class="text-2xl sm:text-3xl">
+      <h2 id="result-title" class="text-xl sm:text-3xl">
         <span class="sr-only">{{ title }}</span>
         <span aria-hidden="true">
           <span
@@ -22,7 +22,7 @@
           >
         </span>
       </h2>
-      <p class="text-base">
+      <p class="text-sm sm:text-base">
         <template v-if="won">
           It was <strong>{{ target.displayName }}</strong> &mdash;
           {{ attempts }} {{ attempts === 1 ? "attempt" : "attempts" }}.

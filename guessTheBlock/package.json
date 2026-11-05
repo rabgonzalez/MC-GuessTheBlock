@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "data": "node scripts/build-data.mjs",
+    "models": "node scripts/build-models.mjs",
     "preserve": "npm run data",
     "serve": "vue-cli-service serve",
     "prebuild": "npm run data",

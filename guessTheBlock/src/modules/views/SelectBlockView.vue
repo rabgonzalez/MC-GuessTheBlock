@@ -27,21 +27,21 @@
     />
     <div
       v-if="open && results.length"
-      class="mc-panel mc-dropdown absolute top-full z-20 mt-2 max-h-[min(60vh,32rem)] max-w-full overflow-auto p-3 shadow-2xl"
+      class="mc-panel mc-dropdown absolute top-full z-20 mt-2 max-h-[min(60vh,32rem)] w-full max-w-xl overflow-auto p-1.5 shadow-2xl sm:p-2"
     >
-      <ul id="block-results" role="listbox" class="board">
-        <BoardHeader />
+      <ul id="block-results" role="listbox" class="flex flex-col gap-1.5">
         <li
           v-for="(block, i) in results"
           :id="`block-option-${i}`"
           :key="block.name"
           role="option"
           :aria-selected="i === active"
-          class="mc-option col-span-full grid grid-cols-subgrid"
+          class="mc-option mc-cell"
           @mousedown.prevent="select(block)"
           @mousemove="active = i"
         >
-          <GuessView :selected-block="block" :animate="false" />
+          <BlockModel :name="block.name" :spin="i === active" />
+          <span class="mc-cell__value">{{ block.displayName }}</span>
         </li>
       </ul>
     </div>
@@ -50,8 +50,7 @@
 
 <script setup lang="ts">
 import { computed, ref, watch } from "vue";
-import BoardHeader from "./BoardHeader.vue";
-import GuessView from "./GuessView.vue";
+import BlockModel from "./BlockModel.vue";
 import { searchBlocks } from "../composables/useBlocks";
 import { Block } from "../interfaces/block.interface";
 
