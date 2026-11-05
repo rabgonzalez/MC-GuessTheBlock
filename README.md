@@ -28,7 +28,7 @@
 - Compare the attributes:
   - Red means wrong
   - Green means right
-  - Orange (tool only) means the right kind of tool in another material, e.g. stone pickaxe vs iron pickaxe
+  - Orange means close: the right kind of tool in another material (stone vs iron pickaxe), or only some of the dimensions
   - The block you guessed appears first, but whether it is the right one is only revealed after every attribute
 
 <div align="center">
@@ -59,6 +59,31 @@ npm run data -- 1.21.11 # download another version from minecraft-data
 
 > [!NOTE]
 > Changing the dataset changes which block belongs to each day.
+
+#### Languages
+English, Spanish, French, German and Portuguese. The browser language is used by default and can be changed
+next to the mode buttons (the choice is remembered). Block and tool names are Minecraft's official translations:
+`scripts/build-names.mjs` (`npm run names`) downloads the language files from Mojang and writes
+`scripts/block-names.json`; colour/wood families use the names in `scripts/family-names.mjs`. The interface
+texts live in `src/modules/i18n/`. Search ignores accents and also accepts the English name.
+
+#### Category
+Each block has one hand-picked category (Natural, Mineral, Plant, Building, Decoration, Functional, Redstone) in
+`scripts/block-categories.mjs`; the build fails if a guessable block has none.
+
+#### Color
+The *Color* column is the main colour of each block's 3D model (`scripts/block-colors.mjs`, run by `npm run data`):
+every visible pixel votes for a colour name (top faces count more than sides), so a poppy is red rather than
+red + green = brown. Flowers take their petal colour, a few blocks are set by hand (the grass block is green), and
+dye families such as Wool or Concrete are *Various*.
+
+#### Dimension & craftable
+The *Dimension* and *Craftable* columns come from the game's own data pack. `scripts/build-origins.mjs`
+(`npm run origins`, needs the jar downloaded by `npm run models`) walks every biome's features, the terrain
+rules of each dimension and every structure (template pools, `.nbt` templates, processors) to find where each
+block generates, and reads the crafting recipes. Structures built by code (fortress, stronghold, mineshaft…)
+are listed by hand. The result, `scripts/block-origins.json`, is committed and merged into `blocks.json`.
+Colour families take the union of their members. Orange means only some dimensions match.
 
 #### 3D blocks
 Every guess shows the block as a slowly spinning 3D model, and search results show it next to its name.

@@ -5,6 +5,8 @@
   "scripts": {
     "data": "node scripts/build-data.mjs",
     "models": "node scripts/build-models.mjs",
+    "origins": "node scripts/build-origins.mjs",
+    "names": "node scripts/build-names.mjs",
     "preserve": "npm run data",
     "serve": "vue-cli-service serve",
     "prebuild": "npm run data",

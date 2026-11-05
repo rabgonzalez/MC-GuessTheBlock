@@ -7,13 +7,13 @@
         { reveal: animate, 'has-model': hasModel },
       ]"
       :style="{ '--i': 0, '--j': 0, '--n': ATTRIBUTES.length + 1 }"
-      :title="selectedBlock.displayName"
+      :title="name"
     >
       <BlockModel v-if="hasModel" :name="selectedBlock.name" />
       <span v-if="!hasModel" class="mc-cell__value line-clamp-4">
-        {{ selectedBlock.displayName }}
+        {{ name }}
       </span>
-      <span v-else class="sr-only">{{ selectedBlock.displayName }}</span>
+      <span v-else class="sr-only">{{ name }}</span>
     </div>
     <div
       v-for="(cell, i) in cells"
@@ -21,7 +21,7 @@
       class="mc-cell"
       :class="[stateClass(cell.correct, cell.partial), { reveal: animate }]"
       :style="{ '--i': i + 1, '--j': i + 1 }"
-      :title="`${cell.attr.label}: ${cell.text}${cell.hint}`"
+      :title="`${attributeLabel(cell.attr)}: ${cell.text}${cell.hint}`"
     >
       <img
         v-if="cell.direction"
@@ -53,6 +53,43 @@
         :src="asset(`img/${selectedBlock.tool}.png`)"
         :alt="cell.text"
       />
+      <span
+        v-else-if="cell.attr.kind === 'color' && selectedBlock.color"
+        class="swatch"
+        role="img"
+        :aria-label="cell.text"
+      >
+        <span
+          class="swatch__chip"
+          :class="{ 'is-various': selectedBlock.color === 'various' }"
+          :style="{ '--swatch': COLOR_SWATCHES[selectedBlock.color] }"
+        />
+        <span class="swatch__name">{{ cell.text }}</span>
+      </span>
+      <!-- One small block per dimension: grass, netherrack, end stone. -->
+      <span
+        v-else-if="cell.attr.kind === 'dimensions' && hasModels"
+        class="dims"
+        :class="`dims--${selectedBlock.dimensions.length}`"
+        role="img"
+        :aria-label="cell.text"
+      >
+        <BlockModel
+          v-for="dim in selectedBlock.dimensions"
+          :key="dim"
+          :name="DIMENSION_ICONS[dim]"
+          :spin="false"
+        />
+        <span v-if="!selectedBlock.dimensions.length" class="mc-cell__value">
+          {{ t("value.none") }}
+        </span>
+      </span>
+      <span v-else-if="cell.attr.kind === 'category'" class="mc-cell__value">
+        <span class="max-sm:hidden">{{ cell.text }}</span>
+        <span class="sm:hidden">
+          {{ categoryLabel(selectedBlock.category, true) }}
+        </span>
+      </span>
       <span v-else class="mc-cell__value">{{ cell.text }}</span>
       <span v-if="cell.hint" class="sr-only">{{ cell.hint }}</span>
     </div>
@@ -63,9 +100,14 @@
 import { computed } from "vue";
 import BlockModel from "./BlockModel.vue";
 import { useBlockModels } from "../composables/useBlockModels";
+import { blockName, t } from "../i18n";
 import { Block } from "../interfaces/block.interface";
 import {
   ATTRIBUTES,
+  COLOR_SWATCHES,
+  attributeLabel,
+  categoryLabel,
+  DIMENSION_ICONS,
   asset,
   compareAttribute,
   formatAttribute,
@@ -87,6 +129,8 @@ const props = withDefaults(
 
 const { models } = useBlockModels();
 const hasModel = computed(() => !!models.value?.[props.selectedBlock.name]);
+const hasModels = computed(() => !!models.value);
+const name = computed(() => blockName(props.selectedBlock));
 
 const nameCorrect = computed(() =>
   props.randomBlock
@@ -105,9 +149,7 @@ const cells = computed(() =>
       partial,
       direction,
       text: formatAttribute(attr, props.selectedBlock),
-      hint: direction
-        ? ` (target is ${direction === "up" ? "higher" : "lower"})`
-        : "",
+      hint: direction ? ` ${t(`hint.${direction}`)}` : "",
     };
   })
 );

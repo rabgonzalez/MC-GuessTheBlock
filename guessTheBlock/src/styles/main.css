@@ -95,7 +95,7 @@ body::before {
 
 .board {
   display: grid;
-  grid-template-columns: var(--name-col) repeat(7, var(--cell));
+  grid-template-columns: var(--name-col) repeat(8, var(--cell));
   gap: var(--gap);
   width: max-content;
 }
@@ -148,6 +148,72 @@ body::before {
 .mc-cell.is-partial {
   --cell-bg: var(--color-mc-partial);
   --cell-shadow: var(--raised-shadow);
+}
+
+/* Colour swatch, with its name below on wide screens. */
+.swatch {
+  display: grid;
+  justify-items: center;
+  gap: 0.25rem;
+}
+
+.swatch__chip {
+  width: calc(var(--cell) * 0.42);
+  height: calc(var(--cell) * 0.42);
+  background: var(--swatch);
+  border: 2px solid rgb(0 0 0 / 0.65);
+  box-shadow: inset 2px 2px 0 rgb(255 255 255 / 0.3),
+    inset -2px -2px 0 rgb(0 0 0 / 0.25);
+}
+
+.swatch__chip.is-various {
+  background: conic-gradient(
+    #e53935,
+    #fb8c00,
+    #fdd835,
+    #43a047,
+    #00acc1,
+    #1e88e5,
+    #8e24aa,
+    #e53935
+  );
+}
+
+@media (max-width: 639px) {
+  .swatch__chip {
+    width: calc(var(--cell) * 0.58);
+    height: calc(var(--cell) * 0.58);
+  }
+
+  .swatch__name {
+    display: none;
+  }
+}
+
+/* Dimension icons: one block per dimension, smaller when there are more. */
+.dims {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.dims .block3d {
+  --block-size: calc(var(--cell) * 0.62);
+}
+
+.dims--2 .block3d {
+  --block-size: calc(var(--cell) * 0.46);
+}
+
+.dims--3 .block3d {
+  --block-size: calc(var(--cell) * 0.4);
+}
+
+.dims--3 {
+  align-content: center;
 }
 
 .mc-cell__arrow {
@@ -499,15 +565,15 @@ body::before {
   :root {
     --gap: 3px;
     --board-pad: 6px;
-    /* 8 equal columns = screen - page gutters (2 x 8px) - panel padding
-       and border (2 x 8px) - 7 gaps */
-    --cell: calc((100vw - 2rem - 7 * var(--gap)) / 8);
+    /* 9 equal columns = screen - page gutters (2 x 8px) - panel padding
+       and border (2 x 8px) - 8 gaps */
+    --cell: calc((100vw - 2rem - 8 * var(--gap)) / 9);
     --name-col: var(--cell);
   }
 
   /* The dialog adds its own gutters (backdrop 8px + padding 16px). */
   .mc-dialog {
-    --cell: calc((100vw - 3.5rem - 7 * var(--gap)) / 8);
+    --cell: calc((100vw - 3.5rem - 8 * var(--gap)) / 9);
   }
 
   .mc-cell {
@@ -609,6 +675,77 @@ body::before {
   background: #2c2c2c;
   box-shadow: none;
   cursor: default;
+}
+
+/* Language picker: a button that opens a Minecraft-style panel */
+.mc-lang {
+  position: relative;
+}
+
+.mc-lang__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  height: 100%;
+}
+
+.mc-lang__arrow {
+  display: inline-block;
+  transition: transform 0.15s ease-out;
+}
+
+.mc-lang__arrow.is-open {
+  transform: rotate(180deg);
+}
+
+.mc-lang__list {
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  right: 0;
+  z-index: 30;
+  display: grid;
+  gap: 0.3rem;
+  min-width: 11rem;
+  margin: 0;
+  padding: 0.45rem;
+  list-style: none;
+  outline: none;
+  box-shadow: inset var(--bevel) var(--bevel) 0 var(--color-mc-light),
+    inset calc(var(--bevel) * -1) calc(var(--bevel) * -1) 0
+      var(--color-mc-shade),
+    0 10px 24px rgb(0 0 0 / 0.5);
+  animation: drop-in 0.15s ease-out;
+  transform-origin: top right;
+}
+
+/* Each language is a slot, like an inventory row. */
+.mc-lang__option {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0.6rem;
+  color: var(--color-mc-light);
+  text-shadow: 0.125em 0.125em 0 var(--color-mc-label);
+  white-space: nowrap;
+  background: var(--color-mc-slot);
+  box-shadow: inset 2px 2px 0 var(--color-mc-deep),
+    inset -2px -2px 0 var(--color-mc-light);
+  cursor: pointer;
+}
+
+.mc-lang__option.is-active {
+  background: #7b86c9;
+  box-shadow: inset 2px 2px 0 #bcc4f0, inset -2px -2px 0 #4f5893;
+}
+
+.mc-lang__option[aria-selected="true"] {
+  color: var(--color-mc-splash);
+}
+
+.mc-lang__code {
+  min-width: 1.6rem;
+  font-size: 0.75em;
+  opacity: 0.85;
 }
 
 /* ---------- Dialog ---------- */

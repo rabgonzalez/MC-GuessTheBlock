@@ -1,3 +1,5 @@
+import { intl } from "../i18n";
+
 /**
  * Daily puzzle: every day maps to one block, the same for every player.
  *
@@ -46,8 +48,9 @@ export function playableDays(): string[] {
   return days;
 }
 
+/** "5 Nov 2026", in the current language. */
 export const formatDay = (day: string) =>
-  new Date(toUtc(day)).toLocaleDateString("en-GB", {
+  new Date(toUtc(day)).toLocaleDateString(intl(), {
     day: "numeric",
     month: "short",
     year: "numeric",

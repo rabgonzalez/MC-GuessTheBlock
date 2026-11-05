@@ -2,10 +2,10 @@
   <footer class="site-footer mc-shadow mt-auto max-w-xl text-center">
     <nav
       class="flex flex-wrap justify-center gap-x-4 gap-y-1"
-      aria-label="Site"
+      :aria-label="t('footer.privacy')"
     >
       <a :href="REPO_URL" target="_blank" rel="noopener">GitHub</a>
-      <a href="#/privacy">Privacy</a>
+      <a href="#/privacy">{{ t("footer.privacy") }}</a>
     </nav>
     <p>
       © {{ year }}
@@ -15,7 +15,7 @@
       &amp;
       <a href="https://github.com/rabgonzalez" target="_blank" rel="noopener"
         >Rubén Abreu González</a
-      >. All rights reserved.
+      >. {{ t("footer.rights") }}
     </p>
     <p class="opacity-75">
       NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH
@@ -26,6 +26,7 @@
 
 <script setup lang="ts">
 import { REPO_URL } from "../data/site";
+import { t } from "../i18n";
 
 const year = new Date().getFullYear();
 </script>

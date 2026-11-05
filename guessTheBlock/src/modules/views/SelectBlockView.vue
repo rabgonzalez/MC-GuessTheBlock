@@ -1,6 +1,6 @@
 <template>
   <div class="relative flex w-full flex-col items-center">
-    <label for="block-search" class="sr-only">Search a block</label>
+    <label for="block-search" class="sr-only">{{ t("search.label") }}</label>
     <input
       id="block-search"
       ref="input"
@@ -17,7 +17,7 @@
         results.length ? `block-option-${active}` : undefined
       "
       :disabled="disabled"
-      :placeholder="disabled ? 'Game over' : 'Type a block name… (e.g. Stone)'"
+      :placeholder="disabled ? t('search.gameOver') : t('search.placeholder')"
       @keydown.down.prevent="move(1)"
       @keydown.up.prevent="move(-1)"
       @keydown.enter.prevent="selectActive"
@@ -41,7 +41,7 @@
           @mousemove="active = i"
         >
           <BlockModel :name="block.name" :spin="i === active" />
-          <span class="mc-cell__value">{{ block.displayName }}</span>
+          <span class="mc-cell__value">{{ blockName(block) }}</span>
         </li>
       </ul>
     </div>
@@ -51,6 +51,7 @@
 <script setup lang="ts">
 import { computed, ref, watch } from "vue";
 import BlockModel from "./BlockModel.vue";
+import { blockName, t } from "../i18n";
 import { searchBlocks } from "../composables/useBlocks";
 import { Block } from "../interfaces/block.interface";
 
@@ -73,7 +74,7 @@ const active = ref(0);
 const open = ref(true);
 
 const results = computed(() =>
-  searchBlocks(props.blocks, query.value, props.excluded)
+  searchBlocks(props.blocks, query.value, props.excluded, blockName)
 );
 
 watch(query, () => {

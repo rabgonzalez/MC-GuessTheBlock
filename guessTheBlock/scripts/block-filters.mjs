@@ -53,9 +53,8 @@ const EXCLUDED = new Set([
   "wheat",
 ]);
 
-/** Families that only differ by one token, longest tokens first. */
-const VARIANT_TOKENS = [
-  // dye colours
+/** Dye colours, as used in block ids. */
+export const DYES = [
   "light_blue",
   "light_gray",
   "magenta",
@@ -72,6 +71,11 @@ const VARIANT_TOKENS = [
   "cyan",
   "blue",
   "red",
+];
+
+/** Families that only differ by one token, longest tokens first. */
+const VARIANT_TOKENS = [
+  ...DYES,
   // wood species
   "dark_oak",
   "pale_oak",
@@ -148,12 +152,14 @@ export function filterBlocks(blocks) {
     // Keep only one member (the first in data order) unless the generic
     // block already exists on its own.
     if (members[0] !== b || names.has(family)) continue;
-    // `source` keeps the real block id (e.g. white_wool) for its 3D model.
+    // `source` keeps the real block id (e.g. white_wool) for its 3D model,
+    // `members` every block of the family.
     result.push({
       ...b,
       name: family,
       displayName: titleCase(family),
       source: b.name,
+      members: members.map((m) => m.name),
     });
     collapsed.push(`${titleCase(family)} (${members.length})`);
   }

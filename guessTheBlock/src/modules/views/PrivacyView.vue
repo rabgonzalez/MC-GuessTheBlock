@@ -4,90 +4,83 @@
     aria-labelledby="privacy-title"
   >
     <h2 id="privacy-title" class="mb-4 text-center text-xl sm:text-2xl">
-      Privacy
+      {{ t("privacy.title") }}
     </h2>
 
     <section>
-      <h3>What we collect</h3>
-      <p>
-        Nothing. There are no accounts, no cookies, no analytics and no
-        advertising, and the game never sends your guesses anywhere.
-      </p>
+      <h3>{{ t("privacy.collectTitle") }}</h3>
+      <p>{{ t("privacy.collectText") }}</p>
     </section>
 
     <section>
-      <h3>What stays on your device</h3>
-      <p>
-        Your daily progress (the blocks you guessed and whether you found the
-        answer) is saved in your browser's local storage so you can come back
-        later and see your stats. It never leaves your device and you can delete
-        it at any time:
-      </p>
+      <h3>{{ t("privacy.deviceTitle") }}</h3>
+      <p>{{ t("privacy.deviceText") }}</p>
       <p class="mt-3 flex flex-wrap items-center gap-3">
         <button class="mc-button" :disabled="saved === 0" @click="clear">
-          Delete my progress
+          {{ t("privacy.delete") }}
         </button>
         <span class="text-sm" role="status">
-          {{
-            cleared
-              ? "Progress deleted."
-              : `${saved} ${saved === 1 ? "day" : "days"} saved.`
-          }}
+          {{ cleared ? t("privacy.deleted") : tn("privacy.saved", saved) }}
         </span>
       </p>
     </section>
 
     <section>
-      <h3>Hosting</h3>
-      <p>
-        The website is hosted on GitHub Pages. GitHub may log technical data
-        such as your IP address to serve and protect the site; see the
-        <a
-          href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement"
-          target="_blank"
-          rel="noopener"
-          >GitHub Privacy Statement</a
-        >.
-      </p>
+      <h3>{{ t("privacy.hostingTitle") }}</h3>
+      <I18nText k="privacy.hostingText" tag="p">
+        <template #link>
+          <a
+            href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement"
+            target="_blank"
+            rel="noopener"
+            >{{ t("privacy.hostingLink") }}</a
+          >
+        </template>
+      </I18nText>
     </section>
 
     <section>
-      <h3>Sharing</h3>
-      <p>
-        Sharing only happens when you press "Share on WhatsApp" or "Copy
-        result". The text contains your result as coloured squares and a link to
-        the game, nothing else. WhatsApp's own privacy policy applies to what
-        you send there.
-      </p>
+      <h3>{{ t("privacy.sharingTitle") }}</h3>
+      <I18nText k="privacy.sharingText" tag="p">
+        <template #share>{{ t("result.share") }}</template>
+        <template #copy>{{ t("result.copy") }}</template>
+      </I18nText>
     </section>
 
     <section>
-      <h3>Credits</h3>
-      <p>
-        Made by
-        <a href="https://github.com/JonayKB" target="_blank" rel="noopener"
-          >Jonay Contreras Rodríguez</a
-        >
-        and
-        <a href="https://github.com/rabgonzalez" target="_blank" rel="noopener"
-          >Rubén Abreu González</a
-        >. Block data from
-        <a
-          href="https://github.com/PrismarineJS/minecraft-data"
-          target="_blank"
-          rel="noopener"
-          >minecraft-data</a
-        >
-        (PrismarineJS). Block textures and models belong to Mojang.
-      </p>
-      <p class="mt-2">
-        Questions or problems? Open an issue on
-        <a :href="REPO_URL" target="_blank" rel="noopener">GitHub</a>.
-      </p>
+      <h3>{{ t("privacy.creditsTitle") }}</h3>
+      <I18nText k="privacy.creditsText" tag="p">
+        <template #jonay>
+          <a href="https://github.com/JonayKB" target="_blank" rel="noopener"
+            >Jonay Contreras Rodríguez</a
+          >
+        </template>
+        <template #ruben>
+          <a
+            href="https://github.com/rabgonzalez"
+            target="_blank"
+            rel="noopener"
+            >Rubén Abreu González</a
+          >
+        </template>
+        <template #data>
+          <a
+            href="https://github.com/PrismarineJS/minecraft-data"
+            target="_blank"
+            rel="noopener"
+            >minecraft-data</a
+          >
+        </template>
+      </I18nText>
+      <I18nText k="privacy.contact" tag="p" class="mt-2">
+        <template #github>
+          <a :href="REPO_URL" target="_blank" rel="noopener">GitHub</a>
+        </template>
+      </I18nText>
     </section>
 
     <p class="mt-6 text-center">
-      <a href="#/" class="mc-button">Back to the game</a>
+      <a href="#/" class="mc-button">{{ t("privacy.back") }}</a>
     </p>
   </article>
 </template>
@@ -95,6 +88,8 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { REPO_URL } from "../data/site";
+import I18nText from "../i18n/I18nText.vue";
+import { t, tn } from "../i18n";
 
 const PREFIX = "guess-the-block:";
 
@@ -110,9 +105,10 @@ const saved = ref(savedKeys().length);
 const cleared = ref(false);
 
 function clear() {
-  if (!window.confirm("Delete all your saved progress?")) return;
+  if (!window.confirm(t("privacy.deleteConfirm"))) return;
   try {
     savedKeys().forEach((k) => localStorage.removeItem(k));
+    localStorage.removeItem("guess-the-block-locale");
   } catch {
     // Storage unavailable: nothing was saved anyway.
   }

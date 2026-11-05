@@ -4,7 +4,7 @@
     aria-labelledby="history-title"
   >
     <h2 id="history-title" class="mb-4 text-center text-xl sm:text-2xl">
-      Previous days
+      {{ t("history.title") }}
     </h2>
 
     <dl class="mb-4 grid grid-cols-3 gap-2 text-center sm:mb-6 sm:gap-3">
@@ -25,9 +25,9 @@
         >
           <span class="text-base">#{{ entry.number }}</span>
           <span class="text-[0.7rem]">
-            {{ entry.isToday ? "Today" : formatDay(entry.day) }}
+            {{ entry.isToday ? t("day.today") : formatDay(entry.day) }}
           </span>
-          <span class="text-[0.7rem] opacity-90">{{ entry.status }}</span>
+          <span class="text-[0.7rem] opacity-90">{{ status(entry) }}</span>
         </a>
       </li>
     </ul>
@@ -38,32 +38,36 @@
 import { computed } from "vue";
 import { dayNumber, formatDay, playableDays, todayKey } from "../data/daily";
 import { loadProgress } from "../composables/useProgress";
+import { t, tn } from "../i18n";
 
 const today = todayKey();
 
 const entries = playableDays().map((day) => {
   const progress = loadProgress(day);
-  const tries = progress?.guesses.length ?? 0;
-  let status = "Not played";
-  let className = "";
-  if (progress?.result === "won") {
-    status = `Found in ${tries}`;
-    className = "is-correct";
-  } else if (progress?.result === "gave-up") {
-    status = "Gave up";
-    className = "is-wrong";
-  } else if (tries > 0) {
-    status = `${tries} ${tries === 1 ? "try" : "tries"} so far`;
-  }
+  const className =
+    progress?.result === "won"
+      ? "is-correct"
+      : progress?.result === "gave-up"
+      ? "is-wrong"
+      : "";
   return {
     day,
     number: dayNumber(day),
     isToday: day === today,
-    status,
+    tries: progress?.guesses.length ?? 0,
     className,
     progress,
   };
 });
+
+/** Text under each day, in the current language. */
+function status(entry: (typeof entries)[number]) {
+  const result = entry.progress?.result;
+  if (result === "won") return t("history.foundIn", { n: entry.tries });
+  if (result === "gave-up") return t("history.gaveUp");
+  if (entry.tries > 0) return tn("history.soFar", entry.tries);
+  return t("history.notPlayed");
+}
 
 const stats = computed(() => {
   const won = entries.filter((e) => e.progress?.result === "won");
@@ -75,9 +79,9 @@ const stats = computed(() => {
       ).toFixed(1)
     : "–";
   return [
-    { label: "Played", value: played },
-    { label: "Found", value: won.length },
-    { label: "Avg. tries", value: avg },
+    { label: t("history.played"), value: played },
+    { label: t("history.found"), value: won.length },
+    { label: t("history.average"), value: avg },
   ];
 });
 </script>
