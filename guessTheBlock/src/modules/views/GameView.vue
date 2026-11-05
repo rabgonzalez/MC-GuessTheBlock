@@ -17,7 +17,7 @@
     <nav
       v-if="status === 'ready'"
       class="flex flex-wrap justify-center gap-2"
-      aria-label="Game mode"
+      :aria-label="t('nav.label')"
     >
       <a
         v-for="link in links"
@@ -28,10 +28,11 @@
       >
         {{ link.label }}
       </a>
+      <LanguagePicker />
     </nav>
 
     <p v-if="status === 'loading'" class="mc-shadow animate-pulse text-2xl">
-      Loading blocks…
+      {{ t("app.loading") }}
     </p>
 
     <div
@@ -39,8 +40,8 @@
       class="mc-panel flex flex-col items-center gap-4 p-6 text-center"
       role="alert"
     >
-      <p>Couldn't load the block list.</p>
-      <button class="mc-button" @click="retry">Try again</button>
+      <p>{{ t("app.loadError") }}</p>
+      <button class="mc-button" @click="retry">{{ t("app.retry") }}</button>
     </div>
 
     <HistoryView v-else-if="view === 'history'" />
@@ -59,21 +60,21 @@
 
       <div class="flex flex-wrap items-center justify-center gap-3 text-sm">
         <span :key="attempts" class="mc-shadow bump">
-          {{ attempts }} {{ attempts === 1 ? "attempt" : "attempts" }}
+          {{ tn("game.attempts", attempts) }}
         </span>
         <button v-if="!result" class="mc-button" @click="giveUp">
-          Give up
+          {{ t("game.giveUp") }}
         </button>
         <template v-else>
           <button class="mc-button" @click="showResult = true">
-            Show result
+            {{ t("game.showResult") }}
           </button>
           <button
             v-if="mode.kind === 'random'"
             class="mc-button"
             @click="go('random')"
           >
-            New game
+            {{ t("game.newGame") }}
           </button>
         </template>
       </div>
@@ -81,7 +82,7 @@
       <section
         class="mc-panel board-panel max-w-full overflow-x-auto"
         :class="{ shake: shaking }"
-        aria-label="Your guesses"
+        :aria-label="t('game.board')"
         @animationend.self="shaking = false"
       >
         <div class="board">
@@ -96,13 +97,21 @@
         </div>
       </section>
 
-      <p class="mc-shadow max-w-xl text-center text-xs leading-relaxed">
-        <span class="text-[#7dd65a]">Green</span> means the value matches,
-        <span class="text-[#ff7a70]">red</span> means it doesn't and
-        <span class="text-[#ffb347]">orange</span> means the right tool in
-        another material. Arrows tell you whether the hidden block's value is
-        higher or lower.
-      </p>
+      <I18nText
+        k="legend.text"
+        tag="p"
+        class="mc-shadow max-w-xl text-center text-xs leading-relaxed"
+      >
+        <template #green>
+          <span class="text-[#7dd65a]">{{ t("legend.green") }}</span>
+        </template>
+        <template #red>
+          <span class="text-[#ff7a70]">{{ t("legend.red") }}</span>
+        </template>
+        <template #orange>
+          <span class="text-[#ffb347]">{{ t("legend.orange") }}</span>
+        </template>
+      </I18nText>
     </template>
 
     <CelebrationBurst v-if="celebrating" :key="`burst-${gameId}`" />
@@ -139,6 +148,9 @@ import PrivacyView from "./PrivacyView.vue";
 import ResultDialog from "./ResultDialog.vue";
 import SelectBlockView from "./SelectBlockView.vue";
 import SiteFooter from "./SiteFooter.vue";
+import LanguagePicker from "./LanguagePicker.vue";
+import I18nText from "../i18n/I18nText.vue";
+import { t, tn } from "../i18n";
 import { REVEAL_TOTAL_MS, useGuessGame } from "../composables/useGuessGame";
 import { dayNumber, formatDay, isPlayableDay, todayKey } from "../data/daily";
 
@@ -180,24 +192,35 @@ const isToday = computed(
 
 const subtitle = computed(() => {
   if (view.value !== "game") {
-    return `${blocks.value.length} blocks · Minecraft ${version.value}`;
+    return t("subtitle.info", {
+      blocks: blocks.value.length,
+      version: version.value,
+    });
   }
   if (celebrating.value) {
-    return `GG! Found in ${attempts.value}`;
+    return t("subtitle.won", { n: attempts.value });
   }
   if (mode.value?.kind === "daily") {
-    const label = isToday.value ? "Today" : formatDay(mode.value.day);
-    return `Daily #${dayNumber(mode.value.day)} · ${label}`;
+    const day = isToday.value ? t("day.today") : formatDay(mode.value.day);
+    return t("subtitle.daily", { n: dayNumber(mode.value.day), day });
   }
-  return "Random block";
+  return t("subtitle.random");
 });
 
 const links = computed(() => [
-  { route: "", label: "Today", active: view.value === "game" && isToday.value },
-  { route: "history", label: "History", active: view.value === "history" },
+  {
+    route: "",
+    label: t("nav.today"),
+    active: view.value === "game" && isToday.value,
+  },
+  {
+    route: "history",
+    label: t("nav.history"),
+    active: view.value === "history",
+  },
   {
     route: "random",
-    label: "Random",
+    label: t("nav.random"),
     active: view.value === "game" && mode.value?.kind === "random",
   },
 ]);

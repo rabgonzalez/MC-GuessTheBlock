@@ -17,25 +17,37 @@ export function loadBlocks(): Promise<BlockData> {
   return cache;
 }
 
+/** Lower case without accents, so "piedra" finds "Piedra" and "buche" "Bûche". */
+const normalize = (text: string) =>
+  text
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+
 /**
- * Case-insensitive search by display name. Names starting with the query
- * come first, then names containing it.
+ * Search by name, ignoring case and accents. Names starting with the query
+ * come first, then names containing it. The English name also matches, so
+ * "stone" works in every language.
+ *
+ * @param nameOf Name shown to the player (current language)
  */
 export function searchBlocks(
   blocks: Block[],
   query: string,
   exclude: Set<string>,
+  nameOf: (block: Block) => string = (b) => b.displayName,
   limit = 10
 ): Block[] {
-  const q = query.trim().toLowerCase();
+  const q = normalize(query.trim());
   if (!q) return [];
-  const starts: Block[] = [];
-  const contains: Block[] = [];
+  const ranked: Block[][] = [[], [], []];
   for (const block of blocks) {
     if (exclude.has(block.name)) continue;
-    const name = block.displayName.toLowerCase();
-    if (name.startsWith(q)) starts.push(block);
-    else if (name.includes(q)) contains.push(block);
+    const name = normalize(nameOf(block));
+    const english = normalize(block.displayName);
+    if (name.startsWith(q)) ranked[0].push(block);
+    else if (name.includes(q)) ranked[1].push(block);
+    else if (english.includes(q)) ranked[2].push(block);
   }
-  return [...starts, ...contains].slice(0, limit);
+  return ranked.flat().slice(0, limit);
 }

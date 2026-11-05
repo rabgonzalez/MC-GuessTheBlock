@@ -23,17 +23,15 @@
         </span>
       </h2>
       <p class="text-sm sm:text-base">
-        <template v-if="won">
-          It was <strong>{{ target.displayName }}</strong> &mdash;
-          {{ attempts }} {{ attempts === 1 ? "attempt" : "attempts" }}.
-        </template>
-        <template v-else>
-          The block was <strong>{{ target.displayName }}</strong
-          >.
-        </template>
+        <I18nText :k="won ? 'result.wonText' : 'result.lostText'">
+          <template #block>
+            <strong>{{ blockName(target) }}</strong>
+          </template>
+          <template #attempts>{{ tn("game.attempts", attempts) }}</template>
+        </I18nText>
         <template v-if="isToday">
           <br />
-          A new block arrives tomorrow.
+          {{ t("result.tomorrow") }}
         </template>
       </p>
       <div
@@ -52,10 +50,10 @@
           target="_blank"
           rel="noopener"
         >
-          Share on WhatsApp
+          {{ t("result.share") }}
         </a>
         <button class="mc-button" @click="copy">
-          {{ copied ? "Copied!" : "Copy result" }}
+          {{ copied ? t("result.copied") : t("result.copy") }}
         </button>
       </div>
       <div class="flex flex-wrap justify-center gap-3">
@@ -64,12 +62,22 @@
           class="mc-button"
           @click="emit('navigate', 'random')"
         >
-          {{ mode.kind === "random" ? "Play again" : "Random block" }}
+          {{
+            mode.kind === "random"
+              ? t("result.playAgain")
+              : t("result.randomBlock")
+          }}
         </button>
         <button class="mc-button" @click="emit('navigate', 'history')">
-          {{ mode.kind === "random" ? "Daily history" : "Previous days" }}
+          {{
+            mode.kind === "random"
+              ? t("result.dailyHistory")
+              : t("result.previousDays")
+          }}
         </button>
-        <button class="mc-button" @click="emit('close')">Close</button>
+        <button class="mc-button" @click="emit('close')">
+          {{ t("result.close") }}
+        </button>
       </div>
     </section>
   </div>
@@ -83,6 +91,8 @@ import { Block } from "../interfaces/block.interface";
 import { GameMode } from "../composables/useGuessGame";
 import { todayKey } from "../data/daily";
 import { shareText } from "../data/share";
+import I18nText from "../i18n/I18nText.vue";
+import { blockName, t, tn } from "../i18n";
 
 const props = defineProps<{
   /** Block the player had to guess */
@@ -102,9 +112,7 @@ const emit = defineEmits<{
   close: [];
 }>();
 
-const title = computed(() =>
-  props.won ? "You found it!" : "Better luck next time"
-);
+const title = computed(() => t(props.won ? "result.won" : "result.lost"));
 
 const isToday = computed(
   () => props.mode.kind === "daily" && props.mode.day === todayKey()
@@ -126,7 +134,7 @@ async function copy() {
     copied.value = true;
     window.setTimeout(() => (copied.value = false), 2000);
   } catch {
-    window.prompt("Copy your result:", text.value);
+    window.prompt(t("result.copyPrompt"), text.value);
   }
 }
 

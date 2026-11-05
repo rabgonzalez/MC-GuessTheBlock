@@ -3,6 +3,7 @@ import { Block } from "../interfaces/block.interface";
 import { ATTRIBUTES } from "../data/attributes";
 import { dailyIndex } from "../data/daily";
 import { loadBlocks } from "./useBlocks";
+import { setToolNames } from "../i18n";
 import { GameResult, loadProgress, saveProgress } from "./useProgress";
 
 export type { GameResult } from "./useProgress";
@@ -19,13 +20,14 @@ export const REVEAL_TOTAL_MS = REVEAL_STEP_MS * (ATTRIBUTES.length + 1) + 900;
 const HINT: Block = {
   name: "air",
   displayName: "Air",
+  color: null,
   stackSize: 64,
   solid: false,
-  emitLight: 0,
-  crossable: true,
-  hardness: 0,
+  emitLight: false,
+  category: "natural",
+  dimensions: ["overworld", "nether", "end"],
   tool: "none",
-  blastResistance: 0,
+  craftable: false,
 };
 
 export type GameStatus = "loading" | "error" | "ready";
@@ -87,6 +89,7 @@ export const useGuessGame = () => {
     try {
       const data = await loadBlocks();
       blocks.value = data.blocks;
+      setToolNames(data.tools ?? {});
       version.value = data.version;
       status.value = "ready";
     } catch {

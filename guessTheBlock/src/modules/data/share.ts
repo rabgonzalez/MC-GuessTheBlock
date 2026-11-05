@@ -3,6 +3,8 @@ import { GameMode } from "../composables/useGuessGame";
 import { ATTRIBUTES, compareAttribute } from "./attributes";
 import { dayNumber } from "./daily";
 import { PUBLIC_URL } from "./site";
+import { blockName, t, tn } from "../i18n";
+
 /** Longer games are shortened to the first and last rows. */
 const MAX_ROWS = 8;
 
@@ -44,21 +46,22 @@ export function shareText(
   guesses: Block[],
   won: boolean
 ): string {
-  const n = guesses.length;
-  const tries = `${n} ${n === 1 ? "attempt" : "attempts"}`;
+  const attempts = tn("game.attempts", guesses.length);
   const title =
     mode.kind === "daily"
-      ? `🧱 Guess the Block! Daily #${dayNumber(mode.day)}`
-      : "🧱 Guess the Block! Random";
-  const result = won ? `✅ Found in ${tries}` : `❌ Gave up after ${tries}`;
-  const answer = mode.kind === "random" ? ` (${target.displayName})` : "";
+      ? `🧱 Guess the Block! ${t("share.daily", { n: dayNumber(mode.day) })}`
+      : `🧱 Guess the Block! ${t("share.random")}`;
+  const result = won
+    ? `✅ ${t("share.found", { attempts })}`
+    : `❌ ${t("share.gaveUp", { attempts })}`;
+  const answer = mode.kind === "random" ? ` (${blockName(target)})` : "";
 
   let rows = [...guesses].reverse().map((g) => row(g, target));
   if (rows.length > MAX_ROWS) {
     const hidden = rows.length - (MAX_ROWS - 1);
     rows = [
       ...rows.slice(0, 3),
-      `   ⋯ ${hidden} more ⋯`,
+      `   ⋯ ${t("share.more", { n: hidden })} ⋯`,
       ...rows.slice(-(MAX_ROWS - 4)),
     ];
   }
