@@ -1,0 +1,7 @@
+**/node_modules
+guessTheBlock/dist
+guessTheBlock/dist_electron
+guessTheBlock/.cache
+guessTheBlock/public/data
+server/data
+.git
