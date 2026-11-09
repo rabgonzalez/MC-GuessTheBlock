@@ -6,7 +6,8 @@ services:
       dockerfile: server/Dockerfile
     restart: unless-stopped
     ports:
-      - "127.0.0.1:3000:3000" # put a reverse proxy with HTTPS in front
+      # Host port for nginx (see server/nginx); change GTB_PORT if it is taken.
+      - "127.0.0.1:${GTB_PORT:-3107}:3000"
     environment:
       TRUST_PROXY: "1"
       # ALLOWED_ORIGINS: "https://rabgonzalez.github.io,https://guess-the-block.jonaykb.com"
