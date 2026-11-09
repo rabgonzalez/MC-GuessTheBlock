@@ -1,6 +1,6 @@
 import { computed, onMounted, ref } from "vue";
 import { Block } from "../interfaces/block.interface";
-import { ATTRIBUTES } from "../data/attributes";
+import { ATTRIBUTES, HINT } from "../data/compare";
 import { dailyIndex } from "../data/daily";
 import { loadBlocks } from "./useBlocks";
 import { setToolNames } from "../i18n";
@@ -15,20 +15,6 @@ export const REVEAL_STEP_MS = 300;
  * last) has popped or shaken.
  */
 export const REVEAL_TOTAL_MS = REVEAL_STEP_MS * (ATTRIBUTES.length + 1) + 900;
-
-/** Starting hint row, shown before the first guess. */
-const HINT: Block = {
-  name: "air",
-  displayName: "Air",
-  color: null,
-  stackSize: 64,
-  solid: false,
-  emitLight: false,
-  category: "natural",
-  dimensions: ["overworld", "nether", "end"],
-  tool: "none",
-  craftable: false,
-};
 
 export type GameStatus = "loading" | "error" | "ready";
 export type GameMode = { kind: "daily"; day: string } | { kind: "random" };
