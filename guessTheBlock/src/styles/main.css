@@ -843,3 +843,152 @@ a.mc-button {
   outline: 2px solid var(--color-mc-light);
   outline-offset: 2px;
 }
+
+/* ---------- Compete ---------- */
+
+.compete-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem;
+  text-align: center;
+  color: var(--color-mc-light);
+  text-shadow: 0.125em 0.125em 0 rgb(0 0 0 / 0.55);
+  background: var(--color-mc-slot);
+  box-shadow: inset var(--bevel) var(--bevel) 0 var(--color-mc-deep),
+    inset calc(var(--bevel) * -1) calc(var(--bevel) * -1) 0
+      var(--color-mc-light);
+}
+
+.leaderboard th,
+.leaderboard td {
+  padding: 0.45rem 0.4rem;
+  text-align: center;
+}
+
+.leaderboard th {
+  font-size: 0.7rem;
+  font-weight: normal;
+}
+
+.leaderboard tbody tr {
+  background: var(--color-mc-slot);
+  color: var(--color-mc-light);
+  text-shadow: 0.125em 0.125em 0 rgb(0 0 0 / 0.55);
+  border-bottom: 3px solid var(--color-mc-panel);
+}
+
+.leaderboard tbody tr.is-me {
+  background: #4a5a9c;
+}
+
+.leaderboard tbody tr.is-out {
+  opacity: 0.75;
+}
+
+.medal-1,
+.medal-2,
+.medal-3 {
+  display: inline-grid;
+  place-items: center;
+  width: 1.6em;
+  height: 1.6em;
+  color: #2b1f17;
+  text-shadow: none;
+  border: 2px solid #000;
+}
+
+.medal-1 {
+  background: #fcd34d;
+}
+
+.medal-2 {
+  background: #d4d4d8;
+}
+
+.medal-3 {
+  background: #d08a4f;
+}
+
+.scoreboard {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem 1.25rem;
+}
+
+.dot {
+  display: inline-block;
+  width: 0.6rem;
+  height: 0.6rem;
+  background: #7a7a7a;
+  border: 2px solid #000;
+}
+
+.dot.is-on {
+  background: #4caf50;
+}
+
+.countdown {
+  animation: pop 0.9s ease-out both;
+}
+
+@keyframes pop {
+  from {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+  30% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.pick-model {
+  --block-size: 5rem;
+}
+
+/* Your board, with the rival's colours beside it on wide screens. */
+.duel-boards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1rem;
+  max-width: 100%;
+}
+
+.duel-boards > :first-child {
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+.rival-rows {
+  display: grid;
+  gap: 3px;
+}
+
+.rival-row {
+  display: grid;
+  grid-template-columns: repeat(9, 0.9rem);
+  gap: 3px;
+}
+
+.rival-cell {
+  height: 0.9rem;
+  border: 1px solid rgb(0 0 0 / 0.5);
+}
+
+.rival-cell.is-g {
+  background: var(--color-mc-correct);
+}
+
+.rival-cell.is-o {
+  background: var(--color-mc-partial);
+}
+
+.rival-cell.is-r {
+  background: var(--color-mc-wrong);
+}

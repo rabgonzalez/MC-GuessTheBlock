@@ -41,6 +41,17 @@
 - **Daily** (default): one block per day, the same for every player. Your progress is saved in the browser.
 - **History**: replay any previous day (`#/daily/YYYY-MM-DD`) and see your stats.
 - **Random**: endless games with a random block.
+- **Compete** (`#/compete`): play against friends. Choose a nickname, create a game and send the link.
+  - **Link challenge** (`#/challenge/CODE`): everyone with the link hunts the same hidden block. The
+    leaderboard ranks whoever found it by fewest attempts, then fastest time (the clock starts when you
+    press *Play*). Kept for 30 days.
+  - **1v1 race** (`#/duel/CODE`): two players, the same random block, at the same time. You see the
+    rival's coloured squares live, never their blocks. First to find it wins the round; giving up hands
+    it over. Rematches keep the score.
+  - **Pick their block**: like the race, but each player first chooses the block the other has to find.
+
+  The competitive modes need the server in [`server/`](#competitive-server); everything else still works
+  without it.
 
 ### Data source
 The block data comes from [minecraft-data](https://github.com/PrismarineJS/minecraft-data) (PrismarineJS).
@@ -118,9 +129,54 @@ npm run models          # regenerate public/models/blocks.json
 Every push to `main` builds the web version and publishes it to GitHub Pages (`.github/workflows/deploy.yml`).
 Enable it once in **Settings → Pages → Source: GitHub Actions**.
 
+The web build calls the competitive server at `VUE_APP_API_URL`: `.env.production` points to
+`https://guess-the-block.jonaykb.com` and `.env.development` to `http://localhost:3000`.
+
+### Competitive server
+`server/` is a small Node.js service (no framework, TypeScript run directly by Node ≥ 22.18):
+
+- **HTTP API** `/api/…` for link challenges, stored in SQLite (`node:sqlite`).
+- **WebSocket** `/ws` for duels, kept in memory. Seats belong to the player, not the socket, so a phone
+  that drops the connection (e.g. while sending the link on WhatsApp) reconnects to the same seat.
+- The server picks and keeps the hidden block and judges every guess with the same code as the web game
+  (`guessTheBlock/src/modules/data/compare.ts`), so the block never reaches the browser until you finish.
+- Players are anonymous: the browser makes up a random id (sent in `X-Player-Id`, stored hashed) and a nickname.
+
+```bash
+cd guessTheBlock && npm run data   # the server reads public/data/blocks.json
+cd ../server && npm install
+npm run dev                        # http://localhost:3000
+npm test                           # API and duel tests
+```
+
+Production (Docker, from the repository root):
+
+```bash
+docker compose -f server/docker-compose.yml up -d --build
+```
+
+The container listens on `127.0.0.1:3000` and keeps its database in a volume. In front of it,
+[`server/nginx/guess-the-block.jonaykb.com.conf`](server/nginx/guess-the-block.jonaykb.com.conf) serves HTTPS,
+proxies `/api/` and the `/ws` WebSocket, and answers the Let's Encrypt challenge from `/var/www/certbot`:
+
+```bash
+sudo certbot certonly --webroot -w /var/www/certbot -d guess-the-block.jonaykb.com
+```
+
+| Variable | Default | |
+| --- | --- | --- |
+| `PORT` / `HOST` | `3000` / `0.0.0.0` | |
+| `DATABASE_PATH` | `server/data/guess-the-block.db` (`/data/…` in Docker) | `:memory:` keeps nothing |
+| `BLOCKS_PATH` | `guessTheBlock/public/data/blocks.json` | Must match the deployed web build |
+| `ALLOWED_ORIGINS` | `*` | Comma-separated list to restrict CORS |
+| `TRUST_PROXY` | off | `1` behind nginx, for per-IP rate limits |
+| `CHALLENGE_TTL_DAYS` | `30` | |
+| `ROOM_IDLE_MINUTES` | `120` | Empty duel rooms are dropped after this |
+
 ### Privacy & legal
-The game collects nothing: no accounts, cookies or analytics. Daily progress is kept in the browser's local
+The solo modes collect nothing: no accounts, cookies or analytics. Daily progress is kept in the browser's local
 storage and can be deleted from the privacy page (`#/privacy`), which also covers hosting, sharing and credits.
+The Compete modes send the nickname, an anonymous random id and the guesses to the competitive server.
 
 © 2026 Jonay Contreras Rodríguez & Rubén Abreu González. All rights reserved.
 

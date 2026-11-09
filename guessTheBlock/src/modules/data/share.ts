@@ -1,6 +1,9 @@
 import { Block } from "../interfaces/block.interface";
 import { GameMode } from "../composables/useGuessGame";
 import { ATTRIBUTES, compareAttribute } from "./attributes";
+import { patternEmoji, rowPattern } from "./compare";
+import { competeLink } from "./api";
+import { JudgedGuess } from "../interfaces/compete.interface";
 import { dayNumber } from "./daily";
 import { PUBLIC_URL } from "./site";
 import { blockName, t, tn } from "../i18n";
@@ -56,7 +59,12 @@ export function shareText(
     : `❌ ${t("share.gaveUp", { attempts })}`;
   const answer = mode.kind === "random" ? ` (${blockName(target)})` : "";
 
-  let rows = [...guesses].reverse().map((g) => row(g, target));
+  const rows = [...guesses].reverse().map((g) => row(g, target));
+  return [title, result + answer, ...board(rows), "", link(mode)].join("\n");
+}
+
+/** Emoji rows, oldest first, shortened to the first and last ones. */
+function board(rows: string[]): string[] {
   if (rows.length > MAX_ROWS) {
     const hidden = rows.length - (MAX_ROWS - 1);
     rows = [
@@ -65,7 +73,34 @@ export function shareText(
       ...rows.slice(-(MAX_ROWS - 4)),
     ];
   }
+  return rows.length ? ["", ...rows] : [];
+}
 
-  const board = rows.length ? ["", ...rows] : [];
-  return [title, result + answer, ...board, "", link(mode)].join("\n");
+/**
+ * A finished link challenge, ready to paste. Never names the block: the
+ * point is that whoever gets the link plays it too.
+ *
+ * @param guesses Judged guesses, newest first
+ * @param rank Position on the leaderboard, null if you gave up
+ */
+export function challengeShareText(
+  code: string,
+  guesses: JudgedGuess[],
+  won: boolean,
+  rank: number | null
+): string {
+  const attempts = tn("game.attempts", guesses.length);
+  const result = won
+    ? `✅ ${t("share.found", { attempts })}${rank ? ` · #${rank}` : ""}`
+    : `❌ ${t("share.gaveUp", { attempts })}`;
+  const rows = [...guesses]
+    .reverse()
+    .map((g) => patternEmoji(rowPattern(g.feedback)));
+  return [
+    `🧱 Guess the Block! ${t("challenge.share", { code })}`,
+    result,
+    ...board(rows),
+    "",
+    competeLink("challenge", code),
+  ].join("\n");
 }
