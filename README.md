@@ -155,7 +155,7 @@ Production (Docker, from the repository root):
 docker compose -f server/docker-compose.yml up -d --build
 ```
 
-The container listens on `127.0.0.1:3000` and keeps its database in a volume. In front of it,
+The container is published on `127.0.0.1:3107` (override with `GTB_PORT=…`; keep the nginx upstream in sync) and keeps its database in a volume. In front of it,
 [`server/nginx/guess-the-block.jonaykb.com.conf`](server/nginx/guess-the-block.jonaykb.com.conf) serves HTTPS,
 proxies `/api/` and the `/ws` WebSocket, and answers the Let's Encrypt challenge from `/var/www/certbot`:
 
