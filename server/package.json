@@ -1,0 +1,24 @@
+{
+  "name": "guess-the-block-server",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Backend for the competitive modes of Guess the Block: link challenges with a leaderboard, 1v1 races and pick-the-block duels.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning --disable-warning=MODULE_TYPELESS_PACKAGE_JSON src/index.ts",
+    "dev": "node --disable-warning=ExperimentalWarning --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --watch src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "node --disable-warning=ExperimentalWarning --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --test test/*.test.ts"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/ws": "^8.5.13",
+    "typescript": "^5.7.3"
+  }
+}

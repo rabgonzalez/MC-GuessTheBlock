@@ -109,9 +109,9 @@ import {
   categoryLabel,
   DIMENSION_ICONS,
   asset,
-  compareAttribute,
   formatAttribute,
 } from "../data/attributes";
+import { compareBlocks, RowFeedback } from "../data/compare";
 
 const props = withDefaults(
   defineProps<{
@@ -119,12 +119,17 @@ const props = withDefaults(
     selectedBlock: Block;
     /** Block to compare against. Without it the row is neutral (search result). */
     randomBlock?: Block | null;
+    /**
+     * Already judged row (competitive modes: the server knows the block,
+     * the browser doesn't). Used when there is no `randomBlock`.
+     */
+    feedback?: RowFeedback | null;
     /** Play the flip reveal animation when mounted */
     animate?: boolean;
     /** Winning row: jump in a wave */
     celebrate?: boolean;
   }>(),
-  { randomBlock: null, animate: true, celebrate: false }
+  { randomBlock: null, feedback: null, animate: true, celebrate: false }
 );
 
 const { models } = useBlockModels();
@@ -132,17 +137,21 @@ const hasModel = computed(() => !!models.value?.[props.selectedBlock.name]);
 const hasModels = computed(() => !!models.value);
 const name = computed(() => blockName(props.selectedBlock));
 
-const nameCorrect = computed(() =>
+const judged = computed<RowFeedback | null>(() =>
   props.randomBlock
-    ? props.randomBlock.name === props.selectedBlock.name
-    : undefined
+    ? compareBlocks(props.selectedBlock, props.randomBlock)
+    : props.feedback
 );
 
+const nameCorrect = computed(() => judged.value?.name);
+
 const cells = computed(() =>
-  ATTRIBUTES.map((attr) => {
-    const { correct, partial, direction } = props.randomBlock
-      ? compareAttribute(attr, props.selectedBlock, props.randomBlock)
-      : { correct: undefined, partial: false, direction: null };
+  ATTRIBUTES.map((attr, i) => {
+    const { correct, partial, direction } = judged.value?.cells[i] ?? {
+      correct: undefined,
+      partial: false,
+      direction: null,
+    };
     return {
       attr,
       correct,

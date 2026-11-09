@@ -1,0 +1,17 @@
+# docker compose -f server/docker-compose.yml up -d --build   (from the repo root)
+services:
+  server:
+    build:
+      context: ..
+      dockerfile: server/Dockerfile
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3000:3000" # put a reverse proxy with HTTPS in front
+    environment:
+      TRUST_PROXY: "1"
+      # ALLOWED_ORIGINS: "https://rabgonzalez.github.io,https://guess-the-block.jonaykb.com"
+    volumes:
+      - guess-the-block-data:/data
+
+volumes:
+  guess-the-block-data:

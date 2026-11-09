@@ -4,72 +4,21 @@ import {
   BlockColor,
   Dimension,
 } from "../interfaces/block.interface";
+import type { Attribute } from "./compare";
 import { MessageKey } from "../i18n/en";
 import { t, toolName } from "../i18n";
 
-export type AttributeKind =
-  | "color"
-  | "number"
-  | "boolean"
-  | "category"
-  | "tool"
-  | "dimensions";
-
-export interface Attribute {
-  key: Exclude<keyof Block, "name" | "displayName" | "names">;
-  kind: AttributeKind;
-}
-
-/** Columns shown after the block, in order. */
-export const ATTRIBUTES: Attribute[] = [
-  { key: "color", kind: "color" },
-  { key: "stackSize", kind: "number" },
-  { key: "solid", kind: "boolean" },
-  { key: "emitLight", kind: "boolean" },
-  { key: "category", kind: "category" },
-  { key: "dimensions", kind: "dimensions" },
-  { key: "tool", kind: "tool" },
-  { key: "craftable", kind: "boolean" },
-];
+export {
+  ATTRIBUTES,
+  compareAttribute,
+  type Attribute,
+  type AttributeKind,
+  type Direction,
+} from "./compare";
 
 /** Column title, full or short (narrow screens). */
 export const attributeLabel = (attr: Attribute, short = false) =>
   t(`attr.${attr.key}${short ? ".short" : ""}` as MessageKey);
-
-export type Direction = "up" | "down" | null;
-
-/** Tool kind without its material: "iron_pickaxe" -> "pickaxe". */
-const toolKind = (tool: string) =>
-  tool.includes("_") ? tool.slice(tool.indexOf("_") + 1) : null;
-
-/** Same dimensions, or at least one in common. */
-function compareDimensions(g: Dimension[], t: Dimension[]) {
-  const correct = g.length === t.length && g.every((d) => t.includes(d));
-  return { correct, partial: !correct && g.some((d) => t.includes(d)) };
-}
-
-/**
- * Compare one attribute of a guess against the target block.
- * `direction` tells whether the target value is higher or lower;
- * `partial` means the right kind of tool in another material
- * (stone pickaxe vs iron pickaxe) or only some of the dimensions.
- */
-export function compareAttribute(attr: Attribute, guess: Block, target: Block) {
-  const g = guess[attr.key];
-  const t = target[attr.key];
-  if (attr.kind === "dimensions") {
-    const result = compareDimensions(g as Dimension[], t as Dimension[]);
-    return { ...result, direction: null as Direction };
-  }
-  const correct = g === t;
-  const kind = attr.kind === "tool" && toolKind(g as string);
-  const partial = !correct && !!kind && kind === toolKind(t as string);
-  let direction: Direction = null;
-  if (!correct && attr.kind === "number") {
-    direction = (t as number) > (g as number) ? "up" : "down";
-  }
-  return { correct, partial, direction };
-}
 
 /** Swatch shown for each colour name. */
 export const COLOR_SWATCHES: Record<BlockColor, string> = {

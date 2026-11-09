@@ -48,6 +48,23 @@
 
     <PrivacyView v-else-if="view === 'privacy'" />
 
+    <CompeteView v-else-if="view === 'compete'" @navigate="go" />
+
+    <ChallengeView
+      v-else-if="view === 'challenge' && competeCode"
+      :key="`challenge-${competeCode}`"
+      :code="competeCode"
+      :blocks="blocks"
+    />
+
+    <DuelView
+      v-else-if="view === 'duel'"
+      :key="`duel-${duelKey}`"
+      :code="competeCode"
+      :create="duelCreate"
+      :blocks="blocks"
+    />
+
     <template v-else-if="target && mode">
       <SelectBlockView
         ref="search"
@@ -145,6 +162,9 @@ import CelebrationBurst from "./CelebrationBurst.vue";
 import GuessView from "./GuessView.vue";
 import HistoryView from "./HistoryView.vue";
 import PrivacyView from "./PrivacyView.vue";
+import CompeteView from "./CompeteView.vue";
+import ChallengeView from "./ChallengeView.vue";
+import DuelView from "./DuelView.vue";
 import ResultDialog from "./ResultDialog.vue";
 import SelectBlockView from "./SelectBlockView.vue";
 import SiteFooter from "./SiteFooter.vue";
@@ -153,6 +173,9 @@ import I18nText from "../i18n/I18nText.vue";
 import { t, tn } from "../i18n";
 import { REVEAL_TOTAL_MS, useGuessGame } from "../composables/useGuessGame";
 import { dayNumber, formatDay, isPlayableDay, todayKey } from "../data/daily";
+import { DuelMode } from "../interfaces/compete.interface";
+
+type View = "game" | "history" | "privacy" | "compete" | "challenge" | "duel";
 
 const {
   status,
@@ -173,7 +196,13 @@ const {
 } = useGuessGame();
 
 const search = ref<InstanceType<typeof SelectBlockView> | null>(null);
-const view = ref<"game" | "history" | "privacy">("game");
+const view = ref<View>("game");
+/** Code of the open challenge or duel */
+const competeCode = ref<string | null>(null);
+/** Mode of a duel being created (#/duel/new/race) */
+const duelCreate = ref<DuelMode | null>(null);
+/** Remounts the duel view when a new one is opened */
+const duelKey = ref(0);
 const showResult = ref(false);
 const celebrating = ref(false);
 const shaking = ref(false);
@@ -191,6 +220,9 @@ const isToday = computed(
 );
 
 const subtitle = computed(() => {
+  if (["compete", "challenge", "duel"].includes(view.value)) {
+    return t("compete.title");
+  }
   if (view.value !== "game") {
     return t("subtitle.info", {
       blocks: blocks.value.length,
@@ -223,10 +255,16 @@ const links = computed(() => [
     label: t("nav.random"),
     active: view.value === "game" && mode.value?.kind === "random",
   },
+  {
+    route: "compete",
+    label: t("nav.compete"),
+    active: ["compete", "challenge", "duel"].includes(view.value),
+  },
 ]);
 
 /**
- * Routes: #/ (today), #/daily/YYYY-MM-DD, #/history, #/random, #/privacy
+ * Routes: #/ (today), #/daily/YYYY-MM-DD, #/history, #/random, #/privacy,
+ * #/compete, #/challenge/CODE, #/duel/CODE, #/duel/new/(race|pick)
  */
 async function applyRoute() {
   if (status.value !== "ready") return;
@@ -234,8 +272,24 @@ async function applyRoute() {
   showResult.value = false;
   celebrating.value = false;
   const route = window.location.hash.replace(/^#\/?/, "");
-  if (route === "history" || route === "privacy") {
+  if (route === "history" || route === "privacy" || route === "compete") {
     view.value = route;
+    window.scrollTo(0, 0);
+    return;
+  }
+  const challenge = route.match(/^challenge\/(\w{6})$/i)?.[1];
+  if (challenge) {
+    competeCode.value = challenge.toUpperCase();
+    view.value = "challenge";
+    window.scrollTo(0, 0);
+    return;
+  }
+  const duel = route.match(/^duel\/(?:new\/(race|pick)|(\w{6}))$/i);
+  if (duel) {
+    duelCreate.value = (duel[1] as DuelMode | undefined) ?? null;
+    competeCode.value = duel[2]?.toUpperCase() ?? null;
+    duelKey.value++;
+    view.value = "duel";
     window.scrollTo(0, 0);
     return;
   }
