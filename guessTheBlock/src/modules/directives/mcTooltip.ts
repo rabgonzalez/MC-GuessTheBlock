@@ -157,6 +157,7 @@ export const mcTooltip: Directive<HTMLElement, TooltipValue> = {
     el.addEventListener("pointermove", state.onMove);
     el.addEventListener("pointerleave", state.onLeave);
     el.addEventListener("pointerdown", state.onDown);
+    el.addEventListener("contextmenu", preventMenu);
   },
   updated(el, binding) {
     const state = states.get(el);
@@ -169,10 +170,16 @@ export const mcTooltip: Directive<HTMLElement, TooltipValue> = {
     el.removeEventListener("pointermove", state.onMove);
     el.removeEventListener("pointerleave", state.onLeave);
     el.removeEventListener("pointerdown", state.onDown);
+    el.removeEventListener("contextmenu", preventMenu);
     states.delete(el);
     if (owner === el) hide();
   },
 };
+
+// A long press on phones opens the browser's copy/save menu over the tooltip.
+function preventMenu(e: Event) {
+  e.preventDefault();
+}
 
 // Scrolling moves the element away from the cursor.
 if (typeof window !== "undefined") {
