@@ -38,6 +38,24 @@ body {
   color: var(--color-mc-light);
   background-color: #2b1f17;
   -webkit-font-smoothing: none;
+  /* A long press on phones would select text or open the copy/save menu,
+     which fights the tap-to-show tooltip. */
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+img,
+canvas,
+svg {
+  -webkit-user-drag: none;
+}
+
+input,
+textarea {
+  -webkit-user-select: text;
+  user-select: text;
+  -webkit-touch-callout: default;
 }
 
 /* Fixed backdrop as its own layer: mobile browsers ignore (or zoom)
