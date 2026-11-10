@@ -1,7 +1,12 @@
 <template>
   <div class="board-row" aria-hidden="true">
     <span class="board-label">{{ t("board.block") }}</span>
-    <span v-for="attr in ATTRIBUTES" :key="attr.key" class="board-label">
+    <span
+      v-for="attr in ATTRIBUTES"
+      :key="attr.key"
+      v-mc-tooltip="attributeLabel(attr)"
+      class="board-label"
+    >
       <span class="max-sm:hidden">{{ attributeLabel(attr) }}</span>
       <span class="sm:hidden">{{ attributeLabel(attr, true) }}</span>
     </span>
