@@ -7,7 +7,7 @@
         { reveal: animate, 'has-model': hasModel },
       ]"
       :style="{ '--i': 0, '--j': 0, '--n': ATTRIBUTES.length + 1 }"
-      :title="name"
+      v-mc-tooltip="name"
     >
       <BlockModel v-if="hasModel" :name="selectedBlock.name" />
       <span v-if="!hasModel" class="mc-cell__value line-clamp-4">
@@ -21,7 +21,10 @@
       class="mc-cell"
       :class="[stateClass(cell.correct, cell.partial), { reveal: animate }]"
       :style="{ '--i': i + 1, '--j': i + 1 }"
-      :title="`${attributeLabel(cell.attr)}: ${cell.text}${cell.hint}`"
+      v-mc-tooltip="{
+        title: cell.text,
+        lore: `${attributeLabel(cell.attr)}${cell.hint}`,
+      }"
     >
       <img
         v-if="cell.direction"
